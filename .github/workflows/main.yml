@@ -48,7 +48,8 @@ jobs:
           key: cached-files
           
       - name: Run the matlab version
-         run: echo "Z:\37\vanshg.Bslcicd.j2276893.1" >> $GITHUB_PATH
+        run: echo "Z:\37\vanshg.Bslcicd.j2276893.1" >> %GITHUB_PATH%
+
 
 
       
