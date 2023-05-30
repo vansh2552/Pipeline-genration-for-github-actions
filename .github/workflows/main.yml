@@ -61,7 +61,8 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: matlab -nodesktop -logfile output.log -batch "openProject(pwd); Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);" 
+         command:  matlab -batch "disp('Hello, MATLAB!');" -nodesktop -logfile output.log
+         #command: matlab -nodesktop -logfile output.log -batch "openProject(pwd); Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);" 
 
 #                  runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx',\
 #                 'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx',\
