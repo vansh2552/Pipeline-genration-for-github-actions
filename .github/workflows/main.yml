@@ -1,7 +1,10 @@
 name: pipeline
 on: [push]
 
-
+permissions:
+    contents: read
+    checks: write
+    
 jobs:
   Generate_Simulink_Web_View:
     runs-on: self-hosted
