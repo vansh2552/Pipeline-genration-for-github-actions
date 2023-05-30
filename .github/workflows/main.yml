@@ -5,8 +5,7 @@ on: [push]
 jobs:
   Generate_Simulink_Web_View:
     runs-on: self-hosted
-    env:
-     ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+   
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
