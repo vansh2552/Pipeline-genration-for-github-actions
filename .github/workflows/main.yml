@@ -3,7 +3,6 @@ on: [push]
  
 
 jobs:
-
   Generate_Simulink_Web_View:
     runs-on: self-hosted
     env:
