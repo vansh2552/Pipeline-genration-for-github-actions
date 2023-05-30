@@ -57,14 +57,10 @@ jobs:
          $env:PATH += ";$pathToAdd"
          $env:PATH | Add-Content -Path $env:GITHUB_PATH
          echo $env:PATH
-         matlab -nodesktop -logfile output.log -batch "openProject(pwd);
-         runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx',
-         Force = false, 
-         ExitInBatchMode = true, 
-         RerunFailedTasks = false, 
-         RerunErroredTasks = false, 
-         GenerateJUnitForProcess = true);
-         disp('Hello, MATLAB!');" 
+      - name: start matlab
+        run: |
+         sh run_matlab.sh
+          
 
 
 
