@@ -57,9 +57,16 @@ jobs:
 #          $env:PATH | Add-Content -Path $env:GITHUB_PATH
 #          echo $env:PATH
 #          matlab -nodesktop -logfile output.log -batch "openProject(pwd); ,Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true"
+      
       - name: Create artifacts directory
-        run: mkdir -p 04_Results/junit/
-        
+        run: |
+         mkdir -p 04_Results/junit/
+         touch 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+         touch 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
+         touch 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
+         touch 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
+         touch 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
+
       - name: Upload JUnit XML artifacts
         uses: actions/upload-artifact@v2
         with:
