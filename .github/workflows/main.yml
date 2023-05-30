@@ -53,7 +53,7 @@ jobs:
           
       - name: Run the matlab version
         run: |
-         echo "PATH=$HOME/\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin:$PATH" >> $GITHUB_ENV
+         echo "::add-path::\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1"
          #echo "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin" >> $env:GITHUB_PATH
          echo $env:PATH
 
