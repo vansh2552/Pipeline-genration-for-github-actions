@@ -87,7 +87,7 @@ jobs:
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
       - name: JUnit Test Report
-        uses: mikepenz/junit-report@v2
+        uses: mikepenz/action-junit-report@v3
         with:
           report_paths: |
             04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
