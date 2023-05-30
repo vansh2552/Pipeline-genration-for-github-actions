@@ -57,9 +57,8 @@ jobs:
          $env:PATH += ";$pathToAdd"
          $env:PATH | Add-Content -Path $env:GITHUB_PATH
          echo $env:PATH
-      - name: start matlab
-        run: |
-         sh run_matlab.sh
+         matlab -nodesktop -logfile output.log -batch "openProject(pwd);"
+   
           
 
 
