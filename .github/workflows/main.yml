@@ -86,6 +86,7 @@ jobs:
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
+          
       - name: JUnit Test Report
         uses: mikepenz/action-junit-report@v3
         with:
