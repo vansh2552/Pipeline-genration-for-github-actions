@@ -54,7 +54,7 @@ jobs:
       - name: Run the matlab version
         run: |
          #echo "::add-path::\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1"
-         echo "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1" >> $env:PATH
+         echo "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin" >> $env:PATH
          echo $env:PATH
          matlab -batch "disp('Hello, MATLAB!');"
          #matlab -nodesktop -logfile output.log -batch "disp('Hello, MATLAB!');"
