@@ -54,7 +54,7 @@ jobs:
       - name: Run the matlab version
         run: |
          echo "##[set-env name=PATH;]$env:PATH;\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1"
-         echo $env:PATH
+         #echo $env:PATH
          echo "///////////////////////"
          matlab -nodesktop -logfile output.log -batch "disp('Hello, MATLAB!');"
 #             #echo "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin" >> $env:GITHUB_PATH
