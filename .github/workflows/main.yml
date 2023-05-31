@@ -89,51 +89,38 @@ jobs:
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
           04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
-      - name: Publish JUnit test reports
+     
+          
+      - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
-            reports: |
-              - name: AHRS_Voter
-                path: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
-              - name: Actuator_Control
-                path: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
-              - name: Flight_Control
-                path: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
-              - name: InnerLoop_Control
-                path: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
-              - name: OuterLoop_Control
-                path: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml     
-          
-#       - name: AHRS_Voter_JUnit
-#         uses: mikepenz/action-junit-report@v3
-#         with:
-#           name: AHRS_Voter
-#           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
 
             
-#       - name: Actuator_Control_JUnit
-#         uses: mikepenz/action-junit-report@v3
-#         with:
-#           name: Actuator_Control
-#           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
+      - name: Actuator_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
       
-#       - name: Flight_Control_JUnit
-#         uses: mikepenz/action-junit-report@v3
-#         with:
-#           name: Flight_Control
-#           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
+      - name: Flight_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
 
-#       - name: InnerLoop_Control_JUnit
-#         uses: mikepenz/action-junit-report@v3
-#         with:
-#           name: InnerLoop_Control
-#           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
+      - name: InnerLoop_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
             
-#       - name: OuterLoop_Control_JUnit
-#         uses: mikepenz/action-junit-report@v3
-#         with:
-#           name: OuterLoop_Control
-#           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
+      - name: OuterLoop_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
             
   
   Check_Modeling_Standards:
@@ -158,20 +145,36 @@ jobs:
           04_Results/junit/padv_builtin_task_RunModelStandards_OuterLoop_Control_JUnit.xml
 
           
-     - name: Publish JUnit test reports
+     - name: AHRS_Voter_JUnit
        uses: mikepenz/action-junit-report@v3
        with:
-            reports: |
-              - name: AHRS_Voter
-                path: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
-              - name: Actuator_Control
-                path: 04_Results/junit/padv_builtin_task_RunModelStandards_Actuator_Control_JUnit.xml
-              - name: Flight_Control
-                path: 04_Results/junit/padv_builtin_task_RunModelStandards_Flight_Control_JUnit.xml
-              - name: InnerLoop_Control
-                path: 04_Results/junit/padv_builtin_task_RunModelStandards_InnerLoop_Control_JUnit.xml
-              - name: OuterLoop_Control
-                path: 04_Results/junit/padv_builtin_task_RunModelStandards_OuterLoop_Control_JUnit.xml
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_OuterLoop_Control_JUnit.xml
 
 
 
