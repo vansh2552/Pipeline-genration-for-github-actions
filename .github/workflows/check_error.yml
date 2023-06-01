@@ -8,10 +8,17 @@ jobs:
     steps:
       - name: Run FAILING script
         run: exit 1 
+
+  dep2:
+    runs-on: ubuntu-latest
+    needs: dep1
+    steps:
+      - name: hi
+        run: echo "$hello"
   nextjob:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [dep1]
+    needs: [dep2]
     steps:
       - name: Hello World        
         env:
