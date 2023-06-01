@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Continue on Error
+        run: echo "Running Step 2"
         continue-on-error: ${{ github.event.inputs.continue_on_error == 'true' }} 
       - name: Step 1 - Job 4 (Intentional Failure)
         run: exit 1  # Intentionally exit with a non-zero code to indicate failure
