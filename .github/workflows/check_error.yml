@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run FAILING script
-        run: exit 1 
         continue-on-error: true
+        run: exit 1 
+        
 
   dep2:
     runs-on: ubuntu-latest
