@@ -96,13 +96,7 @@ jobs:
      with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
+ 
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -129,13 +123,6 @@ jobs:
      with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_DetectDesignErrors_AHRS_Voter_JUnit.xml
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -165,13 +152,6 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateSDDReport_AHRS_Voter_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -200,15 +180,7 @@ jobs:
          with:
           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
           startup-options: -nodesktop -logfile output.log
-         
-       - name: Upload JUnit XML artifacts
-         uses: actions/upload-artifact@v2
-         with:
-          name: JUnit XML
-          path: |
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_11_JUnit.xml
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_12_JUnit.xml
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_13_JUnit.xml
+
           
        - name: AHRS_Voter_JUnit_HLR_11
          uses: mikepenz/action-junit-report@v3
@@ -249,13 +221,6 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateCode_AHRS_Voter_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -284,14 +249,7 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_AnalyzeModelCode_AHRS_Voter_JUnit.xml
 
-          
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -319,15 +277,6 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunCodeInspection_AHRS_Voter_JUnit.xml
-
-
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -357,14 +306,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
-
-
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -423,11 +364,6 @@ jobs:
          name: padv_artifacts
          path: |
           padv_artifacts.zip
-
-
-
-
-
 
   Actuator_Control_Simulink_Web_View:
     runs-on: self-hosted
