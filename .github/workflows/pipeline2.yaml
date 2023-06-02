@@ -584,6 +584,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Detect_Design_Errors
    steps:
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
    
       - name: Run the matlab version
         run: |
@@ -618,7 +621,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Generate_SDD_Report
    steps:
-   
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
       - name: Run the matlab version
         run: |
          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
@@ -649,6 +654,10 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Generate_Code
    steps:
+   
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
    
       - name: Run the matlab version
         run: |
@@ -683,7 +692,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Check_Coding_Standards
    steps:
-   
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
       - name: Run the matlab version
         run: |
          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
@@ -717,7 +728,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Inspect_Code
    steps:
-   
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
       - name: Run the matlab version
         run: |
          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
@@ -741,7 +754,10 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Generate_PADV_Report
    steps:
-   
+      - name: Run FAILING script
+        run: echo "this job will run even if previous jobs failed"
+        continue-on-error: true
+        
       - name: Run the matlab version
         run: |
          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
