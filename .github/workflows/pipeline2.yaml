@@ -70,12 +70,6 @@ jobs:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
  
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -752,6 +746,7 @@ jobs:
 
   Actuator_Control_Collect_Artifacts:
    runs-on: self-hosted
+   if: ${{ always() }}
    needs: Actuator_Control_Generate_PADV_Report
    steps:
       - name: Run FAILING script
