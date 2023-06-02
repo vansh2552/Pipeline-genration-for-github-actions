@@ -9,7 +9,7 @@ permissions:
 jobs:
   AHRS_Generate_Simulink_Web_View:
     runs-on: self-hosted
-   
+    if: ${{ always() }}
     steps:
 
 
@@ -49,13 +49,6 @@ jobs:
             04_Results/OuterLoop_Control/webview
             04_Results/test_results
           key: cached-files
-
-           
-
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
-        
         
       - name: Run the matlab version
         run: |
@@ -79,12 +72,10 @@ jobs:
           
   AHRS_Check_Modeling_Standards:
    runs-on: self-hosted
+   if: ${{ always() }}
    needs: AHRS_Generate_Simulink_Web_View
    steps:
    
-   - name: Run FAILING script
-     run: echo "this job will run even if previous jobs failed"
-     continue-on-error: true
      
    - name: Run the matlab version
      run: |
@@ -107,10 +98,8 @@ jobs:
   AHRS_Detect_Design_Errors:
    runs-on: self-hosted
    needs: AHRS_Check_Modeling_Standards
+   if: ${{ always() }}
    steps: 
-   - name: Run FAILING script
-     run: echo "this job will run even if previous jobs failed"
-     continue-on-error: true   
 
    - name: Run the matlab version
      run: |
@@ -134,11 +123,8 @@ jobs:
   AHRS_Generate_SDD_Report:
    runs-on: self-hosted
    needs: AHRS_Detect_Design_Errors
+   if: ${{ always() }}
    steps:
-   
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
    
       - name: Run the matlab version
         run: |
@@ -162,6 +148,8 @@ jobs:
   AHRS_Run_tests:
      runs-on: self-hosted
      needs: AHRS_Generate_SDD_Report
+     if: ${{ always() }}
+     
      steps:
      
        - name: Run FAILING script
@@ -205,10 +193,9 @@ jobs:
   AHRS_Generate_Code:
    runs-on: self-hosted
    needs: AHRS_Run_tests
+   if: ${{ always() }}
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
         
       - name: Run the matlab version
         run: |
@@ -232,10 +219,8 @@ jobs:
   AHRS_Check_Coding_Standards:
    runs-on: self-hosted
    needs: AHRS_Generate_Code
+   if: ${{ always() }}
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
         
       - name: Run the matlab version
         run: |
@@ -260,12 +245,8 @@ jobs:
   AHRS_Inspect_Code:
    runs-on: self-hosted
    needs: AHRS_Check_Coding_Standards
+   if: ${{ always() }}
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
-        
-        
       - name: Run the matlab version
         run: |
          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
@@ -288,11 +269,8 @@ jobs:
   AHRS_Merge_Tests_Results:
    runs-on: self-hosted
    needs: AHRS_Inspect_Code
+   if: ${{ always() }}
    steps:
-   
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
         
       - name: Run the matlab version
         run: |
@@ -316,10 +294,9 @@ jobs:
   AHRS_Generate_PADV_Report:
    runs-on: self-hosted
    needs: AHRS_Merge_Tests_Results
+   if: ${{ always() }}
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
         
       - name: Run the matlab version
         run: |
@@ -333,12 +310,6 @@ jobs:
          command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport'); rptObj.generateReport();" 
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: ProcessAdvisorReport
-         path: |
-          ProcessAdvisorReport.pdf
 
   AHRS_Collect_Artifacts:
    runs-on: self-hosted
@@ -367,6 +338,7 @@ jobs:
 
   Actuator_Control_Simulink_Web_View:
     runs-on: self-hosted
+    
    
     steps:
 
@@ -426,13 +398,6 @@ jobs:
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
- 
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -444,6 +409,7 @@ jobs:
   Actuator_Control_Check_Modeling_Standards:
    runs-on: self-hosted
    needs: Actuator_Control_Simulink_Web_View
+   if: ${{ always() }}
    steps:
    
    - name: Run FAILING script
@@ -461,12 +427,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunModelStandards_Actuator_Control_JUnit.xml
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -477,6 +437,7 @@ jobs:
         
         
   Actuator_Control_Detect_Design_Errors:
+   if: ${{ always() }}
    runs-on: self-hosted
    needs: Actuator_Control_Check_Modeling_Standards
    steps:
@@ -495,12 +456,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_DetectDesignErrors_Actuator_Control_JUnit.xml
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -511,6 +466,7 @@ jobs:
         
         
   Actuator_Control_Generate_SDD_Report:
+   if: ${{ always() }}
    runs-on: self-hosted
    needs: Actuator_Control_Detect_Design_Errors
    steps:
@@ -531,12 +487,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateSDDReport_Actuator_Control_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -548,6 +498,7 @@ jobs:
           
           
   Actuator_Control_Generate_Code:
+   if: ${{ always() }}
    runs-on: self-hosted
    needs: Actuator_Control_Generate_SDD_Report
    steps:
@@ -566,12 +517,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_GenerateCode_Actuator_Control_JUnit.xml
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -581,6 +526,7 @@ jobs:
          
          
   Actuator_Control_Check_Coding_Standards:
+   if: ${{ always() }}
    runs-on: self-hosted
    needs: Actuator_Control_Generate_Code
    steps:
@@ -601,15 +547,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_AnalyzeModelCode_Actuator_Control_JUnit.xml
-
-
-          
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -619,6 +556,7 @@ jobs:
          
          
   Actuator_Control_Inspect_Code:
+   if: ${{ always() }}
    runs-on: self-hosted
    needs: Actuator_Control_Check_Coding_Standards
    steps:
@@ -636,15 +574,7 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunCodeInspection_Actuator_Control_JUnit.xml
-
-
+       
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -656,6 +586,7 @@ jobs:
          
   Actuator_Control_Generate_PADV_Report:
    runs-on: self-hosted
+   if: ${{ always() }}
    needs: Actuator_Control_Inspect_Code
    steps:
       - name: Run FAILING script
@@ -673,12 +604,6 @@ jobs:
          command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport');rptObj.generateReport();" 
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: ProcessAdvisorReport
-         path: |
-          ProcessAdvisorReport.pdf
 
   Actuator_Control_Collect_Artifacts:
    runs-on: self-hosted
