@@ -6,6 +6,10 @@ on:
 permissions:
     contents: read
     checks: write
+    
+env:
+  pathToAdd: ;\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin
+  
 jobs:
   AHRS_Generate_Simulink_Web_View:
     runs-on: self-hosted
@@ -52,8 +56,8 @@ jobs:
         
       - name: Run the matlab version
         run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
+         #$pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += pathToAdd
          $env:PATH | Add-Content -Path $env:GITHUB_PATH
 
          
