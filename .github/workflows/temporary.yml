@@ -57,8 +57,7 @@ jobs:
         
       - name: Run the matlab version
         run: |
-         $env:PATH += ";$env:PATH_TO_MATLAB"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
 
 
 
