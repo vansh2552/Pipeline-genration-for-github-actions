@@ -7,8 +7,8 @@ permissions:
     contents: read
     checks: write
     
-# env:
-#   pathToAdd: ;\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin
+env:
+  PATH_TO_MATLAB: "\\\\mathworks\\devel\\sbs\\37\\vanshg.Bslcicd.j2276893.1\\matlab\\bin"
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
@@ -55,10 +55,7 @@ jobs:
           key: cached-files
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
 
          
       - name: Launch MATLAB
@@ -82,10 +79,8 @@ jobs:
    
      
    - name: Run the matlab version
-     run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
+        
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
      with:
@@ -106,10 +101,7 @@ jobs:
    steps: 
 
    - name: Run the matlab version
-     run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH 
+     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH 
          
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
@@ -131,10 +123,7 @@ jobs:
    steps:
    
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
      
       - name: Launch MATLAB
@@ -161,10 +150,7 @@ jobs:
          continue-on-error: true
    
        - name: Run the matlab version
-         run: |
-          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-          $env:PATH += ";$pathToAdd"  
-          $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
      
        - name: Launch MATLAB
@@ -202,10 +188,7 @@ jobs:
 
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -227,10 +210,7 @@ jobs:
    steps:
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -252,10 +232,7 @@ jobs:
    if: ${{ always() }}
    steps:
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -277,10 +254,7 @@ jobs:
    steps:
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -303,10 +277,7 @@ jobs:
 
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -322,11 +293,8 @@ jobs:
    steps:
 
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
-         
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
@@ -384,17 +352,9 @@ jobs:
             04_Results/test_results
           key: cached-files
 
-           
-
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
       
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
 
          
       - name: Launch MATLAB
@@ -415,16 +375,9 @@ jobs:
    needs: Actuator_Control_Simulink_Web_View
    if: ${{ always() }}
    steps:
-   
-   - name: Run FAILING script
-     run: echo "this job will run even if previous jobs failed"
-     continue-on-error: true
-     
+    
    - name: Run the matlab version
-     run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
      with:
@@ -445,14 +398,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Check_Modeling_Standards
    steps:
-   - name: Run FAILING script
-     run: echo "this job will run even if previous jobs failed"
-     continue-on-error: true
+
    - name: Run the matlab version
-     run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH 
+     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH 
          
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
@@ -474,15 +422,8 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Detect_Design_Errors
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
-   
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
      
       - name: Launch MATLAB
@@ -506,14 +447,9 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Generate_SDD_Report
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -534,16 +470,10 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Generate_Code
    steps:
-   
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
    
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -564,14 +494,8 @@ jobs:
    runs-on: self-hosted
    needs: Actuator_Control_Check_Coding_Standards
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -593,14 +517,9 @@ jobs:
    if: ${{ always() }}
    needs: Actuator_Control_Inspect_Code
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
@@ -614,15 +533,10 @@ jobs:
    if: ${{ always() }}
    needs: Actuator_Control_Generate_PADV_Report
    steps:
-      - name: Run FAILING script
-        run: echo "this job will run even if previous jobs failed"
-        continue-on-error: true
+
         
       - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
