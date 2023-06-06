@@ -9,11 +9,10 @@ permissions:
     
 env:
   PATH_TO_MATLAB: "\\\\mathworks\\devel\\sbs\\37\\vanshg.Bslcicd.j2276893.1\\matlab\\bin"
-  #GITHUB_PATH: # Add the gitub variable path here
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: self-hosted
+    runs-on: Linux
     if: ${{ always() }}
     steps:
 
@@ -310,7 +309,7 @@ jobs:
           padv_artifacts.zip
 
   Actuator_Control_Simulink_Web_View:
-    runs-on: Linux
+    runs-on: self-hosted
     
    
     steps:
