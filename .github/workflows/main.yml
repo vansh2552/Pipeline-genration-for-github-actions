@@ -7,7 +7,7 @@ permissions:
     
 jobs:
   Generate_Simulink_Web_View:
-    runs-on: self-hosted
+    runs-on: Windows
    
     steps:
       - name: Checkout code
@@ -119,7 +119,7 @@ jobs:
             
   
   Check_Modeling_Standards:
-    runs-on: self-hosted
+    runs-on: Windows
     steps:
      - name: Launch matlab 
        run: |
