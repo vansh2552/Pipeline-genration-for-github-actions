@@ -306,7 +306,7 @@ jobs:
           padv_artifacts.zip
 
   Actuator_Control_Simulink_Web_View:
-    runs-on: Linux
+    runs-on: hosted-2
     
    
     steps:
@@ -368,7 +368,7 @@ jobs:
           
           
   Actuator_Control_Check_Modeling_Standards:
-   runs-on: Linux
+   runs-on: hosted-2
    needs: Actuator_Control_Simulink_Web_View
    if: ${{ always() }}
    steps:
