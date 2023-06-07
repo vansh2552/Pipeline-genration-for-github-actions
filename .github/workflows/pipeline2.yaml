@@ -12,7 +12,7 @@ env:
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: Linux
+    runs-on: self-hosted
     if: ${{ always() }}
     steps:
 
