@@ -57,6 +57,17 @@ jobs:
         
       - name: Run the matlab version
         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+        
+      - name: Check Runner Shell
+        run: |
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            echo "The runner is using Windows."
+            echo "The shell being used is $env:ComSpec"  # PowerShell or cmd
+          else
+            echo "The runner is using ${{ runner.os }}."
+            echo "The shell being used is $SHELL"  # Default shell on non-Windows systems
+          fi
+
 
          
 
