@@ -68,7 +68,18 @@ jobs:
    - name: Download Artifacts
      uses: actions/download-artifact@v2
      with:
-          name: artifacts
+          name: artifacts_folder
+          
+   - name: transfer files
+     run: |
+        run: xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I
+        
+        
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: artifacts_folder
+         path: artifact  
 
 
    
