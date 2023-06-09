@@ -38,7 +38,7 @@ jobs:
         run: |
             mkdir artifacts
       - name: Transfer files
-        run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I
+        run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I /Y
 
 
          
