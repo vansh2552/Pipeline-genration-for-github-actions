@@ -87,9 +87,15 @@ jobs:
      with:
           name: artifacts
 
-   - name: Append Contents
+   - name: Extract Contents
+     uses: actions/extract@v1
+     with:
+          archive-file: artifacts.zip
+          output-directory: artifacts
+          
+   - name: Append Contents to Downloaded Folder
      run: |
-          xcopy /E /I /Y 04_Results/AHRS_Voter/model_standards_results artifacts
+          cp -R 04_Results/AHRS_Voter/model_standards_results/* artifacts/
 
 
    - name: Upload Updated Artifacts
