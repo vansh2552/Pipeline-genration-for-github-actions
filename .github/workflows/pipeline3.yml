@@ -97,7 +97,8 @@ jobs:
 
    - name: Append Contents
      run: |
-          cp -r 04_Results/AHRS_Voter/model_standards_results/* artifacts/
+          xcopy /E /I /Y 04_Results/AHRS_Voter/model_standards_results-artifacts
+
 
    - name: Upload Updated Artifacts
      uses: actions/upload-artifact@v2
