@@ -72,7 +72,7 @@ jobs:
           
    - name: transfer files
      run: |
-        run: xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I
+       xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I
         
         
    - name: Upload artifacts
