@@ -28,45 +28,17 @@ jobs:
             04_Results/AHRS_Voter/model_standards_results
             04_Results/AHRS_Voter/system_design_description
             04_Results/AHRS_Voter/webview
-            04_Results/Actuator_Control/code_inspection
-            04_Results/Actuator_Control/coding_standards
-            04_Results/Actuator_Control/design_error_detections
-            04_Results/Actuator_Control/model_standards_results
-            04_Results/Actuator_Control/system_design_description
-            04_Results/Actuator_Control/webview
-            04_Results/Flight_Control/code_inspection
-            04_Results/Flight_Control/coding_standards
-            04_Results/Flight_Control/design_error_detections
-            04_Results/Flight_Control/model_standards_results
-            04_Results/Flight_Control/system_design_description
-            04_Results/Flight_Control/webview
-            04_Results/InnerLoop_Control/code_inspection
-            04_Results/InnerLoop_Control/coding_standards
-            04_Results/InnerLoop_Control/design_error_detections
-            04_Results/InnerLoop_Control/model_standards_results
-            04_Results/InnerLoop_Control/system_design_description
-            04_Results/InnerLoop_Control/webview
-            04_Results/OuterLoop_Control/code_inspection
-            04_Results/OuterLoop_Control/coding_standards
-            04_Results/OuterLoop_Control/design_error_detections
-            04_Results/OuterLoop_Control/model_standards_results
-            04_Results/OuterLoop_Control/system_design_description
-            04_Results/OuterLoop_Control/webview
-            04_Results/test_results
+
           key: cached-files
         
       - name: Run the matlab version
         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
         
-      - name: Check Runner Shell
+      - name: create a folder
         run: |
-          if ($env:RUNNER_OS -eq "Windows") {
-          Write-Host "The runner is using Windows."
-          Write-Host "The shell being used is $env:ComSpec"  # PowerShell or cmd
-          } else {
-          Write-Host "The runner is using $env:RUNNER_OS."
-          Write-Host "The shell being used is $env:SHELL"  # Default shell on non-Windows systems
-          }
+            mkdir artifacts
+      - name: Transfer files
+        run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I
 
 
          
@@ -75,8 +47,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-         name: artifacts
-         path: 04_Results/AHRS_Voter/webview
+         name: artifacts_folder
+         path: artifacts
  
           
 
@@ -98,24 +70,6 @@ jobs:
      with:
           name: artifacts
 
-   - name: Extract Contents
-     uses: actions/extract@v1
-     with:
-          archive-file: artifacts.zip
-          output-directory: artifacts
-          
-   - name: Append Contents to Downloaded Folder
-     run: |
-          cp -R 04_Results/AHRS_Voter/model_standards_results/* artifacts/
-
-
-   - name: Upload Updated Artifacts
-     uses: actions/upload-artifact@v2
-     with:
-        name: updated-artifacts
-        path: artifacts
-  
-          
 
    
  
