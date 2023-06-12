@@ -39,19 +39,14 @@ jobs:
             mkdir artifacts
       - name: Transfer files
         run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I /Y
-
-
-         
-
-       
+        
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
          name: artifacts_folder
          path: artifacts
  
-          
-
+        
           
   AHRS_Check_Modeling_Standards:
    runs-on: Windows
@@ -62,9 +57,7 @@ jobs:
      
    - name: Run the matlab version
      run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
-        
-
-         
+          
    - name: Download Artifacts
      uses: actions/download-artifact@v2
      with:
@@ -73,8 +66,7 @@ jobs:
    - name: transfer files
      run: |
        xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I /Y
-        
-        
+             
    - name: Upload artifacts
      uses: actions/upload-artifact@v2
      with:
