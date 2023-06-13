@@ -1,4 +1,4 @@
-name: env
+name: XYZ
 
 on:
   workflow_run:
