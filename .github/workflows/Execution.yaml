@@ -13,7 +13,7 @@ jobs:
          # Copy-Item -Path ".github\\workflows\\env.yml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
          
          
-         $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
+         $sourceContent = Get-Content -Raw -Path .github/workflows/env.yaml
          $sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
         
   Execution:
