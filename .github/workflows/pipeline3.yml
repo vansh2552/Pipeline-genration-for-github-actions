@@ -34,17 +34,18 @@ jobs:
       - name: Run the matlab version
         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
         
-      - name: create a folder
-        run: |
-            mkdir artifacts
-      - name: Transfer files
-        run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I /Y
+#       - name: create a folder
+#         run: |
+#             mkdir artifacts
+#       - name: Transfer files
+#         run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I /Y
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
          name: artifacts_folder
-         path: artifacts
+         path: 04_Results/AHRS_Voter/webview
+
  
         
           
@@ -63,15 +64,16 @@ jobs:
      with:
           name: artifacts_folder
           
-   - name: transfer files
-     run: |
-       xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I /Y
+#    - name: transfer files
+#      run: |
+#        xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I /Y
              
    - name: Upload artifacts
      uses: actions/upload-artifact@v2
      with:
          name: artifacts_folder
-         path: artifact  
+         path: 04_Results/AHRS_Voter/model_standards_results
+ 
 
 
    
