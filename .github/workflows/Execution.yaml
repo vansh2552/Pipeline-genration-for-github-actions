@@ -1,0 +1,20 @@
+name: Execution Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  transfer_file:
+    runs-on: self-hosted
+
+    steps:
+      - name: Transfer the contents
+        run: copy /Y ".github\\workflows\\xyz.yml" ".github\\workflows\\simulink_workflow.yml"
+        
+  Execution:
+    runs-on: self-hosted
+    
+    steps:
+      - name : Execution
+        run: echo "simulink_workflow will execute after this workflow"
+      
