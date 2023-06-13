@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Transfer the contents
-        run: Copy-Item -Path ".github\\workflows\\xyz.yml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
+        run: Copy-Item -Path ".github\\workflows\\env.yml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
         
   Execution:
     runs-on: self-hosted
