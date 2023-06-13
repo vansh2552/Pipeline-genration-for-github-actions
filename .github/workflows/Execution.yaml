@@ -5,16 +5,16 @@ on:
 
 jobs:
   transfer_file:
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
       - name: Transfer the contents
         run: |
-         # Copy-Item -Path ".github\\workflows\\env.yml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
+          Copy-Item -Path ".github\\workflows\\env.yml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
          
          
-         $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
-         $sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
+        # $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
+         #$sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
         
   Execution:
     runs-on: self-hosted
