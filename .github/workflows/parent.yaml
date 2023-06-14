@@ -11,7 +11,6 @@ jobs:
       - name: Trigger Child Workflow
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACTIONS_SECRET }}
           event-type: run-child-workflow
           
   job1:
@@ -19,4 +18,4 @@ jobs:
     
     steps:
      - name: check
-       run: Start-Sleep -Seconds 30
+       run: Start-Sleep -Seconds 60
