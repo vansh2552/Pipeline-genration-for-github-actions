@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HarnessInformation>
-  <ModelMetadata>
-    <P Name="ModelUUID">425f5d1b-847a-4710-9e64-e52943ed361f</P>
-    <P Name="OwnerBDName">AHRS_Voter</P>
-  </ModelMetadata>
   <Harness>
     <P Name="Name">AHRS_Voter_Harness_HLR_11</P>
     <P Name="Description">Test harness for HLR_11.</P>
@@ -38,7 +34,7 @@
     <P Name="CustomSourcePath"/>
     <P Name="CustomSinkPath"/>
     <P Name="BlockSIDs">2|18|0|0|0|0|0</P>
-    <P Name="OpenGraphs">||AHRS_Voter_Harness_HLR_11</P>
+    <P Name="OpenGraphs">||||AHRS_Voter_Harness_HLR_11</P>
     <P Name="ExistingBuildFolder"/>
     <P Name="FunctionInterfaceName"/>
   </Harness>
@@ -76,7 +72,7 @@
     <P Name="CustomSourcePath"/>
     <P Name="CustomSinkPath"/>
     <P Name="BlockSIDs">2|18|0|0|0|0|0</P>
-    <P Name="OpenGraphs">||AHRS_Voter_Harness_HLR_12</P>
+    <P Name="OpenGraphs">||||AHRS_Voter_Harness_HLR_12</P>
     <P Name="ExistingBuildFolder"/>
     <P Name="FunctionInterfaceName"/>
   </Harness>
@@ -118,4 +114,8 @@
     <P Name="ExistingBuildFolder"/>
     <P Name="FunctionInterfaceName"/>
   </Harness>
+  <ModelMetadata>
+    <P Name="ModelUUID">425f5d1b-847a-4710-9e64-e52943ed361f</P>
+    <P Name="OwnerBDName">AHRS_Voter</P>
+  </ModelMetadata>
 </HarnessInformation>
