@@ -10,9 +10,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-        with:
-         ref: ${{ github.head_ref }}
-         fetch-depth: 0
       - name: Transfer the contents
         run: |
            echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
@@ -23,11 +20,8 @@ jobs:
          
       - name: Configure Git
         run: |
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git checkout "${GITHUB_REF:11}"
-
+          git config --global user.name "Vansh Gandhi"
+          git config --global user.email "vansh20147@iiitd.ac.in"
       - name: Commit changes
         run: |
           git add .github/workflows/simulink_workflow.yml
