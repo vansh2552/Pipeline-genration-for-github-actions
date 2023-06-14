@@ -1,10 +1,8 @@
 name: XYZ
 
 on:
-  workflow_run:
-    workflows: ["Execution Workflow"]
-    types:
-      - completed
+  repository_dispatch:
+    types: [run-child-workflow]
 
 jobs:
   job1:
