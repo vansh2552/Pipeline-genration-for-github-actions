@@ -2,6 +2,10 @@ name: Execution Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      target-workflow:
+        description: 'Target workflow to run'
+        required: true
 
 jobs:
   transfer_file:
@@ -38,6 +42,11 @@ jobs:
     needs: transfer_file
     
     steps:
-      - name : Execution
-        run: echo "simulink_workflow will execute after this workflow"
+      - name: Trigger Workflow
+        uses: peter-evans/workflow-dispatch@v1
+        with:
+          workflow: ${{ github.event.inputs.target-workflow }}
+          
+#       - name : Execution
+#         run: echo "simulink_workflow will execute after this workflow"
       
