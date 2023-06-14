@@ -2,10 +2,7 @@ name: Execution Workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      target-workflow:
-        description: 'Target workflow to run'
-        required: true
+
 
 jobs:
   transfer_file:
