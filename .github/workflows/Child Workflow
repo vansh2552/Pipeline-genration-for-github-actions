@@ -1,0 +1,14 @@
+name:  Child Workflow
+
+on:
+  repository_dispatch:
+    types: [run-child-workflow]
+
+jobs:
+  child_job:
+    runs-on: self-hosted
+
+    steps:
+      - name: Child Workflow Step
+        run: |
+          echo "Child workflow is running"
