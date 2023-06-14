@@ -15,6 +15,7 @@ jobs:
           
   job1:
     runs-on: self-hosted
+    needs: trigger_child_workflow_job
     
     steps:
      - name: check
