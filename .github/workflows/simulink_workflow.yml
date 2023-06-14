@@ -1,0 +1,15 @@
+name: XYZ
+
+on:
+  workflow_run:
+    workflows: ["Execution Workflow"]
+    types:
+      - completed
+
+jobs:
+  job1:
+    runs-on: self-hosted
+    
+    steps:
+     - name: check
+       run: echo "this is xyz.yaml"
