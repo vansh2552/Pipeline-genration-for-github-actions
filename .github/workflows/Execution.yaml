@@ -20,8 +20,10 @@ jobs:
       - name: Configure Git
       
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          #git config user.name github-actions[bot]
+          #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+           git config user.name "Vansh Gandhi"
+           git config user.email vansh20147@iiitd.ac.in
       - name: Commit changes
         run: |
           git add .github/workflows/simulink_workflow.yml
@@ -31,7 +33,6 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.ACTIONS_SECRET}}
         run: |
-          echo $ACTIONS_SECRET
           git push
         
   Execution:
@@ -39,11 +40,7 @@ jobs:
     needs: transfer_file
     
     steps:
-      - name: Trigger Workflow
-        uses: peter-evans/workflow-dispatch@v1
-        with:
-          workflow: ${{ github.event.inputs.target-workflow }}
           
-#       - name : Execution
-#         run: echo "simulink_workflow will execute after this workflow"
+      - name : Execution
+        run: echo "simulink_workflow will execute after this workflow"
       
