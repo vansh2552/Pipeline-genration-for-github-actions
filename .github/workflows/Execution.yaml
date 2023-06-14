@@ -1,0 +1,47 @@
+name: Execution Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  transfer_file:
+    runs-on: self-hosted
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+         ref: ${{ github.head_ref }}
+         fetch-depth: 0
+      - name: Transfer the contents
+        run: |
+           echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
+         
+         
+        # $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
+         #$sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
+         
+      - name: Configure Git
+        run: |
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-username@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout "${GITHUB_REF:11}"
+
+      - name: Commit changes
+        run: |
+          git add .github/workflows/simulink_workflow.yml
+          git commit -m "Update simulink_workflow.yml"
+        
+      - name: Push changes
+        run: |
+          git push
+        
+  Execution:
+    runs-on: self-hosted
+    needs: transfer_file
+    
+    steps:
+      - name : Execution
+        run: echo "simulink_workflow will execute after this workflow"
+      

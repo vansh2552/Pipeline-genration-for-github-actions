@@ -1,0 +1,609 @@
+name: pipeline
+on: [workflow_dispatch]
+
+permissions:
+    contents: read
+    checks: write
+    
+jobs:
+  Generate_Simulink_Web_View:
+    runs-on: Windows
+   
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache files
+        uses: actions/cache@v2
+        with:
+          path: |
+            04_Results/AHRS_Voter/code_inspection
+            04_Results/AHRS_Voter/coding_standards
+            04_Results/AHRS_Voter/design_error_detections
+            04_Results/AHRS_Voter/model_standards_results
+            04_Results/AHRS_Voter/system_design_description
+            04_Results/AHRS_Voter/webview
+            04_Results/Actuator_Control/code_inspection
+            04_Results/Actuator_Control/coding_standards
+            04_Results/Actuator_Control/design_error_detections
+            04_Results/Actuator_Control/model_standards_results
+            04_Results/Actuator_Control/system_design_description
+            04_Results/Actuator_Control/webview
+            04_Results/Flight_Control/code_inspection
+            04_Results/Flight_Control/coding_standards
+            04_Results/Flight_Control/design_error_detections
+            04_Results/Flight_Control/model_standards_results
+            04_Results/Flight_Control/system_design_description
+            04_Results/Flight_Control/webview
+            04_Results/InnerLoop_Control/code_inspection
+            04_Results/InnerLoop_Control/coding_standards
+            04_Results/InnerLoop_Control/design_error_detections
+            04_Results/InnerLoop_Control/model_standards_results
+            04_Results/InnerLoop_Control/system_design_description
+            04_Results/InnerLoop_Control/webview
+            04_Results/OuterLoop_Control/code_inspection
+            04_Results/OuterLoop_Control/coding_standards
+            04_Results/OuterLoop_Control/design_error_detections
+            04_Results/OuterLoop_Control/model_standards_results
+            04_Results/OuterLoop_Control/system_design_description
+            04_Results/OuterLoop_Control/webview
+            04_Results/test_results
+          key: cached-files
+
+           
+
+          
+      - name: Run the matlab version
+        run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         echo $env:PATH
+        # matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+    
+      - name: Launch MATLAB
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
+
+                   
+
+  
+       
+      
+       
+
+      - name: Upload JUnit XML artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: JUnit XML
+         path: |
+          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
+     
+          
+      - name: AHRS_Voter_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+
+            
+      - name: Actuator_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
+      
+      - name: Flight_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
+
+      - name: InnerLoop_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
+            
+      - name: OuterLoop_Control_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
+            
+  
+  Check_Modeling_Standards:
+    runs-on: Windows
+    steps:
+     - name: Launch matlab 
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+     
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log      
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+          04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
+          04_Results/junit/padv_builtin_task_RunModelStandards_Actuator_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_RunModelStandards_Flight_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_RunModelStandards_InnerLoop_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_RunModelStandards_OuterLoop_Control_JUnit.xml
+
+          
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_OuterLoop_Control_JUnit.xml
+
+
+  Detect_Design_Errors:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log  -batch "openProject(pwd); runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx', 'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+     
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd); runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx', 'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
+             
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+           04_Results/junit/padv_builtin_task_DetectDesignErrors_AHRS_Voter_JUnit.xml
+           04_Results/junit/padv_builtin_task_DetectDesignErrors_Actuator_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_DetectDesignErrors_Flight_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_DetectDesignErrors_InnerLoop_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_DetectDesignErrors_OuterLoop_Control_JUnit.xml
+
+
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_AHRS_Voter_JUnit.xml
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_OuterLoop_Control_JUnit.xml
+          
+
+  Generate_SDD_Report:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"   
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log 
+     
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+           04_Results/junit/padv_builtin_task_GenerateSDDReport_AHRS_Voter_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateSDDReport_Actuator_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateSDDReport_Flight_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateSDDReport_InnerLoop_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateSDDReport_OuterLoop_Control_JUnit.xml
+
+
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_OuterLoop_Control_JUnit.xml
+
+
+  Run_Tests:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|51b0cb29-34f5-4c04-9104-4f3b0b48dda9','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|70d344b2-d65f-4872-9e4b-cef338e618a5','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|862932e4-be44-4f66-9abe-fb313da73c0d'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|51b0cb29-34f5-4c04-9104-4f3b0b48dda9','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|70d344b2-d65f-4872-9e4b-cef338e618a5','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|862932e4-be44-4f66-9abe-fb313da73c0d'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log 
+             
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_11_JUnit.xml
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_12_JUnit.xml
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_13_JUnit.xml
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_6_JUnit.xml
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_7_JUnit.xml
+           04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_8_JUnit.xml
+
+
+     - name: HLR_11
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_11_JUnit.xml
+
+            
+     - name: HLR_12
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_12_JUnit.xml
+      
+     - name: HLR_13
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_13_JUnit.xml
+
+     - name: HLR_6
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_6_JUnit.xml
+            
+     - name: HLR_7
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_7_JUnit.xml
+          
+     - name: HLR_8
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_8_JUnit.xml
+          
+  Generate_Code:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"  
+    
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log 
+    
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+           04_Results/junit/padv_builtin_task_GenerateCode_AHRS_Voter_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateCode_Actuator_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateCode_Flight_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateCode_InnerLoop_Control_JUnit.xml
+           04_Results/junit/padv_builtin_task_GenerateCode_OuterLoop_Control_JUnit.xml
+           
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_OuterLoop_Control_JUnit.xml
+      
+      
+  Check_Coding_Standards:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx', 'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);" 
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+          04_Results/junit/padv_builtin_task_AnalyzeModelCode_AHRS_Voter_JUnit.xml
+          04_Results/junit/padv_builtin_task_AnalyzeModelCode_Actuator_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_AnalyzeModelCode_Flight_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_AnalyzeModelCode_InnerLoop_Control_JUnit.xml
+          04_Results/junit/padv_builtin_task_AnalyzeModelCode_OuterLoop_Control_JUnit.xml
+          
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_OuterLoop_Control_JUnit.xml
+
+  Inspect_Code:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);" 
+     
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log 
+
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+            04_Results/junit/padv_builtin_task_RunCodeInspection_AHRS_Voter_JUnit.xml
+            04_Results/junit/padv_builtin_task_RunCodeInspection_Actuator_Control_JUnit.xml
+            04_Results/junit/padv_builtin_task_RunCodeInspection_Flight_Control_JUnit.xml
+            04_Results/junit/padv_builtin_task_RunCodeInspection_InnerLoop_Control_JUnit.xml
+            04_Results/junit/padv_builtin_task_RunCodeInspection_OuterLoop_Control_JUnit.xml
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_AHRS_Voter_JUnit.xml
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_Actuator_Control_JUnit.xml
+      
+     - name: Flight_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Flight_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_Flight_Control_JUnit.xml
+
+     - name: InnerLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: InnerLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_InnerLoop_Control_JUnit.xml
+            
+     - name: OuterLoop_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: OuterLoop_Control
+          report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_OuterLoop_Control_JUnit.xml
+     
+  Merge_Test_Results:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+     
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx','padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log 
+     
+     - name: Upload JUnit XML artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: JUnit XML
+         path: |
+           04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
+           04_Results/junit/padv_builtin_task_MergeTestResults_OuterLoop_Control_JUnit.xml
+           
+     - name: AHRS_Voter_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: AHRS_Voter
+          report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml 
+
+            
+     - name: Actuator_Control_JUnit
+       uses: mikepenz/action-junit-report@v3
+       with:
+          name: Actuator_Control
+          report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_OuterLoop_Control_JUnit.xml
+          
+  Generate_PADV_Report:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport'); rptObj.generateReport();"
+     
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport'); rptObj.generateReport();"
+             startup-options: -nodesktop -logfile output.log 
+     
+     - name: Upload artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: ProcessAdvisorReport
+         path: |
+            ProcessAdvisorReport.pdf
+            
+  Collect_Artifacts:
+    runs-on: self-hosted
+    steps:
+     - name: Launch matlab
+       run: |
+         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+         $env:PATH += ";$pathToAdd"
+         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         #matlab -nodesktop -logfile output.log -batch "openProject(pwd);zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview', '04_Results/Flight_Control/code_inspection', '04_Results/Flight_Control/coding_standards', '04_Results/Flight_Control/design_error_detections', '04_Results/Flight_Control/model_standards_results', '04_Results/Flight_Control/system_design_description', '04_Results/Flight_Control/webview', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', '04_Results/OuterLoop_Control/code_inspection', '04_Results/OuterLoop_Control/coding_standards', '04_Results/OuterLoop_Control/design_error_detections', '04_Results/OuterLoop_Control/model_standards_results', '04_Results/OuterLoop_Control/system_design_description', '04_Results/OuterLoop_Control/webview', '04_Results/test_results', 'ProcessAdvisorReport.pdf'},'padv_artifacts.zip');" 
+     - name: Launch MATLAB
+       uses: matlab-actions/run-command@v1
+       with:
+             command: "openProject(pwd);zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview', '04_Results/Flight_Control/code_inspection', '04_Results/Flight_Control/coding_standards', '04_Results/Flight_Control/design_error_detections', '04_Results/Flight_Control/model_standards_results', '04_Results/Flight_Control/system_design_description', '04_Results/Flight_Control/webview', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', '04_Results/OuterLoop_Control/code_inspection', '04_Results/OuterLoop_Control/coding_standards', '04_Results/OuterLoop_Control/design_error_detections', '04_Results/OuterLoop_Control/model_standards_results', '04_Results/OuterLoop_Control/system_design_description', '04_Results/OuterLoop_Control/webview', '04_Results/test_results', 'ProcessAdvisorReport.pdf'},'padv_artifacts.zip');"
+             startup-options: -nodesktop -logfile output.log 
+     
+     - name: Upload artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: padv_artifacts
+         path: |
+            padv_artifacts.zip
