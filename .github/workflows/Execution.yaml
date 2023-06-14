@@ -20,8 +20,8 @@ jobs:
          
       - name: Configure Git
         run: |
-          git config --global user.name "Vansh Gandhi"
-          git config --global user.email "vansh20147@iiitd.ac.in"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
       - name: Commit changes
         run: |
