@@ -19,6 +19,7 @@ jobs:
          #$sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
          
       - name: Configure Git
+      
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -28,7 +29,10 @@ jobs:
           git commit -m "Update simulink_workflow.yml"
         
       - name: Push changes
+        env:
+          PAT_TOKEN: ${{ secrets.ACTIONS_SECRET}}
         run: |
+          echo $ACTIONS_SECRET
           git push
         
   Execution:
