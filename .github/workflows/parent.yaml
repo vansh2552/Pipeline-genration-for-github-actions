@@ -14,5 +14,9 @@ jobs:
           token: ${{ secrets.ACTIONS_SECRET }}
           event-type: run-child-workflow
           
-      - name: Another step
-        run: echo "hello"
+  job1:
+    runs-on: self-hosted
+    
+    steps:
+     - name: check
+       run: echo "hello"
