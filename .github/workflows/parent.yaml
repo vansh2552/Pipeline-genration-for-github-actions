@@ -19,4 +19,4 @@ jobs:
     
     steps:
      - name: check
-       run: echo "hello"
+       run: Start-Sleep -Seconds 30
