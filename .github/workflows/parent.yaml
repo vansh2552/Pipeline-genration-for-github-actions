@@ -11,6 +11,7 @@ jobs:
       - name: Trigger Child Workflow
         uses: peter-evans/repository-dispatch@v1
         with:
+          token: ${{ secrets.ACTIONS_SECRET }}
           event-type: run-child-workflow
           
   job1:
