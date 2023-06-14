@@ -12,4 +12,4 @@ jobs:
     
     steps:
      - name: check
-       run: echo "this is xyz.yaml"
+       run: echo "this is xyz .yaml"
