@@ -17,6 +17,20 @@ jobs:
          
         # $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
          #$sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
+         
+      - name: Configure Git
+        run: |
+          git config --global user.name "Vansh Gandhi"
+          git config --global user.email "vansh20147@iiitd.ac.in"
+
+      - name: Commit changes
+        run: |
+          git add .github/workflows/simulink_workflow.yml
+          git commit -m "Update simulink_workflow.yml"
+        
+      - name: Push changes
+        run: |
+          git push
         
   Execution:
     runs-on: self-hosted
