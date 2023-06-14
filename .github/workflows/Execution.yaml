@@ -16,10 +16,6 @@ jobs:
         run: |
            echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
          
-         
-        # $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
-         #$sourceContent | Set-Content -Path .github/workflows/simulink_workflow.yml
-         
       - name: Configure Git
       
         run: |
