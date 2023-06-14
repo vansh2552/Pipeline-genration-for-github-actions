@@ -20,8 +20,8 @@ jobs:
          
       - name: Configure Git
         run: |
-          git config --global user.name "Vansh Gandhi"
-          git config --global user.email "vansh20147@iiitd.ac.in"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Commit changes
         run: |
           git add .github/workflows/simulink_workflow.yml
