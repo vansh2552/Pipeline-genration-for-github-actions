@@ -38,6 +38,9 @@ jobs:
     
     steps:
           
-      - name : Execution
-        run: echo "simulink_workflow will execute after this workflow"
+       - name: Execute Workflow
+         uses: peter-evans/repository-dispatch@v1
+         with:
+           token: ${{ secrets.ACTIONS_SECRET }}
+           event-type: run-child-workflow
       
