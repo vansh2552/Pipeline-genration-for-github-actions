@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Transfer the contents
         run: |
-          Copy-Item -Path ".github\\workflows\\xyz.yaml" -Destination ".github\\workflows\\simulink_workflow.yml" -Force  
+           xcopy ".github\\workflows\\xyz.yaml" ".github\\workflows\\simulink_workflow.yml" /Y
          
          
         # $sourceContent = Get-Content -Raw -Path .github/workflows/xyz.yaml
