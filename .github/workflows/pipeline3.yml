@@ -50,7 +50,7 @@ jobs:
         
           
   AHRS_Check_Modeling_Standards:
-   runs-on: Windows
+   runs-on: Windows-latest
    if: ${{ always() }}
    needs: AHRS_Generate_Simulink_Web_View
    steps:
@@ -59,11 +59,7 @@ jobs:
    - name: Run the matlab version
      run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
           
-   - name: Download Artifacts
-     uses: actions/download-artifact@v2
-     with:
-          name: artifacts_folder
-          
+
 #    - name: transfer files
 #      run: |
 #        xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I /Y
