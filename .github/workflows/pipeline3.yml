@@ -59,6 +59,8 @@ jobs:
    - name: Run the matlab version
      run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
           
+   - name: Checkout repository
+     uses: actions/checkout@v2
 
 #    - name: transfer files
 #      run: |
