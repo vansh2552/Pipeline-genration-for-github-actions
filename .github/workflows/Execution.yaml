@@ -37,14 +37,12 @@ jobs:
     runs-on: self-hosted
     needs: transfer_file
     
-    steps:
-       - name: Checkout repository
-         uses: actions/checkout@v2   
+    steps: 
          
        - name: Execute Workflow
          uses: peter-evans/repository-dispatch@v1
          with:
            token: ${{ secrets.ACTIONS_SECRET }}
            event-type: run-child-workflow
-           client-payload: '{"file": "simulink_workflow.yml"}'
+ 
       
