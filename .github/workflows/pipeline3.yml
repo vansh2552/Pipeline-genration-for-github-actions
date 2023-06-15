@@ -104,10 +104,7 @@ jobs:
    - name: Run the matlab version
      run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
           
-   - name: Download Artifacts
-     uses: actions/download-artifact@v2
-     with:
-          name: artifacts_folder
+
           
              
    - name: Upload artifacts
