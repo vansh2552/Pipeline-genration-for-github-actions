@@ -13,23 +13,24 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.ACTIONS_SECRET }}
+          
       - name: Transfer the contents
         run: |
            echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
          
-      - name: Configure Git
+#       - name: Configure Git
       
-        run: |
-          #git config user.name github-actions[bot]
-          #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+#         run: |
+#           #git config user.name github-actions[bot]
+#           #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-           git config user.name "Vansh Gandhi"
-           git config user.email vansh20147@iiitd.ac.in
-      - name: Commit changes and push
-        run: |
-          git add .github/workflows/simulink_workflow.yml
-          git commit -m "Update simulink_workflow.yml"
-          git push
+#            git config user.name "Vansh Gandhi"
+#            git config user.email vansh20147@iiitd.ac.in
+#       - name: Commit changes and push
+#         run: |
+#           git add .github/workflows/simulink_workflow.yml
+#           git commit -m "Update simulink_workflow.yml"
+#           git push
           
         
   Execution:
@@ -37,10 +38,13 @@ jobs:
     needs: transfer_file
     
     steps:
-          
+       - name: Checkout repository
+         uses: actions/checkout@v2   
+         
        - name: Execute Workflow
          uses: peter-evans/repository-dispatch@v1
          with:
            token: ${{ secrets.ACTIONS_SECRET }}
            event-type: run-child-workflow
+           client-payload: '{"file": "simulink_workflow.yml"}'
       
