@@ -13,7 +13,7 @@ env:
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: Windows
+    runs-on: self-hosted
     #if: ${{ always() }}
     steps:
 
@@ -22,6 +22,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
+            03_Code
             04_Results/AHRS_Voter/code_inspection
             04_Results/AHRS_Voter/coding_standards
             04_Results/AHRS_Voter/design_error_detections
@@ -53,6 +54,7 @@ jobs:
             04_Results/OuterLoop_Control/system_design_description
             04_Results/OuterLoop_Control/webview
             04_Results/test_results
+            derived/artifacts.dmr
           key: cached-files
         
       - name: Run the matlab version
@@ -64,7 +66,11 @@ jobs:
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
- 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: AHRS_Voter
+         path: 04_Results/AHRS_Voter/webview 
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -73,7 +79,7 @@ jobs:
           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
           
   AHRS_Check_Modeling_Standards:
-   runs-on: Windows
+   runs-on: self-hosted
    if: ${{ always() }}
    needs: AHRS_Generate_Simulink_Web_View
    steps:
@@ -88,7 +94,12 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
  
-          
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: AHRS_Voter
+         path: 04_Results/AHRS_Voter/model_standards_results 
+         
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
      with:
@@ -96,7 +107,7 @@ jobs:
         report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
    
   AHRS_Detect_Design_Errors:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Check_Modeling_Standards
    if: ${{ always() }}
    steps: 
@@ -109,6 +120,13 @@ jobs:
      with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
+         
+         
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: AHRS_Voter
+         path: 04_Results/AHRS_Voter/design_error_detections 
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -132,7 +150,11 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: 04_Results/AHRS_Voter/system_design_description     
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -140,7 +162,7 @@ jobs:
          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_AHRS_Voter_JUnit.xml
          
   AHRS_Run_tests:
-     runs-on: Windows
+     runs-on: self-hosted
      needs: AHRS_Generate_SDD_Report
      if: ${{ always() }}
      
@@ -178,7 +200,7 @@ jobs:
           
           
   AHRS_Generate_Code:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Run_tests
    if: ${{ always() }}
    steps:
@@ -201,7 +223,7 @@ jobs:
          
          
   AHRS_Check_Coding_Standards:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Generate_Code
    if: ${{ always() }}
    steps:
@@ -215,7 +237,11 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: 04_Results/AHRS_Voter/coding_standards 
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -224,7 +250,7 @@ jobs:
          
          
   AHRS_Inspect_Code:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Check_Coding_Standards
    if: ${{ always() }}
    steps:
@@ -236,7 +262,13 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: 04_Results/AHRS_Voter/code_inspection     
+           
+           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -245,7 +277,7 @@ jobs:
          
          
   AHRS_Merge_Tests_Results:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Inspect_Code
    if: ${{ always() }}
    steps:
@@ -267,7 +299,7 @@ jobs:
          report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
          
   AHRS_Generate_PADV_Report:
-   runs-on: Windows
+   runs-on: self-hosted
    needs: AHRS_Merge_Tests_Results
    if: ${{ always() }}
    steps:
@@ -284,7 +316,7 @@ jobs:
          
 
   AHRS_Collect_Artifacts:
-   runs-on: Windows
+   runs-on: self-hosted
    if: ${{ always() }}
    needs: AHRS_Generate_PADV_Report
    steps:
@@ -306,7 +338,7 @@ jobs:
           padv_artifacts.zip
 
   Actuator_Control_Simulink_Web_View:
-    runs-on: hosted-2
+    runs-on: self-hosted
     
    
     steps:
@@ -359,7 +391,12 @@ jobs:
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
-          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: Actuator_Control
+           path: 04_Results/Actuator_Control/webview
+           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -368,7 +405,7 @@ jobs:
           
           
   Actuator_Control_Check_Modeling_Standards:
-   runs-on: hosted-2
+   runs-on: self-hosted
    needs: Actuator_Control_Simulink_Web_View
    if: ${{ always() }}
    steps:
@@ -380,7 +417,11 @@ jobs:
      with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-         
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: Actuator_Control
+         path: 04_Results/Actuator_Control/model_standards_results      
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -390,161 +431,161 @@ jobs:
         
         
         
-  Actuator_Control_Detect_Design_Errors:
-   if: ${{ always() }}
-   runs-on: Linux
-   needs: Actuator_Control_Check_Modeling_Standards
-   steps:
+#   Actuator_Control_Detect_Design_Errors:
+#    if: ${{ always() }}
+#    runs-on: self-hosted
+#    needs: Actuator_Control_Check_Modeling_Standards
+#    steps:
 
-   - name: Run the matlab version
-     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH 
+#    - name: Run the matlab version
+#      run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH 
          
-   - name: Launch MATLAB
-     uses: matlab-actions/run-command@v1
-     with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
+#    - name: Launch MATLAB
+#      uses: matlab-actions/run-command@v1
+#      with:
+#          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#          startup-options: -nodesktop -logfile output.log
          
           
-   - name: AHRS_Voter_JUnit
-     uses: mikepenz/action-junit-report@v3
-     with:
-        name: AHRS_Voter
-        report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_Actuator_Control_JUnit.xml 
+#    - name: AHRS_Voter_JUnit
+#      uses: mikepenz/action-junit-report@v3
+#      with:
+#         name: AHRS_Voter
+#         report_paths: 04_Results/junit/padv_builtin_task_DetectDesignErrors_Actuator_Control_JUnit.xml 
         
         
         
-  Actuator_Control_Generate_SDD_Report:
-   if: ${{ always() }}
-   runs-on: Linux
-   needs: Actuator_Control_Detect_Design_Errors
-   steps:
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#   Actuator_Control_Generate_SDD_Report:
+#    if: ${{ always() }}
+#    runs-on: self-hosted
+#    needs: Actuator_Control_Detect_Design_Errors
+#    steps:
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
      
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#          startup-options: -nodesktop -logfile output.log
          
           
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-         name: AHRS_Voter
-         report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_Actuator_Control_JUnit.xml
+#       - name: AHRS_Voter_JUnit
+#         uses: mikepenz/action-junit-report@v3
+#         with:
+#          name: AHRS_Voter
+#          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_Actuator_Control_JUnit.xml
          
 
           
           
-  Actuator_Control_Generate_Code:
-   if: ${{ always() }}
-   runs-on: Linux
-   needs: Actuator_Control_Generate_SDD_Report
-   steps:
+#   Actuator_Control_Generate_Code:
+#    if: ${{ always() }}
+#    runs-on: self-hosted
+#    needs: Actuator_Control_Generate_SDD_Report
+#    steps:
 
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#          startup-options: -nodesktop -logfile output.log
          
           
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-         name: AHRS_Voter
-         report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_Actuator_Control_JUnit.xml
+#       - name: AHRS_Voter_JUnit
+#         uses: mikepenz/action-junit-report@v3
+#         with:
+#          name: AHRS_Voter
+#          report_paths: 04_Results/junit/padv_builtin_task_GenerateCode_Actuator_Control_JUnit.xml
          
          
-  Actuator_Control_Check_Coding_Standards:
-   if: ${{ always() }}
-   runs-on: Linux
-   needs: Actuator_Control_Generate_Code
-   steps:
+#   Actuator_Control_Check_Coding_Standards:
+#    if: ${{ always() }}
+#    runs-on: self-hosted
+#    needs: Actuator_Control_Generate_Code
+#    steps:
 
    
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#          startup-options: -nodesktop -logfile output.log
          
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-         name: AHRS_Voter
-         report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_Actuator_Control_JUnit.xml
+#       - name: AHRS_Voter_JUnit
+#         uses: mikepenz/action-junit-report@v3
+#         with:
+#          name: AHRS_Voter
+#          report_paths: 04_Results/junit/padv_builtin_task_AnalyzeModelCode_Actuator_Control_JUnit.xml
  
          
          
-  Actuator_Control_Inspect_Code:
-   if: ${{ always() }}
-   runs-on: Linux
-   needs: Actuator_Control_Check_Coding_Standards
-   steps:
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#   Actuator_Control_Inspect_Code:
+#    if: ${{ always() }}
+#    runs-on: self-hosted
+#    needs: Actuator_Control_Check_Coding_Standards
+#    steps:
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#          startup-options: -nodesktop -logfile output.log
        
           
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-         name: AHRS_Voter
-         report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_Actuator_Control_JUnit.xml
+#       - name: AHRS_Voter_JUnit
+#         uses: mikepenz/action-junit-report@v3
+#         with:
+#          name: AHRS_Voter
+#          report_paths: 04_Results/junit/padv_builtin_task_RunCodeInspection_Actuator_Control_JUnit.xml
          
      
          
-  Actuator_Control_Generate_PADV_Report:
-   runs-on: Linux
-   if: ${{ always() }}
-   needs: Actuator_Control_Inspect_Code
-   steps:
+#   Actuator_Control_Generate_PADV_Report:
+#    runs-on: self-hosted
+#    if: ${{ always() }}
+#    needs: Actuator_Control_Inspect_Code
+#    steps:
 
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport');rptObj.generateReport();" 
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport');rptObj.generateReport();" 
+#          startup-options: -nodesktop -logfile output.log
          
 
-  Actuator_Control_Collect_Artifacts:
-   runs-on: Linux
-   if: ${{ always() }}
-   needs: Actuator_Control_Generate_PADV_Report
-   steps:
+#   Actuator_Control_Collect_Artifacts:
+#    runs-on: self-hosted
+#    if: ${{ always() }}
+#    needs: Actuator_Control_Generate_PADV_Report
+#    steps:
 
         
-      - name: Run the matlab version
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview', '04_Results/Flight_Control/code_inspection', '04_Results/Flight_Control/coding_standards', '04_Results/Flight_Control/design_error_detections', '04_Results/Flight_Control/model_standards_results', '04_Results/Flight_Control/system_design_description', '04_Results/Flight_Control/webview', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', '04_Results/OuterLoop_Control/code_inspection', '04_Results/OuterLoop_Control/coding_standards', '04_Results/OuterLoop_Control/design_error_detections', '04_Results/OuterLoop_Control/model_standards_results', '04_Results/OuterLoop_Control/system_design_description', '04_Results/OuterLoop_Control/webview', '04_Results/test_results', 'ProcessAdvisorReport.pdf'},'padv_artifacts.zip');"
-         startup-options: -nodesktop -logfile output.log
+#       - name: Launch MATLAB
+#         uses: matlab-actions/run-command@v1
+#         with:
+#          command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview', '04_Results/Flight_Control/code_inspection', '04_Results/Flight_Control/coding_standards', '04_Results/Flight_Control/design_error_detections', '04_Results/Flight_Control/model_standards_results', '04_Results/Flight_Control/system_design_description', '04_Results/Flight_Control/webview', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', '04_Results/OuterLoop_Control/code_inspection', '04_Results/OuterLoop_Control/coding_standards', '04_Results/OuterLoop_Control/design_error_detections', '04_Results/OuterLoop_Control/model_standards_results', '04_Results/OuterLoop_Control/system_design_description', '04_Results/OuterLoop_Control/webview', '04_Results/test_results', 'ProcessAdvisorReport.pdf'},'padv_artifacts.zip');"
+#          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload JUnit XML artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: padv_artifacts
-         path: |
-          padv_artifacts.zip
+#       - name: Upload JUnit XML artifacts
+#         uses: actions/upload-artifact@v2
+#         with:
+#          name: padv_artifacts
+#          path: |
+#           padv_artifacts.zip
         
