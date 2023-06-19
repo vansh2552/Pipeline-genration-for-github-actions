@@ -8,112 +8,43 @@ permissions:
     checks: write
     
 env:
-  PATH_TO_MATLAB: "\\\\mathworks\\devel\\sbs\\37\\vanshg.Bslcicd.j2291166\\matlab\\bin"
+  PATH_TO_MATLAB: "\\\\mathworks\\BGL\\devel\\sbs\\37\\vanshg.Bslcicd.j2276893.1\\matlab\\bin"
 
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: Windows
+    runs-on: self-hosted1
     #if: ${{ always() }}
     steps:
 
 
-      - name: Cache files
-        uses: actions/cache@v2
-        with:
-          path: |
-            04_Results/AHRS_Voter/code_inspection
-            04_Results/AHRS_Voter/coding_standards
-            04_Results/AHRS_Voter/design_error_detections
-            04_Results/AHRS_Voter/model_standards_results
-            04_Results/AHRS_Voter/system_design_description
-            04_Results/AHRS_Voter/webview
-
-          key: cached-files
-        
+    
       - name: Run the matlab version
         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
-        
-#       - name: create a folder
-#         run: |
-#             mkdir artifacts
-#       - name: Transfer files
-#         run: xcopy "04_Results\\AHRS_Voter\\webview\\*" "artifacts" /E /I /Y
-        
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: artifacts_folder
-         path: 04_Results/AHRS_Voter/webview
 
- 
-        
+         
+      - name: Launch MATLAB
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
+
           
   AHRS_Check_Modeling_Standards:
-   runs-on: Windows-latest
-   if: ${{ always() }}
+   runs-on: self-hosted1
+
    needs: AHRS_Generate_Simulink_Web_View
    steps:
    
      
    - name: Run the matlab version
-     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
-          
-   - name: Checkout repository
-     uses: actions/checkout@v2
-
-#    - name: transfer files
-#      run: |
-#        xcopy "04_Results\\AHRS_Voter\\coding_standards\\*" "artifacts" /E /I /Y
-             
-   - name: Upload artifacts
-     uses: actions/upload-artifact@v2
+     run: $env:PATH ="$env:PATH_TO_MATLAB" +  $env:PATH ; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
+        
+   - name: Launch MATLAB
+     uses: matlab-actions/run-command@v1
      with:
-         name: artifacts_folder
-         path: 04_Results/AHRS_Voter/model_standards_results
+         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+         startup-options: -nodesktop -logfile output.log
  
-  AHRS_Generate_SDD_Report:
-   runs-on: Windows
-   if: ${{ always() }}
-   needs: AHRS_Check_Modeling_Standards 
-   steps:
-   
-     
-   - name: Run the matlab version
-     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
-          
-   - name: Download Artifacts
-     uses: actions/download-artifact@v2
-     with:
-          name: artifacts_folder
-          
-             
-   - name: Upload artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: artifacts_folder
-         path: 04_Results/AHRS_Voter/system_design_description
-         
-  AHRS_Run_tests:
-   runs-on: Windows
-   if: ${{ always() }}
-   needs: AHRS_Generate_SDD_Report 
-   steps:
-   
-     
-   - name: Run the matlab version
-     run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH  
-          
-
-          
-             
-   - name: Upload artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: artifacts_folder
-         path: 04_Results/AHRS_Voter/design_error_detections
-         
 
    
- 
-    
