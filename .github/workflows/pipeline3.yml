@@ -13,7 +13,7 @@ jobs:
          $pathToAdd = "\\\\mathworks\\devel\\sbs\\37\\vanshg.Bslcicd.j2276893.1\\matlab\\bin"
          $env:PATH = "$pathToAdd" + $env:PATH 
          $env:PATH | Add-Content -Path $env:GITHUB_PATH
-         echo $env.GITHUB_PATH 
+         echo ${{ env:PATH }}
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
