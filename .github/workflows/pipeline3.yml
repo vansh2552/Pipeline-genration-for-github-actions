@@ -16,7 +16,7 @@ jobs:
           
          
       - name: Print path
-        run: echo "$env:GITHUB_PATH" 
+        run: echo "$env:PATH" 
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
