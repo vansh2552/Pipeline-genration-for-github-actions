@@ -19,10 +19,11 @@ jobs:
         run: echo "$env:PATH" 
          
       - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-             startup-options: -nodesktop -logfile output.log
+        run: matlab -batch "disp('Start')"
+#         uses: matlab-actions/run-command@v1
+#         with:
+#              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#              startup-options: -nodesktop -logfile output.log
  
           
   AHRS_Check_Modeling_Standards:
