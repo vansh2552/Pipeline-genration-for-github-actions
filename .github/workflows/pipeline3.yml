@@ -3,7 +3,7 @@ on: [workflow_dispatch]
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: self-hosted
+    runs-on: linux1
    
     steps:
 
@@ -33,7 +33,7 @@ jobs:
  
           
   AHRS_Check_Modeling_Standards:
-   runs-on: self-hosted
+   runs-on: linux1
    needs: AHRS_Generate_Simulink_Web_View
    steps:
    
@@ -63,7 +63,7 @@ jobs:
         report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
    
   AHRS_Detect_Design_Errors:
-   runs-on: self-hosted
+   runs-on: linux1
    needs: AHRS_Check_Modeling_Standards
    steps:
 
