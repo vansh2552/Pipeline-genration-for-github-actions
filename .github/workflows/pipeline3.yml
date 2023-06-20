@@ -18,8 +18,11 @@ jobs:
          
       - name: Print path
         run: |
-          echo "$env:PATH" 
-          matlab -batch ver
+          echo "$env:PATH"
+          
+      - name: matlab version
+        run: which matlab
+
          
       - name: Launch MATLAB
         run: matlab -batch "disp('Start')"
