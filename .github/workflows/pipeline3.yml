@@ -15,23 +15,13 @@ jobs:
           export PATH="$path_to_add:$PATH"
           echo "$PATH" >> $GITHUB_PATH
 
-
-          
-         
-      - name: Print path
-        run: |
-          echo "$env:PATH"
-          
-      - name: matlab version
-        run: which matlab
-
          
       - name: Launch MATLAB
-        run: matlab -batch "disp('Start')"
-#         uses: matlab-actions/run-command@v1
-#         with:
-#              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-#              startup-options: -nodesktop -logfile output.log
+      
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
  
           
   AHRS_Check_Modeling_Standards:
@@ -41,9 +31,9 @@ jobs:
    
    - name: Run the matlab version
      run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+          path_to_add="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
+          export PATH="$path_to_add:$PATH"
+          echo "$PATH" >> $GITHUB_PATH
          
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
@@ -69,7 +59,11 @@ jobs:
    needs: AHRS_Check_Modeling_Standards
    steps:
 
-
+   - name: Run the matlab version
+     run: |
+          path_to_add="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
+          export PATH="$path_to_add:$PATH"
+          echo "$PATH" >> $GITHUB_PATH
          
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
