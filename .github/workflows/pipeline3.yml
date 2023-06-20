@@ -10,13 +10,16 @@ jobs:
              
       - name: Run the matlab version
         run: |
+         which matlab
          $pathToAdd = "\\\\mathworks\\BGL\\devel\\sbs\\37\\vanshg.Bslcicd.j2291166\\matlab\\bin"
          $env:PATH = "$pathToAdd;" + $env:PATH 
          $env:PATH | Add-Content -Path $env:GITHUB_PATH
           
          
       - name: Print path
-        run: echo "$env:PATH" 
+        run: |
+          echo "$env:PATH" 
+          matlab -batch ver
          
       - name: Launch MATLAB
         run: matlab -batch "disp('Start')"
