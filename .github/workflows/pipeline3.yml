@@ -11,9 +11,10 @@ jobs:
       - name: Run the matlab version
         run: |
 
-         $pathToAdd = "\\\\mathworks\\BGL\\devel\\sbs\\37\\vanshg.Bslcicd.j2291166\\matlab\\bin"
+         $pathToAdd = "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
          $env:PATH = "$pathToAdd;" + $env:PATH 
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+         echo "$env:PATH " >> $env:GITHUB_PATH
+       #  $env:PATH | Add-Content -Path $env:GITHUB_PATH
           
          
       - name: Print path
