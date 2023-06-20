@@ -57,8 +57,11 @@ jobs:
             derived/artifacts.dmr
           key: cached-files
         
-#       - name: Run the matlab version
-#         run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+      - name: Run the matlab version
+        run: |
+           $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+           echo "$env:PATH"
+        
       - name: which matlab
         run: which matlab
       - name: run matlab
