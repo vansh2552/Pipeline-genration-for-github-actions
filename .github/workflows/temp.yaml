@@ -20,7 +20,7 @@ jobs:
       - name: Run the matlab version
         run: |
         
-          export PATH="$env:PATH_TO_MATLAB:$PATH"
+          export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
 
          
