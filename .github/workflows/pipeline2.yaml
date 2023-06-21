@@ -234,11 +234,6 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-           name: AHRS_Voter
-           path: 04_Results/AHRS_Voter/coding_standards 
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -261,11 +256,7 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-           name: AHRS_Voter
-           path: 04_Results/AHRS_Voter/code_inspection     
+   
            
            
       - name: AHRS_Voter_JUnit
@@ -292,12 +283,7 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-          
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-         name: AHRS_Voter
-         report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
+
          
   AHRS_Generate_PADV_Report:
    runs-on: linux1
