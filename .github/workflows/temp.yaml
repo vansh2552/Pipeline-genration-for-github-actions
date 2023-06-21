@@ -12,31 +12,25 @@ env:
 
   
 jobs:
-  AHRS_Generate_Simulink_Web_View:
-    runs-on: linux1
-    #if: ${{ always() }}
-    steps:
-        
+  AHRS_Collect_Artifacts:
+   runs-on: linux1
+
+   steps:
+
       - name: Run the matlab version
         run: |
-        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
-
-         
+        
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-             startup-options: -nodesktop -logfile output.log
-      - name: Upload artifacts
+         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
+         startup-options: -nodesktop -logfile output.log
+         
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-         name: AHRS_Voter
-         path: 04_Results/AHRS_Voter/webview 
-          
-      - name: AHRS_Voter_JUnit
-        uses: mikepenz/action-junit-report@v3
-        with:
-          name: AHRS_Voter
-          report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+         name: padv_artifacts_AHRS_Voter
+         path: |
+          padv_artifacts_AHRS_Voter.zip
