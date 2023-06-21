@@ -16,6 +16,9 @@ jobs:
     runs-on: linux1
     #if: ${{ always() }}
     steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
 
       - name: Cache files
@@ -62,14 +65,19 @@ jobs:
         
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
-
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
-
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: AHRS_Voter
+         path: |
+          04_Results/AHRS_Voter/webview 
+          derived/artifacts.dmr
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -78,12 +86,13 @@ jobs:
           report_paths: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
           
   AHRS_Check_Modeling_Standards:
-   runs-on: linux1
+   runs-on: linux2
    if: ${{ always() }}
    needs: AHRS_Generate_Simulink_Web_View
    steps:
    
-     
+   - name: Checkout repository
+     uses: actions/checkout@v2
    - name: Run the matlab version
      run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -95,7 +104,13 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
  
-
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: AHRS_Voter
+         path: |
+          04_Results/AHRS_Voter/model_standards_results 
+          derived/artifacts.dmr
          
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -108,7 +123,9 @@ jobs:
    needs: AHRS_Check_Modeling_Standards
    if: ${{ always() }}
    steps: 
-
+   - name: Checkout repository
+     uses: actions/checkout@v2
+     
    - name: Run the matlab version
      run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -120,7 +137,14 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-
+         
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: AHRS_Voter
+         path: |
+          04_Results/AHRS_Voter/design_error_detections 
+          derived/artifacts.dmr
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -134,7 +158,8 @@ jobs:
    needs: AHRS_Detect_Design_Errors
    if: ${{ always() }}
    steps:
-   
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -145,7 +170,14 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log   
+         startup-options: -nodesktop -logfile output.log
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: |
+            04_Results/AHRS_Voter/system_design_description  
+            derived/artifacts.dmr
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -158,7 +190,8 @@ jobs:
      if: ${{ always() }}
      
      steps:
- 
+       - name: Checkout repository
+         uses: actions/checkout@v2
        - name: Run the matlab version
          run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -198,6 +231,8 @@ jobs:
    if: ${{ always() }}
    steps:
 
+      - name: Checkout repository
+        uses: actions/checkout@v2
         
       - name: Run the matlab version
         run: |
@@ -222,7 +257,8 @@ jobs:
    needs: AHRS_Generate_Code
    if: ${{ always() }}
    steps:
-        
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -234,6 +270,14 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: |
+            04_Results/AHRS_Voter/coding_standards 
+            derived/artifacts.dmr
+           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -246,6 +290,8 @@ jobs:
    needs: AHRS_Check_Coding_Standards
    if: ${{ always() }}
    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -256,7 +302,13 @@ jobs:
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
-   
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: AHRS_Voter
+           path: |
+            04_Results/AHRS_Voter/code_inspection  
+            derived/artifacts.dmr
            
            
       - name: AHRS_Voter_JUnit
@@ -271,7 +323,8 @@ jobs:
    needs: AHRS_Inspect_Code
    if: ${{ always() }}
    steps:
-        
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -283,7 +336,12 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-
+          
+      - name: AHRS_Voter_JUnit
+        uses: mikepenz/action-junit-report@v3
+        with:
+         name: AHRS_Voter
+         report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
          
   AHRS_Generate_PADV_Report:
    runs-on: linux1
@@ -291,7 +349,8 @@ jobs:
    if: ${{ always() }}
    steps:
 
-        
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -310,6 +369,8 @@ jobs:
    needs: AHRS_Generate_PADV_Report
    steps:
 
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -327,7 +388,6 @@ jobs:
          name: padv_artifacts_AHRS_Voter
          path: |
           padv_artifacts_AHRS_Voter.zip
-
   Actuator_Control_Simulink_Web_View:
     runs-on: linux2
     
@@ -379,14 +439,20 @@ jobs:
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
-
          
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
-
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: Actuator_Control
+           path: |
+            04_Results/Actuator_Control/webview
+            derived/artifacts.dmr
+            
            
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -400,7 +466,8 @@ jobs:
    needs: Actuator_Control_Simulink_Web_View
    if: ${{ always() }}
    steps:
-    
+   - name: Checkout repository
+     uses: actions/checkout@v2
    - name: Run the matlab version
      run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -409,7 +476,14 @@ jobs:
      uses: matlab-actions/run-command@v1
      with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log  
+         startup-options: -nodesktop -logfile output.log
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+         name: Actuator_Control
+         path: |
+          04_Results/Actuator_Control/model_standards_results      
+          derived/artifacts.dmr
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -424,6 +498,8 @@ jobs:
    runs-on: linux2
    needs: Actuator_Control_Check_Modeling_Standards
    steps:
+   - name: Checkout repository
+     uses: actions/checkout@v2
 
    - name: Run the matlab version
      run: |
@@ -436,7 +512,13 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-          
+   - name: Upload artifacts
+     uses: actions/upload-artifact@v2
+     with:
+           name: Actuator_Control
+           path: |
+            04_Results/Actuator_Control//design_error_detections
+            derived/artifacts.dmr     
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
      with:
@@ -450,6 +532,8 @@ jobs:
    runs-on: linux2
    needs: Actuator_Control_Detect_Design_Errors
    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -477,6 +561,8 @@ jobs:
    runs-on: linux2
    needs: Actuator_Control_Generate_SDD_Report
    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Run the matlab version
         run: |
@@ -503,12 +589,19 @@ jobs:
    needs: Actuator_Control_Generate_Code
    steps:
 
-   
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
-         
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: Actuator_Control
+           path: |
+            04_Results/Actuator_Control/coding_standards
+            derived/artifacts.dmr  
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
@@ -539,7 +632,13 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
        
-          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+           name: Actuator_Control
+           path: |
+            04_Results/Actuator_Control/code_inspection
+            derived/artifacts.dmr      
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
@@ -553,7 +652,8 @@ jobs:
    if: ${{ always() }}
    needs: Actuator_Control_Inspect_Code
    steps:
-
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
@@ -581,7 +681,7 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview',  'ProcessAdvisorReport.pdf'},'Actuator_Control_padv_artifacts.zip');"
+         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview',  'ProcessAdvisorReport.pdf'},'padv_artifacts.zip');"
          startup-options: -nodesktop -logfile output.log
          
       - name: Upload artifacts
@@ -591,173 +691,172 @@ jobs:
          path: |
           Actuator_Control_padv_artifacts.zip
           
-  IL_Generate_Simulink_Web_View:
-    runs-on: linux1
-    steps:
-        - name: Cache files
-          uses: actions/cache@v2
-          with:
-           path: |
-            04_Results/AHRS_Voter/code_inspection
-            04_Results/AHRS_Voter/coding_standards
-            04_Results/AHRS_Voter/design_error_detections
-            04_Results/AHRS_Voter/model_standards_results
-            04_Results/AHRS_Voter/system_design_description
-            04_Results/AHRS_Voter/webview
-            04_Results/Actuator_Control/code_inspection
-            04_Results/Actuator_Control/coding_standards
-            04_Results/Actuator_Control/design_error_detections
-            04_Results/Actuator_Control/model_standards_results
-            04_Results/Actuator_Control/system_design_description
-            04_Results/Actuator_Control/webview
-            04_Results/Flight_Control/code_inspection
-            04_Results/Flight_Control/coding_standards
-            04_Results/Flight_Control/design_error_detections
-            04_Results/Flight_Control/model_standards_results
-            04_Results/Flight_Control/system_design_description
-            04_Results/Flight_Control/webview
-            04_Results/InnerLoop_Control/code_inspection
-            04_Results/InnerLoop_Control/coding_standards
-            04_Results/InnerLoop_Control/design_error_detections
-            04_Results/InnerLoop_Control/model_standards_results
-            04_Results/InnerLoop_Control/system_design_description
-            04_Results/InnerLoop_Control/webview
-            04_Results/OuterLoop_Control/code_inspection
-            04_Results/OuterLoop_Control/coding_standards
-            04_Results/OuterLoop_Control/design_error_detections
-            04_Results/OuterLoop_Control/model_standards_results
-            04_Results/OuterLoop_Control/system_design_description
-            04_Results/OuterLoop_Control/webview
-            04_Results/test_results
-           key: cached-files
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Generate_Simulink_Web_View:
+#     runs-on: linux1
+#     steps:
+#         - name: Cache files
+#           uses: actions/cache@v2
+#           with:
+#            path: |
+#             04_Results/AHRS_Voter/code_inspection
+#             04_Results/AHRS_Voter/coding_standards
+#             04_Results/AHRS_Voter/design_error_detections
+#             04_Results/AHRS_Voter/model_standards_results
+#             04_Results/AHRS_Voter/system_design_description
+#             04_Results/AHRS_Voter/webview
+#             04_Results/Actuator_Control/code_inspection
+#             04_Results/Actuator_Control/coding_standards
+#             04_Results/Actuator_Control/design_error_detections
+#             04_Results/Actuator_Control/model_standards_results
+#             04_Results/Actuator_Control/system_design_description
+#             04_Results/Actuator_Control/webview
+#             04_Results/Flight_Control/code_inspection
+#             04_Results/Flight_Control/coding_standards
+#             04_Results/Flight_Control/design_error_detections
+#             04_Results/Flight_Control/model_standards_results
+#             04_Results/Flight_Control/system_design_description
+#             04_Results/Flight_Control/webview
+#             04_Results/InnerLoop_Control/code_inspection
+#             04_Results/InnerLoop_Control/coding_standards
+#             04_Results/InnerLoop_Control/design_error_detections
+#             04_Results/InnerLoop_Control/model_standards_results
+#             04_Results/InnerLoop_Control/system_design_description
+#             04_Results/InnerLoop_Control/webview
+#             04_Results/OuterLoop_Control/code_inspection
+#             04_Results/OuterLoop_Control/coding_standards
+#             04_Results/OuterLoop_Control/design_error_detections
+#             04_Results/OuterLoop_Control/model_standards_results
+#             04_Results/OuterLoop_Control/system_design_description
+#             04_Results/OuterLoop_Control/webview
+#             04_Results/test_results
+#            key: cached-files
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log
            
            
-  IL_Detect_Design_Errors:
-    runs-on: linux1
-    needs: IL_Generate_Simulink_Web_View
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Detect_Design_Errors:
+#     runs-on: linux1
+#     needs: IL_Generate_Simulink_Web_View
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log  
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log  
 
-  IL_Generate_SDD_Report:
-    runs-on: linux1
-    needs: IL_Detect_Design_Errors
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Generate_SDD_Report:
+#     runs-on: linux1
+#     needs: IL_Detect_Design_Errors
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log
            
-  IL_Generate_Code:
-    runs-on: linux1
-    needs: IL_Generate_SDD_Report
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Generate_Code:
+#     runs-on: linux1
+#     needs: IL_Generate_SDD_Report
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log
            
-  IL_Check_Coding_Standards:
-    runs-on: linux1
-    needs: IL_Generate_Code
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Check_Coding_Standards:
+#     runs-on: linux1
+#     needs: IL_Generate_Code
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log   
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log   
            
-  IL_Inspect_Code:
-    runs-on: linux1
-    needs: IL_Check_Coding_Standards
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Inspect_Code:
+#     runs-on: linux1
+#     needs: IL_Check_Coding_Standards
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-           startup-options: -nodesktop -logfile output.log         
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+#            startup-options: -nodesktop -logfile output.log         
            
-  IL_Generate_PADV_Report:
-    runs-on: linux1
-    needs: IL_Inspect_Code
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Generate_PADV_Report:
+#     runs-on: linux1
+#     needs: IL_Inspect_Code
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();"
-           startup-options: -nodesktop -logfile output.log  
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();"
+#            startup-options: -nodesktop -logfile output.log  
            
-  IL_Collect_Artifacts:
-    runs-on: linux1
-    needs: IL_Generate_PADV_Report
-    if: ${{ always() }}
-    steps:
-        - name: Run the matlab version
-          run: |
-            export PATH="$PATH_TO_MATLAB:$PATH"
-            echo "$PATH" >> $GITHUB_PATH
+#   IL_Collect_Artifacts:
+#     runs-on: linux1
+#     needs: IL_Generate_PADV_Report
+#     if: ${{ always() }}
+#     steps:
+#         - name: Run the matlab version
+#           run: |
+#             export PATH="$PATH_TO_MATLAB:$PATH"
+#             echo "$PATH" >> $GITHUB_PATH
           
-        - name: Launch MATLAB
-          uses: matlab-actions/run-command@v1
-          with:
-           command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', 'ProcessAdvisorReport.pdf'},'IL_padv_artifacts.zip');" 
-           startup-options: -nodesktop -logfile output.log  
+#         - name: Launch MATLAB
+#           uses: matlab-actions/run-command@v1
+#           with:
+#            command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', 'ProcessAdvisorReport.pdf'},'IL_padv_artifacts.zip');" 
+#            startup-options: -nodesktop -logfile output.log  
            
-        - name: Upload artifacts
-          uses: actions/upload-artifact@v2
-          with:
-           name: IL_padv_artifacts
-           path: |
-             IL_padv_artifacts.zip
-           
+#         - name: Upload artifacts
+#           uses: actions/upload-artifact@v2
+#           with:
+#            name: IL_padv_artifacts
+#            path: |
+#              IL_padv_artifacts.zip
