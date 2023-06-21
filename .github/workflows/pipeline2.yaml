@@ -69,11 +69,7 @@ jobs:
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: AHRS_Voter
-         path: 04_Results/AHRS_Voter/webview 
+
           
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
@@ -99,11 +95,7 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
  
-   - name: Upload artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: AHRS_Voter
-         path: 04_Results/AHRS_Voter/model_standards_results 
+
          
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -128,12 +120,7 @@ jobs:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
          startup-options: -nodesktop -logfile output.log
          
-         
-   - name: Upload artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: AHRS_Voter
-         path: 04_Results/AHRS_Voter/design_error_detections 
+
           
    - name: AHRS_Voter_JUnit
      uses: mikepenz/action-junit-report@v3
@@ -158,12 +145,7 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:
          command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-           name: AHRS_Voter
-           path: 04_Results/AHRS_Voter/system_design_description     
+         startup-options: -nodesktop -logfile output.log   
       - name: AHRS_Voter_JUnit
         uses: mikepenz/action-junit-report@v3
         with:
