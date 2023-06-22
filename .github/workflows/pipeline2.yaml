@@ -359,7 +359,7 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport'); rptObj.generateReport();" 
+         command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();" 
          startup-options: -nodesktop -logfile output.log
          
 
@@ -662,7 +662,7 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: "openProject(pwd); rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='ProcessAdvisorReport'); rptObj.generateReport();" 
+         command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();" 
          startup-options: -nodesktop -logfile output.log
          
 
@@ -683,7 +683,7 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview',  'ProcessAdvisorReport.pdf'},'Actuator_Control_padv_artifacts.zip.zip');"
+         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/Actuator_Control/code_inspection', '04_Results/Actuator_Control/coding_standards', '04_Results/Actuator_Control/design_error_detections', '04_Results/Actuator_Control/model_standards_results', '04_Results/Actuator_Control/system_design_description', '04_Results/Actuator_Control/webview',  'ProcessAdvisorReport.pdf'},'Actuator_Control_padv_artifacts.zip');"
          startup-options: -nodesktop -logfile output.log
          
       - name: Upload artifacts
@@ -696,6 +696,8 @@ jobs:
   IL_Generate_Simulink_Web_View:
     runs-on: linux1
     steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Cache files
           uses: actions/cache@v2
           with:
@@ -757,8 +759,8 @@ jobs:
     needs: IL_Generate_Simulink_Web_View
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -783,8 +785,8 @@ jobs:
     needs: IL_Detect_Design_Errors
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -809,8 +811,8 @@ jobs:
     needs: IL_Generate_SDD_Report
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -828,8 +830,8 @@ jobs:
     needs: IL_Generate_Code
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -852,8 +854,8 @@ jobs:
     needs: IL_Check_Coding_Standards
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -877,8 +879,8 @@ jobs:
     needs: IL_Inspect_Code
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
@@ -895,8 +897,8 @@ jobs:
     needs: IL_Generate_PADV_Report
     if: ${{ always() }}
     steps:
-        - name: Cache files
-          uses: actions/cache@v2 
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
