@@ -425,10 +425,7 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2   
-        with:
-           name: AHRS_Voter 
+
       - name: Run the matlab version
         run: |
           export PATH="$PATH_TO_MATLAB:$PATH"
