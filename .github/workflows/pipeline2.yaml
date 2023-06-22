@@ -154,7 +154,7 @@ jobs:
         
     
   AHRS_Generate_SDD_Report:
-   runs-on: linux1
+   runs-on: linux2
    needs: AHRS_Detect_Design_Errors
    if: ${{ always() }}
    steps:
@@ -185,7 +185,7 @@ jobs:
          report_paths: 04_Results/junit/padv_builtin_task_GenerateSDDReport_AHRS_Voter_JUnit.xml
          
   AHRS_Run_tests:
-     runs-on: linux1
+     runs-on: linux2
      needs: AHRS_Generate_SDD_Report
      if: ${{ always() }}
      
@@ -226,7 +226,7 @@ jobs:
           
           
   AHRS_Generate_Code:
-   runs-on: linux1
+   runs-on: linux2
    needs: AHRS_Run_tests
    if: ${{ always() }}
    steps:
@@ -286,7 +286,7 @@ jobs:
          
          
   AHRS_Inspect_Code:
-   runs-on: linux1
+   runs-on: linux2
    needs: AHRS_Check_Coding_Standards
    if: ${{ always() }}
    steps:
@@ -344,7 +344,7 @@ jobs:
          report_paths: 04_Results/junit/padv_builtin_task_MergeTestResults_AHRS_Voter_JUnit.xml
          
   AHRS_Generate_PADV_Report:
-   runs-on: linux1
+   runs-on: linux2
    needs: AHRS_Merge_Tests_Results
    if: ${{ always() }}
    steps:
@@ -495,7 +495,7 @@ jobs:
         
   Actuator_Control_Detect_Design_Errors:
    if: ${{ always() }}
-   runs-on: linux2
+   runs-on: linux1
    needs: Actuator_Control_Check_Modeling_Standards
    steps:
    - name: Checkout repository
@@ -558,7 +558,7 @@ jobs:
           
   Actuator_Control_Generate_Code:
    if: ${{ always() }}
-   runs-on: linux2
+   runs-on: linux1
    needs: Actuator_Control_Generate_SDD_Report
    steps:
       - name: Checkout repository
@@ -618,7 +618,7 @@ jobs:
          
   Actuator_Control_Inspect_Code:
    if: ${{ always() }}
-   runs-on: linux2
+   runs-on: linux1
    needs: Actuator_Control_Check_Coding_Standards
    steps:
       - name: Run the matlab version
@@ -781,7 +781,7 @@ jobs:
             derived/artifacts.dmr   
 
   IL_Generate_SDD_Report:
-    runs-on: linux1
+    runs-on: linux2
     needs: IL_Detect_Design_Errors
     if: ${{ always() }}
     steps:
@@ -826,7 +826,7 @@ jobs:
 
 
   IL_Check_Coding_Standards:
-    runs-on: linux1
+    runs-on: linux2
     needs: IL_Generate_Code
     if: ${{ always() }}
     steps:
@@ -875,7 +875,7 @@ jobs:
             derived/artifacts.dmr   
            
   IL_Generate_PADV_Report:
-    runs-on: linux1
+    runs-on: linux2
     needs: IL_Inspect_Code
     if: ${{ always() }}
     steps:
