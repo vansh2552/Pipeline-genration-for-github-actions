@@ -437,7 +437,7 @@ jobs:
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','04_Results/test_results','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
+         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
          startup-options: -nodesktop -logfile output.log
          
       - name: Upload Artifacts
