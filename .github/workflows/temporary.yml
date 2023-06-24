@@ -3,7 +3,8 @@ on:
   workflow_dispatch:
 
 
-
+env:
+  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
@@ -15,6 +16,12 @@ jobs:
         
       - name: check directories
         run: ls
+        
+      - name: Run the matlab version
+        run: |
+        
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
         
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
