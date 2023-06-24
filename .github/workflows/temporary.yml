@@ -7,16 +7,14 @@ on:
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: self-hosted
+    runs-on: Linux
 
     steps:
-    
-      - name: Get Git Config
-        run: |
-          git_config_username=$(git config user.name)
-          git_config_email=$(git config user.email)
-          echo "Git Username: $git_config_username"
-          echo "Git Email: $git_config_email"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: check directories
+        run: ls
 
 
 
