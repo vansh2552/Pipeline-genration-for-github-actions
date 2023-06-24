@@ -15,6 +15,15 @@ jobs:
         
       - name: check directories
         run: ls
+        
+      - name: Launch MATLAB
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
+             
+      - name: check directories
+        run: ls 
 
 
 
