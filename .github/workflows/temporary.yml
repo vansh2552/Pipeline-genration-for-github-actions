@@ -17,7 +17,54 @@ jobs:
       - name: check directories
         run: ls
         
+      - name: Run the matlab version
+        run: |
+        
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+        
+      - name: Launch MATLAB
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
+             startup-options: -nodesktop -logfile output.log
+             
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+         name: AHRS_Voter
+         path: |
+          04_Results/AHRS_Voter/webview 
+          derived/artifacts.dmr    
+             
+      - name: check directories
+        run: ls 
+  AHRS_Check_Modeling_Standards:
+   runs-on: Linux
+   if: ${{ always() }}
+   needs: AHRS_Generate_Simulink_Web_View
+   steps:
+   
+   - name: Checkout repository
+     uses: actions/checkout@v2
+   - name: check timestamps
+     run: |
+        stat derived
+        sleep 60
+        
+   - name: Run the matlab version
+     run: |
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH
+   - name: Download Artifacts
+     uses: actions/download-artifact@v2
+     with:
+          name: AHRS_Voter
+   - name: check timestamps
+     run: |
+        stat derived
+    
 
+        
 
-
-          
+      
