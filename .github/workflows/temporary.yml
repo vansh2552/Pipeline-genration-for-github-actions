@@ -50,11 +50,7 @@ jobs:
    - name: check directories
      run: ls 
      
-     
-   - name: check timestamps
-     run: |
-        stat derived
-        sleep 60
+   
         
    - name: Run the matlab version
      run: |
@@ -65,10 +61,13 @@ jobs:
      with:
           name: AHRS_Voter
           
-   - name: check timestamps
+   - name: check dir
      run: |
-        stat derived
-        sleep 60
+        ls
+#    - name: check timestamps
+#      run: |
+#         stat derived
+#         sleep 60
             
 
         
