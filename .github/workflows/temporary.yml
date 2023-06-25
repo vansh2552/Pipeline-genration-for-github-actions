@@ -47,6 +47,10 @@ jobs:
    
    - name: Checkout repository
      uses: actions/checkout@v2
+   - name: check directories
+     run: ls 
+     
+     
    - name: check timestamps
      run: |
         stat derived
