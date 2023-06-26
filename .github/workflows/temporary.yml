@@ -23,7 +23,7 @@ jobs:
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH 
       - name: run the error function
-        run: matlab -r "error()"
+        run: matlab -batch "run('Error.m')"
         
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
