@@ -21,44 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
 
-      - name: Cache files
-        uses: actions/cache@v2
-        with:
-          path: |
-            03_Code
-            04_Results/AHRS_Voter/code_inspection
-            04_Results/AHRS_Voter/coding_standards
-            04_Results/AHRS_Voter/design_error_detections
-            04_Results/AHRS_Voter/model_standards_results
-            04_Results/AHRS_Voter/system_design_description
-            04_Results/AHRS_Voter/webview
-            04_Results/Actuator_Control/code_inspection
-            04_Results/Actuator_Control/coding_standards
-            04_Results/Actuator_Control/design_error_detections
-            04_Results/Actuator_Control/model_standards_results
-            04_Results/Actuator_Control/system_design_description
-            04_Results/Actuator_Control/webview
-            04_Results/Flight_Control/code_inspection
-            04_Results/Flight_Control/coding_standards
-            04_Results/Flight_Control/design_error_detections
-            04_Results/Flight_Control/model_standards_results
-            04_Results/Flight_Control/system_design_description
-            04_Results/Flight_Control/webview
-            04_Results/InnerLoop_Control/code_inspection
-            04_Results/InnerLoop_Control/coding_standards
-            04_Results/InnerLoop_Control/design_error_detections
-            04_Results/InnerLoop_Control/model_standards_results
-            04_Results/InnerLoop_Control/system_design_description
-            04_Results/InnerLoop_Control/webview
-            04_Results/OuterLoop_Control/code_inspection
-            04_Results/OuterLoop_Control/coding_standards
-            04_Results/OuterLoop_Control/design_error_detections
-            04_Results/OuterLoop_Control/model_standards_results
-            04_Results/OuterLoop_Control/system_design_description
-            04_Results/OuterLoop_Control/webview
-            04_Results/test_results
-            derived/artifacts.dmr
-          key: cached-files
+
         
       - name: Run the matlab version
         run: |
@@ -464,42 +427,7 @@ jobs:
         uses: actions/checkout@v2
 
 
-      - name: Cache files
-        uses: actions/cache@v2
-        with:
-          path: |
-            04_Results/AHRS_Voter/code_inspection
-            04_Results/AHRS_Voter/coding_standards
-            04_Results/AHRS_Voter/design_error_detections
-            04_Results/AHRS_Voter/model_standards_results
-            04_Results/AHRS_Voter/system_design_description
-            04_Results/AHRS_Voter/webview
-            04_Results/Actuator_Control/code_inspection
-            04_Results/Actuator_Control/coding_standards
-            04_Results/Actuator_Control/design_error_detections
-            04_Results/Actuator_Control/model_standards_results
-            04_Results/Actuator_Control/system_design_description
-            04_Results/Actuator_Control/webview
-            04_Results/Flight_Control/code_inspection
-            04_Results/Flight_Control/coding_standards
-            04_Results/Flight_Control/design_error_detections
-            04_Results/Flight_Control/model_standards_results
-            04_Results/Flight_Control/system_design_description
-            04_Results/Flight_Control/webview
-            04_Results/InnerLoop_Control/code_inspection
-            04_Results/InnerLoop_Control/coding_standards
-            04_Results/InnerLoop_Control/design_error_detections
-            04_Results/InnerLoop_Control/model_standards_results
-            04_Results/InnerLoop_Control/system_design_description
-            04_Results/InnerLoop_Control/webview
-            04_Results/OuterLoop_Control/code_inspection
-            04_Results/OuterLoop_Control/coding_standards
-            04_Results/OuterLoop_Control/design_error_detections
-            04_Results/OuterLoop_Control/model_standards_results
-            04_Results/OuterLoop_Control/system_design_description
-            04_Results/OuterLoop_Control/webview
-            04_Results/test_results
-          key: cached-files
+
 
       
       - name: Run the matlab version
@@ -817,42 +745,6 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-        - name: Cache files
-          uses: actions/cache@v2
-          with:
-           path: |
-            04_Results/AHRS_Voter/code_inspection
-            04_Results/AHRS_Voter/coding_standards
-            04_Results/AHRS_Voter/design_error_detections
-            04_Results/AHRS_Voter/model_standards_results
-            04_Results/AHRS_Voter/system_design_description
-            04_Results/AHRS_Voter/webview
-            04_Results/Actuator_Control/code_inspection
-            04_Results/Actuator_Control/coding_standards
-            04_Results/Actuator_Control/design_error_detections
-            04_Results/Actuator_Control/model_standards_results
-            04_Results/Actuator_Control/system_design_description
-            04_Results/Actuator_Control/webview
-            04_Results/Flight_Control/code_inspection
-            04_Results/Flight_Control/coding_standards
-            04_Results/Flight_Control/design_error_detections
-            04_Results/Flight_Control/model_standards_results
-            04_Results/Flight_Control/system_design_description
-            04_Results/Flight_Control/webview
-            04_Results/InnerLoop_Control/code_inspection
-            04_Results/InnerLoop_Control/coding_standards
-            04_Results/InnerLoop_Control/design_error_detections
-            04_Results/InnerLoop_Control/model_standards_results
-            04_Results/InnerLoop_Control/system_design_description
-            04_Results/InnerLoop_Control/webview
-            04_Results/OuterLoop_Control/code_inspection
-            04_Results/OuterLoop_Control/coding_standards
-            04_Results/OuterLoop_Control/design_error_detections
-            04_Results/OuterLoop_Control/model_standards_results
-            04_Results/OuterLoop_Control/system_design_description
-            04_Results/OuterLoop_Control/webview
-            04_Results/test_results
-           key: cached-files
         - name: Run the matlab version
           run: |
             export PATH="$PATH_TO_MATLAB:$PATH"
