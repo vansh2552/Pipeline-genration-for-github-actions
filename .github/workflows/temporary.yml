@@ -19,11 +19,12 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH 
-          
+      - name: check directories
+        run: ls     
       - name: Launch project 1
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);Error"
+             command: "openProject(pwd);CheckActuatorExecution.m"
              startup-options: -nodesktop -logfile output.log    
         
         
@@ -36,7 +37,7 @@ jobs:
       - name: Launch project 2
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);Error"
+             command: "openProject(pwd);CheckActuatorExecution.m"
              startup-options: -nodesktop -logfile output.log          
 
       - name: Upload artifacts
