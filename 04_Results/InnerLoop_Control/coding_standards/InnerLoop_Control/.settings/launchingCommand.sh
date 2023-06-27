@@ -1,0 +1,2 @@
+#!/bin/sh
+"/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/bin/polyspace-bug-finder" -options-file "/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/InnerLoop_Control/coding_standards/InnerLoop_Control/.settings/options_command.txt" -results-dir "/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/InnerLoop_Control/coding_standards/InnerLoop_Control" $*

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--EDRS Version 2.0-->
+<global>
+<file comment="" name="InnerLoop_Control.c">
+<function comment="" line="" main_generator_called="MAIN_GENERATOR" name="InnerLoop_Control">
+<pointer comment="" complete_type="" init_mode="INIT" init_modes_allowed="2" init_pointed="MULTI" initialize_pointer="Not NULL" line="" name="arg1" number_allocated="1">
+<scalar assert_range="unsupported" base_type="" comment="" complete_type="" global_assert="unsupported" init_mode="INIT" init_modes_allowed="2" init_range="-30..30" line=""/>
+</pointer>
+<pointer comment="" complete_type="" init_mode="INIT" init_modes_allowed="2" init_pointed="MULTI" initialize_pointer="Not NULL" line="" name="arg2" number_allocated="1">
+<scalar assert_range="unsupported" base_type="" comment="" complete_type="" global_assert="unsupported" init_mode="INIT" init_modes_allowed="2" init_range="-30..30" line=""/>
+</pointer>
+<pointer comment="" complete_type="" init_mode="INIT" init_modes_allowed="2" init_pointed="MULTI" initialize_pointer="Not NULL" line="" name="arg3" number_allocated="1">
+<scalar assert_range="unsupported" base_type="" comment="" complete_type="" global_assert="unsupported" init_mode="INIT" init_modes_allowed="2" init_range="-15..15" line=""/>
+</pointer>
+<pointer comment="" complete_type="" init_mode="INIT" init_modes_allowed="2" init_pointed="MULTI" initialize_pointer="Not NULL" line="" name="arg4" number_allocated="5">
+<scalar assert_range="unsupported" base_type="" comment="" complete_type="" global_assert="unsupported" init_mode="INIT" init_modes_allowed="2" init_range="-180..180" line=""/>
+</pointer>
+<pointer comment="" complete_type="" init_mode="INIT" init_modes_allowed="2" init_pointed="MULTI" initialize_pointer="Not NULL" line="" name="arg5" number_allocated="3">
+<scalar assert_range="unsupported" base_type="" comment="" complete_type="" global_assert="unsupported" init_mode="INIT" init_modes_allowed="2" init_range="min..max" line=""/>
+</pointer>
+</function>
+</file>
+</global>

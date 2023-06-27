@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--EDRS Version 2.0-->
+<global>
+   <file name="/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control.c" comment="">
+      <function name="InnerLoop_Control" comment="" line="26" main_generator_called="MAIN_GENERATOR" attributes="unused">
+         <pointer name="arg1" comment="" line="26" complete_type="float64 const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <scalar comment="" line="26" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-30..30" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+         <pointer name="arg2" comment="" line="26" complete_type="float64 const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <scalar comment="" line="26" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-30..30" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+         <pointer name="arg3" comment="" line="26" complete_type="float64 const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <scalar comment="" line="26" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-15..15" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+         <pointer name="arg4" comment="" line="26" complete_type="float64 const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="5" init_pointed="MULTI">
+            <scalar comment="" line="26" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-180..180" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+         <pointer name="arg5" comment="" line="26" complete_type="float64 *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="3" init_pointed="MULTI">
+            <scalar comment="" line="26" base_type="float64" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="min..max" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+      </function>
+      <struct name="InnerLoop_Control_MdlrefDW" comment="" line="23">
+         <struct name="rtdw" comment="" line="23">
+            <scalar name="UnitDelay_DSTATE" comment="" line="23" base_type="float64" complete_type="float64" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+            <scalar name="UnitDelay_DSTATE_ceii" comment="" line="23" base_type="float64" complete_type="float64" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+            <scalar name="UnitDelay_DSTATE_j3xb" comment="" line="23" base_type="float64" complete_type="float64" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </struct>
+      </struct>
+   </file>
+   <file name="/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control_data.c" comment="">
+      <struct name="InnerLoop_Control_ConstP" comment="" line="22" attributes="const">
+         <array name="SOF_Gain" comment="" line="22" complete_type="float64 [15]" attributes="const">
+            <scalar comment="" line="22" base_type="float64" attributes="const" complete_type="float64" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </array>
+      </struct>
+   </file>
+</global>

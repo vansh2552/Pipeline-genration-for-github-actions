@@ -1,0 +1,150 @@
+classdef temp < handle
+    properties
+        GithubOptions padv.pipeline.GitLabOptions % TO BE IMPLEMENTED
+        CurrentProject matlab.project.Project
+    end
+    properties(Constant, Access=private)
+        GenerateReportStageName = "Generate_PADV_Report"
+    end
+
+    properties(Constant,Access=private)
+        % These properties will store all the supported github actions keywords
+        WorkflowNameKeyword = 'name';
+        TriggerKeyword= 'on'
+        ManuallyTriggerKeyword = 'workflow_dispatch:'
+        PermissionsKeyword = 'permissions'
+        ContentsKeyword = 'contents'
+        checksKeyword = 'checks'
+        EnvironmentVariableKeyword='env'
+        JobsKeyword='jobs'
+        RunsOnKeyword='runs_on'
+        StopOnStageFailureKeyword= ' if'
+        DependsOnKeyword= 'needs'
+        StepsKeyword= 'steps___'
+        StepsNameKeyword= 'name'
+        ActionUsesKeyword='uses'
+        CacheArtifactsPathKeyword='path'
+        ArtifactsJunitNameKeyword='name'
+        CacheKeyKeyword='key'
+        RunKeyword='run'
+        WithKeyword='with'
+        MatlabCommandKeyword='command'
+        MatlabStartupOptionsKeyword='startup-options'
+        JUnitPathKeyword='report_paths'
+
+        % Constant action names
+
+        cacheAction= 'actions/cache@v2'
+        checkoutAction= 'actions/checkout@v2'
+        matlabAction= 'matlab-actions/run-command@v1'
+        uploadArtifactAction= 'actions/upload-artifact@v2'
+        JUnitAction= 'mikepenz/action-junit-report@v3'
+        
+        pathToMatlab='PATH_TO_MATLAB'
+
+        
+        runStep='regularRunStep'
+        actionStep='regularActionStep'
+        
+
+
+
+    end
+
+    properties
+        topLevelKeywords
+        GithubKeywordhierarchy
+        jobs     
+        permissions
+        env
+
+        %Different types of steps that we can have
+        regularRunStep
+        regularActionStep
+
+        
+    end  
+
+    methods(Static)
+        function obj = temp()
+
+            %Keyword hierarchy 
+            
+            obj.topLevelKeywords={obj.WorkflowNameKeyword , obj.TriggerKeyword, obj.PermissionsKeyword, obj.EnvironmentVariableKeyword, obj.JobsKeyword};
+            obj.permissions={obj.PermissionsKeyword,obj.checksKeyword, obj.ContentsKeyword};
+            obj.env={obj.EnvironmentVariableKeyword,obj.pathToMatlab};
+            obj.jobs={ obj.JobsKeyword,obj.RunsOnKeyword, obj.StepsKeyword, obj.DependsOnKeyword};
+
+            obj.regularRunStep={obj.StepsNameKeyword,obj.RunKeyword};
+            obj.regularActionStep={obj.StepsNameKeyword, obj.ActionUsesKeyword};
+            obj.generateKeywordHierarchy;
+            obj.generatePipeline
+
+
+       
+        end
+
+        function generatorResults = generatePipeline(obj, irPipeline)
+            generatorResults = padv.pipeline.GeneratorResults;
+            obj.generateKeywordHierarchy;
+            githubPipeline = padv.pipeline.internal.github.IR2GithubPipelineConvertor.convert(irPipeline, obj.GithubOptions.GeneratedYMLFileName);
+            githubPipeline.makeNamesUnique(true);
+            obj.createGithubYMLContent(githubPipeline);
+        end
+
+        
+
+        function generateKeywordHierarchy(obj)
+            for kk = 1:length(obj.topLevelKeywords)
+                disp(obj.topLevelKeywords{kk})
+                skeletalStruc.(obj.topLevelKeywords{kk}) = struct;
+            end
+            obj.GithubKeywordhierarchy = obj.nestedStructureRecursive(skeletalStruc);
+
+
+        end
+        function struc = nestedStructureRecursive(obj, struc)
+            fields = fieldnames(struc);
+            for kk = 1:length(fields)
+                disp(fields{kk})
+                if isprop(obj, fields{kk})
+                    keywords = obj.(fields{kk});
+                    for jj = 1:length(keywords)
+                        if iscell(keywords{jj})
+                            if isstruct(keywords{jj}{1})
+                                struc.(fields{kk}).(keywords{jj}) = '';
+                            else
+                                struc.(fields{kk}).(keywords{jj}) = struct();
+                            end
+                        else
+                            struc.(fields{kk}).(keywords{jj}) = '';
+                        end
+                    end
+                else
+                    struc.(fields{kk}) = '';
+                end
+            end
+        end
+
+        function createGithubYMLContent(obj, githubPipeline)
+            obj.GithubKeywordhierarchy.name=obj.GithubOptions.GeneratedYMLFileName;
+            obj.GithubKeywordhierarchy.on=obj.ManuallyTriggerKeyword;
+            obj.GithubKeywordhierarchy.permissions.checks = 'write';
+            obj.GithubKeywordhierarchy.permissions.contents = 'read';
+            obj.GithubKeywordhierarchy.env.pathToMatlab=obj.GithubOptions.MatlabInstallationLocation;
+
+
+            
+
+
+            
+        end
+
+        
+
+
+
+
+    end
+
+end

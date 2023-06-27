@@ -1,0 +1,290 @@
+Polyspace was built with ASSERTS on
+<polyspace-bug-finder R2023b Prerelease PID237032 PGID237032>
+
+Polyspace verification of PolyspaceProject project.
+Starting at 06/26/2023, 11h12.
+
+Remark: -stub-embedded-coder-lookup-table-functions is ignored in Polyspace Bug
+|       Finder.
+Remark: -to is ignored in Polyspace Bug Finder.
+Remark: -O2 is ignored in Polyspace Bug Finder.
+Remark: -unsigned-integer-overflows is ignored in Polyspace Bug Finder.
+Remark: -uncalled-function-checks is ignored in Polyspace Bug Finder.
+Remark: -signed-integer-overflows is ignored in Polyspace Bug Finder.
+Remark: -class-analyzer is ignored in Polyspace Bug Finder.
+Remark: -check-subnormal is ignored in Polyspace Bug Finder.
+Remark: -allow-negative-operand-in-shift is ignored in Polyspace Bug Finder.
+Remark: -float-rounding-mode is ignored in Polyspace Bug Finder.
+Remark: By default, some results are not generated for headers.
+|       Search for '-generate-results-for' in user documentation to generate results for these headers.
+
+Verifying sources compliance ...
+
+Options used with Verifier:
+-prog=PolyspaceProject
+-lang=C-CPP
+-polyspace-version=23.2 (R2023b Prerelease)
+-results-dir=/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/InnerLoop_Control/coding_standards
+-date=26/06/2023
+
+User:
+-mbd=true
+-pointer-is-32bits=true
+-int-is-32bits=true
+-long-is-32bits=true
+-long-long-is-64bits=true
+-double-is-64bits=true
+-target=mcpu
+-compiler=generic
+-dos=true
+-D1=main=main_rtwec
+-D2=__restrict__=
+-D3=MODEL=InnerLoop_Control
+-D4=NUMST=1
+-D5=NCSTATES=0
+-D6=HAVESTDIO
+-D7=MODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+-D8=CLASSIC_INTERFACE=0
+-D9=ALLOCATIONFCN=0
+-D10=TID01EQ=0
+-D11=TERMFCN=0
+-D12=ONESTEPFCN=1
+-D13=MAT_FILE=0
+-D14=MULTI_INSTANCE_CODE=0
+-D15=INTEGER_CODE=0
+-D16=MT=0
+-little-endian=true
+-align=32
+-default-sign-of-char=signed
+-functions-to-stub=[rtIsNaN,rtIsInf,rtIsNaNF,rtIsInfF]
+-data-range-specifications=/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/InnerLoop_Control/coding_standards/generated_drs.xml
+-functions-called-in-loop=custom=InnerLoop_Control
+-functions-called-before-loop=[InnerLoop_Control_initialize]
+-variables-written-in-loop=none
+-variables-written-before-loop=none
+-verif-version=1.0
+-author=vanshg
+-boolean-types=[boolean_T]
+-main-generator=true
+-disable-checkers=[all]
+-misra3-agc-mode=true
+-misra3=mandatory-required
+-I1=/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code
+-I2=/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control
+-I3=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/extern/include
+-I4=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/simulink/include
+-I5=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src
+-I6=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src/ext_mode/common
+-I7=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/ert
+-I8=/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/_sharedutils
+
+
+Checkers enabled:
+    Defects 0/354
+    MISRA C:2012 102/173
+
+
+Verifying host configuration:
+Number of physical cores:                8
+Number of logical cores:                 8
+Processor type:                          x86_64
+Processor model:                Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz
+Processor frequency:            2.600 GHz
+Memory > 4 GB:                                           31.41 GB
+Tmp space available in /tmp/vanshg_SB_LEASE_ID_61814:    59.91 GB
+
+Remark: 8 physical core(s) detected. The verification creates 8 process(es).
+*** Configuration of the host :	OK
+
+Computer memory:
+              total        used        free      shared  buff/cache   available
+Mem:       32941740     5230556    19745736        9628     7965448    27239456
+Swap:       4194300       77056     4117244
+
+Type /home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/InnerLoop_Control/coding_standards/kill-rte-kernel on host lsdbgl21220glnxa64 to halt Verifier process
+
+Checking license ...
+License is OK
+
+
+Polyspace C/C++ analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Mon Jun 26 11:12:32 2023
+Host: Linux lsdbgl21220glnxa64 4.19.0-9-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** C-CPP source compliance checking
+***
+**********************************************************
+
+Verifying sources ...
+Verifying InnerLoop_Control.c (1/2) [C]
+Verifying InnerLoop_Control_data.c (2/2) [C]
+User time for compilation.unit: 00:00:01.14 (1.14real, 1.14u + 0.31s)
+Global compilation phase...
+
+Number of files                  : 2
+Number of lines                  : 185
+Number of lines without comments : 66
+
+These metrics include header file content in addition to source files and reflect the true complexity of code and analysis.
+Number of source files    : 2
+Number of C/C++ lines of code : 298 (excludes commented (398) and empty lines (158))
+Number of headers         : 9 (directly included in sources 2, Maximum depth of inclusion 2)
+
+Verifying cross-files C-CPP compliance
+User time for compilation.link1: 00:00:00.38 (0.38real, 0.14u + 0.06s)
+
+Stubbing standard library functions ...
+Doing code transformations ...
+data-range-specifications: 'InnerLoop_Control.arg1' [1] (not null) (multi) (init)
+data-range-specifications: 'InnerLoop_Control.arg1[]' in [-30..30] (init)
+data-range-specifications: 'InnerLoop_Control.arg2' [1] (not null) (multi) (init)
+data-range-specifications: 'InnerLoop_Control.arg2[]' in [-30..30] (init)
+data-range-specifications: 'InnerLoop_Control.arg3' [1] (not null) (multi) (init)
+data-range-specifications: 'InnerLoop_Control.arg3[]' in [-15..15] (init)
+data-range-specifications: 'InnerLoop_Control.arg4' [5] (not null) (multi) (init)
+data-range-specifications: 'InnerLoop_Control.arg4[]' in [-180..180] (init)
+data-range-specifications: 'InnerLoop_Control.arg5' [3] (not null) (multi) (init)
+data-range-specifications: 'InnerLoop_Control.arg5[]' in [-1.79769E+308..1.79769E+308] (init)
+User time for compilation.link2: 00:00:00.61 (0.61real, 0.32u + 0.13s)
+Remark: The generated default DRS XML file "drs-template.xml" can be found in <result_dir> folder.
+
+
+
+Packing compilation data
+
+Defects statistics:
+  - Total number of defects: 0
+done.
+
+**********************************************************
+***
+*** C-CPP source compliance checking done
+***
+**********************************************************
+Ending at: Mon Jun 26 11:12:34 2023
+User time for compilation: 00:00:02.73 (2.73real, 1.87u + 0.6s (0.02gc))
+
+Polyspace C/C++ analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Mon Jun 26 11:12:34 2023
+Host: Linux lsdbgl21220glnxa64 4.19.0-9-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Pre-analysis
+***
+**********************************************************
+**** Bug-finder - Pre-analysis - 1 (P_AL)
+Total complexity = 1296
+**** Bug-finder - Pre-analysis - 1 (P_AL) took 0.06real, 0.04u + 0s (0.01gc)
+**** Bug-finder - Pre-analysis - 2 (P_ACP)
+* n-acp-t = 0 n-epp' = 0 n-acp-l = 0
+**** Bug-finder - Pre-analysis - 2 (P_ACP) took 0real, 0u + 0s
+**** Bug-finder - Pre-analysis - 3 (P_O)
+**** Bug-finder - Pre-analysis - 3 (P_O) took 0real, 0u + 0s
+**** Bug-finder - Pre-analysis - 4 (P_MA)
+**** Bug-finder - Pre-analysis - 4 (P_MA) took 0real, 0u + 0s (0gc)
+**** Bug-finder - Pre-analysis - 5 (P_G)
+**** Bug-finder - Pre-analysis - 5 (P_G) took 0.01real, 0.01u + 0s (0gc)
+**** Bug-finder - Pre-analysis - 6 (P_TT)
+**** Bug-finder - Pre-analysis - 6 (P_TT) took 0real, 0u + 0s
+**** Bug-finder - Pre-analysis - 7 (P_FI)
+*** bug_finder_global_analysis: saving repository ...
+*** bug_finder_global_analysis: ... repository saved!
+**** Bug-finder - Pre-analysis - 7 (P_FI) took 0.02real, 0u + 0s
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.32real
+
+**********************************************************
+***
+*** Bug-finder - Pre-analysis done
+***
+**********************************************************
+Ending at: Mon Jun 26 11:12:35 2023
+User time for pre-analysis: 00:00:00.81 (0.81real, 0.39u + 0.11s (0.03gc))
+
+Polyspace C/C++ analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Mon Jun 26 11:12:35 2023
+Host: Linux lsdbgl21220glnxa64 4.19.0-9-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Function Analysis
+***
+**********************************************************
+**** Bug-finder - Function Analysis - (Verifying function #1 / 2: InnerLoop_Control)
+**** Bug-finder - Function Analysis - (Verifying function #2 / 2: InnerLoop_Control_initialize)
+**** Bug-finder - Function Analysis - (Verifying function #2 / 2: InnerLoop_Control_initialize) took 0.3real
+**** Bug-finder - Function Analysis - (Verifying function #1 / 2: InnerLoop_Control) took 0.68real
+Maximum Memory Usage: 1146 MB
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.32real
+
+* Total IL complexity: 3000
+
+**********************************************************
+***
+*** Bug-finder - Function Analysis done
+***
+**********************************************************
+Ending at: Mon Jun 26 11:12:36 2023
+User time for function: 00:00:01.12 (1.12real, 0.96u + 0.28s (0.01gc))
+
+Polyspace C/C++ analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Mon Jun 26 11:12:36 2023
+Host: Linux lsdbgl21220glnxa64 4.19.0-9-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Module Analysis
+***
+**********************************************************
+**** Bug-finder - Module Analysis - 1 (Computing modules)
+**** Bug-finder - Module Analysis - 1 (Computing modules) took 0.02real, 0u + 0.01s
+* Created 1 module
+**** Bug-finder - Module Analysis - (Verifying module #1 / 1: 2 functions)
+**** Bug-finder - Module Analysis - (Verifying module #1 / 1: 2 functions) took 0.86real
+Maximum Memory Usage: 573 MB
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.28real
+
+**********************************************************
+***
+*** Bug-finder - Module Analysis done
+***
+**********************************************************
+Ending at: Mon Jun 26 11:12:38 2023
+User time for module: 00:00:01.24 (1.24real, 0.95u + 0.13s (0.02gc))
+User time for polyspace-bug-finder: 00:00:06.63 (6.63real, 4.42u + 1.22s (0.07gc))
+
+***
+*** End of Polyspace analysis
+***

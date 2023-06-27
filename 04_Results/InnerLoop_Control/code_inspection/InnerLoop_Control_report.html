@@ -1,0 +1,5824 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<head>
+<style type="text/css">
+body {color:black;}
+table.T1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; border-spacing:0;padding:2px;border-collapse:collapse;}table.T0 {border-style:hidden; }TH.th1 { background-color:#EEEEFF;text-align:left;border-style:solid ;border-color:#EEEEFF;border-width:1px; padding:2px;}TD.d1 {border-style:solid ;border-color:#EEEEFF;border-width:1px; text-align:left;padding:2px;}TD.d0 {text-align: left;border-style:none;padding:2px;}.indented {margin-left:25px;}span.ERROR {color:red}
+span.FAILED {color:red}
+span.FAILED_TO_TRACE {color:red}
+span.FAILED_TO_VERIFY {color:red}
+span.JUSTIFIED {color:#0d60a0}
+span.MANUAL {color:#caad00}
+span.NON_FUNCTIONAL {color:black}
+span.NOT_PROCESSED {color:black}
+span.PARTIALLY_PROCESSED {color:#caad00}
+span.PARTIALLY_TRACED {color:#caad00}
+span.PARTIALLY_VERIFIED {color:#caad00}
+span.PASSED {color:green}
+span.TRACED {color:green}
+span.UNABLE_TO_PROCESS {color:#caad00}
+span.UNEXPECTED {color:#caad00}
+span.UNEXPECTEDDEF {color:red}
+span.UNEXPECTEDFUNC {color:red}
+span.UNKNOWN {color:black}
+span.VERIFIED {color:green}
+span.WARNING {color:#caad00}
+span.WAW {color:#caad00}
+span.CODE { white-space: pre;  }
+span.FORMATTED_MSG { white-space: pre;  }
+</style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript"> 
+ function rtwTableShrink(o, category)
+ {
+    var indent = document.getElementById(category + "_indent");
+    var fileTable = document.getElementById(category + "_table");
+    if (fileTable.style.display == "none") {
+        fileTable.style.display = "";
+        indent.style.display = "";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[-] </span>';
+    } else {
+        fileTable.style.display = "none";
+        indent.style.display = "none";
+        o.innerHTML = '<span style="font-family:monospace" id = "' + category + '_button">[+] </span>';
+    } 
+ }
+ </script><title>Simulink Code Inspector Report for InnerLoop_Control.slx</title></head>
+<body>
+<div style="text-align:center"> <h2>Simulink Code Inspector Report for <a href="matlab:open_system(slci.internal.encodeString('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','html','decode'))">InnerLoop_Control.slx</a></h2></div><hr>
+<table class="T0"><TR>
+<TD class="d0">
+<b>Inspected Model File :</b></TD>
+<TD class="d0">
+<a href="matlab:open_system(slci.internal.encodeString('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','html','decode'))">/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx</a></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Model Version :</b></TD>
+<TD class="d0">
+6.0</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Simulink Version :</b></TD>
+<TD class="d0">
+10.6 (R2022b)</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Checksum when Compiled as Referenced Model :</b></TD>
+<TD class="d0">
+1918983732 1172296174 790306017 41621881</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Model Last Modified On :</b></TD>
+<TD class="d0">
+20-Apr-2023 08:33:10</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Inspected Code Files :</b></TD>
+<TD class="d0">
+<a href ="file:////home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control.c">/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control.c</a></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b></b></TD>
+<TD class="d0">
+<a href ="file:////home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control_data.c">/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control_data.c</a></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Inspected Code Files Checksum :</b></TD>
+<TD class="d0">
+3FA446E02039C23ADD61C510E28A3491</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b></b></TD>
+<TD class="d0">
+BF17E1A395A7E7A714ACBD4388EEE200</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Code Inspection Run On :</b></TD>
+<TD class="d0">
+26-Jun-2023 11:20:48</TD>
+</TR>
+<TR>
+<TD class="d0">
+&nbsp;</TD>
+<TD class="d0">
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Overall Inspection Result : </b></TD>
+<TD class="d0">
+<b><span class="PASSED">Passed</span></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<b>Utils Need Manual Review :</b></TD>
+<TD class="d0">
+No</TD>
+</TR>
+</table><hr><h2>Code Verification Results : <span class="VERIFIED">Verified</span></h2><h4>Function Interface Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+</table></div><br/><h4>Model To Code Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">36</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Model objects with status Justified : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><h4>Code To Model Verification Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">3</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Write after write : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Inconsequential : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unexpected Definition : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Needs manual review : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Justified : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">41</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Partially processed : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unable to process : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Write after write : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Inconsequential : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Unexpected Definition : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Needs manual review : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Lines of code with status Justified : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><h4>Temporary Variable Usage Results : <span class="VERIFIED">Verified</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Function</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control_initialize</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Function does not have any temporary variable declarations</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+InnerLoop_Control</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<span class="UNKNOWN">Temporary variables with status Failed to verify : </span></TD>
+<TD class="d0">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+<span class="UNKNOWN">Temporary variables with status Verified : </span></TD>
+<TD class="d0">
+<span class="VERIFIED">6</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table></div><br/><br/><h2>Traceability Results : <span class="TRACED">Traced</span></h2><h4>Model To Code Traceability Results : <span class="TRACED">Traced</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Number of model objects</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Traced</span></TD>
+<TD class="d1">
+<span class="TRACED">36</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Partially processed</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Unable to process</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Failed to trace</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Justified</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></div><br/><h4>Code To Model Traceability Results : <span class="TRACED">Traced</span></h4><div class="indented"><table class="T1"><TR >
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Number of code lines</TH>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Traced</span></TD>
+<TD class="d1">
+<span class="TRACED">45</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Nonfunctional code</span></TD>
+<TD class="d1">
+<span class="NON_FUNCTIONAL">103</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Not processed</span></TD>
+<TD class="d1">
+<span class="NOT_PROCESSED">4</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Partially processed</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Unable to process</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Failed to trace</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+<span class="UNKNOWN">Justified</span></TD>
+<TD class="d1">
+<span class="UNKNOWN">0</span></TD>
+</TR>
+</table></div><br/><h4>Not processed code: </h4><div class="indented"><h4>File : <a href ="file:////home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control.c">InnerLoop_Control.c</a></h4><table class="T1"><TR >
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Code</TH>
+</TR>
+<TR >
+<TD class="d1">
+19</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;InnerLoop_Control.h&#34;
+</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+20</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;rtwtypes.h&#34;
+</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+21</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;InnerLoop_Control_private.h&#34;
+</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+23</TD>
+<TD class="d1">
+<span class="CODE">MdlrefDW_InnerLoop_Control_T InnerLoop_Control_MdlrefDW;
+</span></TD>
+</TR>
+</table></div><br/><br/><hr><h2>Code Verification Details</h2><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="2">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'2')"> 
+     <span style="font-family:monospace" id = "2_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function Interface Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="2_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="2_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="0">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'0')"> 
+     <span style="font-family:monospace" id = "0_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="0_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="0_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Check</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+Number of function arguments </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument names </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument data types </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function return type </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="1">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'1')"> 
+     <span style="font-family:monospace" id = "1_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="1_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="1_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Check</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+Number of function arguments </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument names </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function argument data types </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+Function return type </TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="3">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'3')"> 
+     <span style="font-family:monospace" id = "3_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Model To Code Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="3_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="3_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>Model : <a href="matlab:open_system(slci.internal.encodeString('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','html','decode'))">InnerLoop_Control</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Details</TH>
+<TH class="th1">
+Justification</TH>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:19')">&#60;model&#62;/PitchCorr</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:20')">&#60;model&#62;/RollCorr</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:21')">&#60;model&#62;/YawRateCorr</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:22')">&#60;model&#62;/AHRSData</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:23')">&#60;model&#62;/Demux</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Demux) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:52')">&#60;model&#62;/Model Info</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Model Info block) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55')">&#60;model&#62;/PitchFilter</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Low Pass Filter) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56')">&#60;model&#62;/RollFilter</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Low Pass Filter) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:30')">&#60;model&#62;/SOF</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:32')">&#60;model&#62;/Sum1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:31')">&#60;model&#62;/Sum2</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:33')">&#60;model&#62;/Sum3</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:48')">&#60;model&#62;/VectorConcatenate</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57')">&#60;model&#62;/YawRateFilter</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Low Pass Filter) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:34')">&#60;model&#62;/ActPosRef</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:52:1')">&#60;model&#62;/Model Info/EmptySubsystem</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (SubSystem) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:12')">&#60;model&#62;/PitchFilter/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:14')">&#60;model&#62;/PitchFilter/Gain</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:17')">&#60;model&#62;/PitchFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:15')">&#60;model&#62;/PitchFilter/Sum</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:13')">&#60;model&#62;/PitchFilter/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:12')">&#60;model&#62;/RollFilter/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:14')">&#60;model&#62;/RollFilter/Gain</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:17')">&#60;model&#62;/RollFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:15')">&#60;model&#62;/RollFilter/Sum</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:13')">&#60;model&#62;/RollFilter/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:12')">&#60;model&#62;/YawRateFilter/Input</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Inport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:14')">&#60;model&#62;/YawRateFilter/Gain</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:17')">&#60;model&#62;/YawRateFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:15')">&#60;model&#62;/YawRateFilter/Sum</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:13')">&#60;model&#62;/YawRateFilter/Output</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+Virtual/Eliminated</TD>
+<TD class="d0">
+ (Outport) </TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">global state initialization code</a>
+</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="6">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'6')"> 
+     <span style="font-family:monospace" id = "6_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Code To Model Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="6_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="6_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="4">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'4')"> 
+     <span style="font-family:monospace" id = "4_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="4_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="4_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Function outputs/state variables</TH>
+<TH class="th1">
+Contributing lines of code</TH>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:143</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:144</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:145</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="5">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'5')"> 
+     <span style="font-family:monospace" id = "5_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="5_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="5_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Function outputs/state variables</TH>
+<TH class="th1">
+Contributing lines of code</TH>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_data.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:42</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:43</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:44</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:45</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:46</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:111</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:118</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:119</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:120</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_data.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:42</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:43</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:44</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:45</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:46</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:101</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:104</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:126</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:127</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control_data.c:22</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:23</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:24</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:25</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:26</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:27</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:42</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:43</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:44</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:45</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:46</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:91</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:94</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:133</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:134</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_ActPosRef[0]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:60</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:61</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:62</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:63</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:64</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:65</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_ActPosRef[1]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:68</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:69</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:70</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:71</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:72</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:73</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+rty_ActPosRef[2]</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:76</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:77</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:78</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:79</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:80</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control.c:81</TD>
+<TD class="d0">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="9">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'9')"> 
+     <span style="font-family:monospace" id = "9_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Temporary Variable Usage </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="9_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="9_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="7">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'7')"> 
+     <span style="font-family:monospace" id = "7_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control_initialize</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="7_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="7_table">
+ <tr>
+ <td class="d0">Function does not have any temporary variable declarations
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T0" id="8">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'8')"> 
+     <span style="font-family:monospace" id = "8_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Function : InnerLoop_Control</b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="8_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="8_table">
+ <tr>
+ <td class="d0"><table class="T1"><TR >
+<TH class="th1">
+Temporary variable name</TH>
+<TH class="th1">
+Status</TH>
+</TR>
+<TR >
+<TD class="d1">
+i</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+i_0</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_Gain</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_Gain_kyqb</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_SOF</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+<TR >
+<TD class="d1">
+rtb_Sum1</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="10">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'10')"> 
+     <span style="font-family:monospace" id = "10_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Data Type Replacement Verification </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="10_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="10_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Code generation type name </TH>
+<TH class="th1">
+Replacement name</TH>
+<TH class="th1">
+Status</TH>
+<TH class="th1">
+Code location</TH>
+</TR>
+<TR >
+<TD class="d1">
+boolean_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+char_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int16_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int64_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int8_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+int_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+real32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+real_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint16_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint32_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint64_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint8_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+<TR >
+<TD class="d1">
+uint_T</TD>
+<TD class="d1">
+-</TD>
+<TD class="d1">
+<span class="VERIFIED">Verified</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table><br/><h2>Traceability Details</h2><table class="T0"><TR>
+<TD class="d0">
+<table class="T0" id="11">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'11')"> 
+     <span style="font-family:monospace" id = "11_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Model To Code Traceability </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="11_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="11_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>Model : <a href="matlab:open_system(slci.internal.encodeString('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','html','decode'))">InnerLoop_Control</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Details</TH>
+<TH class="th1">
+Justification</TH>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:19')">&#60;model&#62;/PitchCorr</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:20')">&#60;model&#62;/RollCorr</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:21')">&#60;model&#62;/YawRateCorr</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:22')">&#60;model&#62;/AHRSData</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:23')">&#60;model&#62;/Demux</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Demux)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:52')">&#60;model&#62;/Model Info</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Model Info block)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55')">&#60;model&#62;/PitchFilter</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Low Pass Filter)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56')">&#60;model&#62;/RollFilter</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Low Pass Filter)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:30')">&#60;model&#62;/SOF</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:43 , 45-46</TD>
+</TR>
+<TR>
+<TD class="d0">
+InnerLoop_Control_data.c:22-27</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:60-64 , 68-72 , 76-80</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:32')">&#60;model&#62;/Sum1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:111</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:31')">&#60;model&#62;/Sum2</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:101</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:33')">&#60;model&#62;/Sum3</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:91</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:48')">&#60;model&#62;/VectorConcatenate</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Optimized out</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57')">&#60;model&#62;/YawRateFilter</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Low Pass Filter)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:34')">&#60;model&#62;/ActPosRef</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:61 , 69 , 77</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:52:1')">&#60;model&#62;/Model Info/EmptySubsystem</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (SubSystem)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:12')">&#60;model&#62;/PitchFilter/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:14')">&#60;model&#62;/PitchFilter/Gain</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:118</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:17')">&#60;model&#62;/PitchFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:119</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:15')">&#60;model&#62;/PitchFilter/Sum</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:119</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:60 , 62 , 65 , 118 , 120</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:13')">&#60;model&#62;/PitchFilter/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:12')">&#60;model&#62;/RollFilter/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:14')">&#60;model&#62;/RollFilter/Gain</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:104</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:17')">&#60;model&#62;/RollFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:127</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:15')">&#60;model&#62;/RollFilter/Sum</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:126</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:68 , 70 , 73 , 126-127</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:13')">&#60;model&#62;/RollFilter/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:12')">&#60;model&#62;/YawRateFilter/Input</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Inport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:14')">&#60;model&#62;/YawRateFilter/Gain</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:94</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:17')">&#60;model&#62;/YawRateFilter/Gain1</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:134</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:15')">&#60;model&#62;/YawRateFilter/Sum</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:133</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:76 , 78 , 81 , 133-134</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:13')">&#60;model&#62;/YawRateFilter/Output</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Virtual/Eliminated (Outport)</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">global state initialization code</a>
+</TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+InnerLoop_Control.c:143-145</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table><table class="T0" id="12">
+  <tr> 
+    <td style="text-align:left;">
+    <span style="background-color:#ffffff;cursor:pointer;white-space:nowrap" title="Click to shrink or expand category"        onclick="rtwTableShrink(this,'12')"> 
+     <span style="font-family:monospace" id = "12_button">[-]
+</span>
+    </span>
+    </td>
+    <td class="d0">
+    <b>Code To Model Traceability </b>
+    </td><td class="d0"></td>
+  </tr>
+  <tr>
+  <td class="d0">
+  <span id="12_indent"></span>
+  </td>
+  <td class="d0">
+ <table style="display:all; border-style:none;" id="12_table">
+ <tr>
+ <td class="d0"><table class="T0"><TR>
+<TD class="d0">
+<table class="T0"><TR>
+<TD class="d0">
+<b>File : <a href ="file:////home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/InnerLoop_Control/InnerLoop_Control.c">InnerLoop_Control.c</a></b></TD>
+</TR>
+<TR>
+<TD class="d0">
+<table class="T1"><TR >
+<TH class="th1">
+Code location</TH>
+<TH class="th1">
+Code</TH>
+<TH class="th1">
+Model object</TH>
+<TH class="th1">
+Details</TH>
+<TH class="th1">
+Justification</TH>
+</TR>
+<TR >
+<TD class="d1">
+1</TD>
+<TD class="d1">
+<span class="CODE">/*
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+2</TD>
+<TD class="d1">
+<span class="CODE"> * Prerelease License - for engineering feedback and testing purposes
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+3</TD>
+<TD class="d1">
+<span class="CODE"> * only. Not for sale.
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+4</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+5</TD>
+<TD class="d1">
+<span class="CODE"> * File: InnerLoop_Control.c
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+6</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+7</TD>
+<TD class="d1">
+<span class="CODE"> * Code generated for Simulink model &#39;InnerLoop_Control&#39;.
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+8</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+9</TD>
+<TD class="d1">
+<span class="CODE"> * Model version                  : 6.0
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+10</TD>
+<TD class="d1">
+<span class="CODE"> * Simulink Coder version         : 23.2 (R2023b) 19-Apr-2023
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+11</TD>
+<TD class="d1">
+<span class="CODE"> * C/C++ source code generated on : Mon Jun 26 10:54:46 2023
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+12</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+13</TD>
+<TD class="d1">
+<span class="CODE"> * Target selection: ert.tlc
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+14</TD>
+<TD class="d1">
+<span class="CODE"> * Embedded hardware selection: ARM Compatible-&#62;ARM 10
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+15</TD>
+<TD class="d1">
+<span class="CODE"> * Code generation objectives: Unspecified
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+16</TD>
+<TD class="d1">
+<span class="CODE"> * Validation result: Not run
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+17</TD>
+<TD class="d1">
+<span class="CODE"> */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+18</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+19</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;InnerLoop_Control.h&#34;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span> (Include statement) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+20</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;rtwtypes.h&#34;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span> (Include statement) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+21</TD>
+<TD class="d1">
+<span class="CODE">#include &#34;InnerLoop_Control_private.h&#34;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span> (Include statement) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+22</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+23</TD>
+<TD class="d1">
+<span class="CODE">MdlrefDW_InnerLoop_Control_T InnerLoop_Control_MdlrefDW;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NOT_PROCESSED">Not processed</span></span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+24</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+25</TD>
+<TD class="d1">
+<span class="CODE">/* Output and update for referenced model: &#39;InnerLoop_Control&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+26</TD>
+<TD class="d1">
+<span class="CODE">void InnerLoop_Control(const real_T *rtu_PitchCorr, const real_T *rtu_RollCorr,
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+27</TD>
+<TD class="d1">
+<span class="CODE">  const real_T *rtu_YawRateCorr, const real_T rtu_AHRSData[5], real_T
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+28</TD>
+<TD class="d1">
+<span class="CODE">  rty_ActPosRef[3])
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">output and update function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+29</TD>
+<TD class="d1">
+<span class="CODE">{
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Start of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+30</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_SOF[3];
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+31</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_Gain;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+32</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_Gain_kyqb;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+33</TD>
+<TD class="d1">
+<span class="CODE">  real_T rtb_Sum1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+34</TD>
+<TD class="d1">
+<span class="CODE">  int32_T i;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+35</TD>
+<TD class="d1">
+<span class="CODE">  int32_T i_0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">Local variable declaration</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+36</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+37</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;Root&#62;/SOF&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+38</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+39</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/SOF&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+40</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5 Multi-Variable Inner Loop Control
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+41</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+42</TD>
+<TD class="d1">
+<span class="CODE">  for (i = 0; i &#60; 3; i = i + 1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:22')">&#60;model&#62;/AHRSData</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+43</TD>
+<TD class="d1">
+<span class="CODE">    rtb_SOF[i] = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:30')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+44</TD>
+<TD class="d1">
+<span class="CODE">    for (i_0 = 0; i_0 &#60; 5; i_0 = i_0 + 1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:22')">&#60;model&#62;/AHRSData</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+45</TD>
+<TD class="d1">
+<span class="CODE">      rtb_SOF[i] = rtb_SOF[i] + (InnerLoop_Control_ConstP.SOF_Gain[i + (3 * i_0)...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:30')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+46</TD>
+<TD class="d1">
+<span class="CODE">        * rtu_AHRSData[i_0]);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:22')">&#60;model&#62;/AHRSData</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:30')">&#60;model&#62;/SOF</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+47</TD>
+<TD class="d1">
+<span class="CODE">    }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+48</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+49</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+50</TD>
+<TD class="d1">
+<span class="CODE">  /* End of Gain: &#39;&#60;Root&#62;/SOF&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+51</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+52</TD>
+<TD class="d1">
+<span class="CODE">  /* Saturate: &#39;&#60;Root&#62;/Saturation&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+53</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S2&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+54</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S3&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+55</TD>
+<TD class="d1">
+<span class="CODE">   *  UnitDelay: &#39;&#60;S4&#62;/UnitDelay&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+56</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+57</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Saturation&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+58</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5 Multi-Variable Inner Loop Control
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+59</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+60</TD>
+<TD class="d1">
+<span class="CODE">  if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+61</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[0] = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:34')">&#60;model&#62;/ActPosRef</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+62</TD>
+<TD class="d1">
+<span class="CODE">  } else if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE &#60; -0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+63</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[0] = -0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+64</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+65</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[0] = InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+66</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+67</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+68</TD>
+<TD class="d1">
+<span class="CODE">  if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+69</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[1] = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:34')">&#60;model&#62;/ActPosRef</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+70</TD>
+<TD class="d1">
+<span class="CODE">  } else if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii &#60; -0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+71</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[1] = -0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+72</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+73</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[1] = InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+74</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+75</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+76</TD>
+<TD class="d1">
+<span class="CODE">  if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb &#62; 0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+77</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[2] = 0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:34')">&#60;model&#62;/ActPosRef</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+78</TD>
+<TD class="d1">
+<span class="CODE">  } else if (InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb &#60; -0.1) {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+79</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[2] = -0.1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+80</TD>
+<TD class="d1">
+<span class="CODE">  } else {
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:53')">&#60;model&#62;/Saturation</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Keyword) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+81</TD>
+<TD class="d1">
+<span class="CODE">    rty_ActPosRef[2] = InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+82</TD>
+<TD class="d1">
+<span class="CODE">  }
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+83</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+84</TD>
+<TD class="d1">
+<span class="CODE">  /* End of Saturate: &#39;&#60;Root&#62;/Saturation&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+85</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+86</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;Root&#62;/Sum3&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+87</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+88</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum3&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+89</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5 Multi-Variable Inner Loop Control
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+90</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+91</TD>
+<TD class="d1">
+<span class="CODE">  rtb_Sum1 = (*rtu_YawRateCorr) - rtb_SOF[2];
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:21')">&#60;model&#62;/YawRateCorr</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:33')">&#60;model&#62;/Sum3</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+92</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+93</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;S4&#62;/Gain&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+94</TD>
+<TD class="d1">
+<span class="CODE">  rtb_Gain = 0.329679953964361 * rtb_Sum1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:14')">&#60;model&#62;/PitchFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:14')">&#60;model&#62;/RollFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:14')">&#60;model&#62;/YawRateFilter/Gain</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+95</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+96</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;Root&#62;/Sum2&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+97</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+98</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum2&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+99</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5 Multi-Variable Inner Loop Control
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+100</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+101</TD>
+<TD class="d1">
+<span class="CODE">  rtb_Sum1 = (*rtu_RollCorr) - rtb_SOF[1];
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:20')">&#60;model&#62;/RollCorr</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:31')">&#60;model&#62;/Sum2</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+102</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+103</TD>
+<TD class="d1">
+<span class="CODE">  /* Gain: &#39;&#60;S3&#62;/Gain&#39; */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+104</TD>
+<TD class="d1">
+<span class="CODE">  rtb_Gain_kyqb = 0.329679953964361 * rtb_Sum1;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:14')">&#60;model&#62;/PitchFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:14')">&#60;model&#62;/RollFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:14')">&#60;model&#62;/YawRateFilter/Gain</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+105</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+106</TD>
+<TD class="d1">
+<span class="CODE">  /* Sum: &#39;&#60;Root&#62;/Sum1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+107</TD>
+<TD class="d1">
+<span class="CODE">   *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+108</TD>
+<TD class="d1">
+<span class="CODE">   * Block requirements for &#39;&#60;Root&#62;/Sum1&#39;:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+109</TD>
+<TD class="d1">
+<span class="CODE">   *  1. HLR_5 Multi-Variable Inner Loop Control
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+110</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+111</TD>
+<TD class="d1">
+<span class="CODE">  rtb_Sum1 = (*rtu_PitchCorr) - rtb_SOF[0];
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:19')">&#60;model&#62;/PitchCorr</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:32')">&#60;model&#62;/Sum1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+112</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+113</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S2&#62;/UnitDelay&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+114</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S2&#62;/Gain&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+115</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S2&#62;/Gain1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+116</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S2&#62;/Sum&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+117</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+118</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE = (0.329679953964361 *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:14')">&#60;model&#62;/PitchFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:14')">&#60;model&#62;/RollFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:14')">&#60;model&#62;/YawRateFilter/Gain</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+119</TD>
+<TD class="d1">
+<span class="CODE">    rtb_Sum1) + (0.670320046035639 *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:15')">&#60;model&#62;/PitchFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:17')">&#60;model&#62;/PitchFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:15')">&#60;model&#62;/RollFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:17')">&#60;model&#62;/RollFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:15')">&#60;model&#62;/YawRateFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:17')">&#60;model&#62;/YawRateFilter/Gain1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+120</TD>
+<TD class="d1">
+<span class="CODE">                 InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE);
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+121</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+122</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S3&#62;/UnitDelay&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+123</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S3&#62;/Gain1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+124</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S3&#62;/Sum&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+125</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+126</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii = rtb_Gain_kyqb +
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:15')">&#60;model&#62;/PitchFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:15')">&#60;model&#62;/RollFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:15')">&#60;model&#62;/YawRateFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+127</TD>
+<TD class="d1">
+<span class="CODE">    (0.670320046035639 * InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii);...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:17')">&#60;model&#62;/PitchFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:17')">&#60;model&#62;/RollFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:17')">&#60;model&#62;/YawRateFilter/Gain1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+128</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+129</TD>
+<TD class="d1">
+<span class="CODE">  /* Update for UnitDelay: &#39;&#60;S4&#62;/UnitDelay&#39; incorporates:
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+130</TD>
+<TD class="d1">
+<span class="CODE">   *  Gain: &#39;&#60;S4&#62;/Gain1&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+131</TD>
+<TD class="d1">
+<span class="CODE">   *  Sum: &#39;&#60;S4&#62;/Sum&#39;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+132</TD>
+<TD class="d1">
+<span class="CODE">   */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+133</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb = rtb_Gain +
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:15')">&#60;model&#62;/PitchFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:15')">&#60;model&#62;/RollFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:15')">&#60;model&#62;/YawRateFilter/Sum</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+134</TD>
+<TD class="d1">
+<span class="CODE">    (0.670320046035639 * InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb);...</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:16')">&#60;model&#62;/PitchFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:55:17')">&#60;model&#62;/PitchFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:16')">&#60;model&#62;/RollFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:56:17')">&#60;model&#62;/RollFilter/Gain1</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:16')">&#60;model&#62;/YawRateFilter/UnitDelay</a>
+</TD>
+</TR>
+<TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control:57:17')">&#60;model&#62;/YawRateFilter/Gain1</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+135</TD>
+<TD class="d1">
+<span class="CODE">}
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+136</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+137</TD>
+<TD class="d1">
+<span class="CODE">/* Model initialize function */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+138</TD>
+<TD class="d1">
+<span class="CODE">void InnerLoop_Control_initialize(void)
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">initialize function interface</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+139</TD>
+<TD class="d1">
+<span class="CODE">{
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Start of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+140</TD>
+<TD class="d1">
+<span class="CODE">  /* Registration code */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+141</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+142</TD>
+<TD class="d1">
+<span class="CODE">  /* states (dwork) */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+143</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+144</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_ceii = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+145</TD>
+<TD class="d1">
+<span class="CODE">  InnerLoop_Control_MdlrefDW.rtdw.UnitDelay_DSTATE_j3xb = 0.0;
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+<a href="matlab:slci.internal.ReportConfig.traceCallBack('/home/vanshg/.local/share/Trash/files/actions-runner.2/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx','InnerLoop_Control')">global state initialization code</a>
+</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN">-</span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+146</TD>
+<TD class="d1">
+<span class="CODE">}
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (End of code segment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+147</TD>
+<TD class="d1">
+<span class="CODE">
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Empty line) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+148</TD>
+<TD class="d1">
+<span class="CODE">/*
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+149</TD>
+<TD class="d1">
+<span class="CODE"> * File trailer for generated code.
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+150</TD>
+<TD class="d1">
+<span class="CODE"> *
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+151</TD>
+<TD class="d1">
+<span class="CODE"> * [EOF]
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+<TR >
+<TD class="d1">
+152</TD>
+<TD class="d1">
+<span class="CODE"> */
+</span></TD>
+<TD class="d1">
+<table class="T0"><TR>
+<TD class="d0">
+-</TD>
+</TR>
+</table></TD>
+<TD class="d1">
+<span class="UNKNOWN"><span class="NON_FUNCTIONAL">Nonfunctional code</span> (Comment) </span></TD>
+<TD class="d1">
+-</TD>
+</TR>
+</table></TD>
+</TR>
+</table></TD>
+</TR>
+</table>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ </table></TD>
+</TR>
+</table><br/><hr></body></html>
