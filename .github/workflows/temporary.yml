@@ -13,15 +13,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Run the matlab version
+        run: |        
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+      - name: Launch project
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);"
+             startup-options: -nodesktop -logfile output.log    
         
       - name: check directories
         run: ls
         
-      - name: Run the matlab version
-        run: |
-        
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
+
       - name: run the error function
         run: matlab -batch "run('Error.m')"
         
@@ -30,6 +35,7 @@ jobs:
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
+             
       - name: run the error function
         run: matlab -batch "run('Error.m')"       
       - name: Upload artifacts
@@ -40,8 +46,7 @@ jobs:
           04_Results/AHRS_Voter/webview 
           derived/artifacts.dmr    
              
-      - name: check directories
-        run: ls 
+
  
 
         
