@@ -24,7 +24,7 @@ jobs:
       - name: Launch project 1
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);CheckActuatorExecution.m"
+             command: "openProject(pwd);CheckActuatorExecution"
              startup-options: -nodesktop -logfile output.log    
         
         
@@ -37,7 +37,7 @@ jobs:
       - name: Launch project 2
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);CheckActuatorExecution.m"
+             command: "openProject(pwd);CheckActuatorExecution"
              startup-options: -nodesktop -logfile output.log          
 
       - name: Upload artifacts
