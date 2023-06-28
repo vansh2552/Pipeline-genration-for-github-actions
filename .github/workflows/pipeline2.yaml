@@ -26,11 +26,6 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
         
         
       - name: Launch MATLAB
@@ -39,11 +34,7 @@ jobs:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+       
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -73,11 +64,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -86,11 +73,7 @@ jobs:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -125,11 +108,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -138,11 +117,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+      
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -172,11 +147,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -185,11 +156,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+  
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -220,11 +187,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -233,11 +196,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b','padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+         
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -268,11 +227,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -281,11 +236,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+      
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -315,11 +266,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -328,11 +275,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+         
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -362,11 +305,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -375,11 +314,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+        
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -408,11 +343,6 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
         
         
       - name: Launch MATLAB
@@ -421,11 +351,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -454,11 +380,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -467,11 +389,7 @@ jobs:
               command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();" 
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+  
          
 
   AHRS_Collect_Artifacts:
@@ -493,11 +411,7 @@ jobs:
           echo "$PATH" >> $GITHUB_PATH 
       - name: check directories
         run: ls     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -506,11 +420,7 @@ jobs:
               command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+        
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
@@ -868,11 +778,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -881,11 +787,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+  
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -913,11 +815,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -926,11 +824,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+        
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -957,11 +851,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+  
         
         
       - name: Launch MATLAB
@@ -970,11 +860,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+        
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -1002,11 +888,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+ 
         
         
       - name: Launch MATLAB
@@ -1015,11 +897,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+     
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -1048,11 +926,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -1060,12 +934,7 @@ jobs:
         with:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
-             
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+         
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -1092,11 +961,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+   
         
         
       - name: Launch MATLAB
@@ -1105,11 +970,7 @@ jobs:
               command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
+ 
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -1137,11 +998,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+  
         
         
       - name: Launch MATLAB
@@ -1149,13 +1006,6 @@ jobs:
         with:
               command: "openProject(pwd);rptObj=padv.ProcessAdvisorReportGenerator(Format='pdf', OutputPath='$PROJECTROOT$/ProcessAdvisorReport');rptObj.generateReport();"
               startup-options: -nodesktop -logfile output.log
-             
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log          
-
 
 
            
@@ -1175,11 +1025,7 @@ jobs:
         run: |        
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH     
-      - name: Launch project 1
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log    
+
         
         
       - name: Launch MATLAB
@@ -1188,11 +1034,7 @@ jobs:
               command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/InnerLoop_Control/code_inspection', '04_Results/InnerLoop_Control/coding_standards', '04_Results/InnerLoop_Control/design_error_detections', '04_Results/InnerLoop_Control/model_standards_results', '04_Results/InnerLoop_Control/system_design_description', '04_Results/InnerLoop_Control/webview', 'ProcessAdvisorReport.pdf'},'IL_padv_artifacts.zip');" 
               startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution"
-             startup-options: -nodesktop -logfile output.log 
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
