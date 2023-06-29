@@ -1,36 +1,20 @@
-name: temp
+name: Continue on Error Example
+
 on:
   workflow_dispatch:
 
-
-permissions:
-    contents: read
-    checks: write
-    
-env:
-  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-
-  
 jobs:
-  AHRS_Collect_Artifacts:
-   runs-on: linux1
-
-   steps:
-
-      - name: Run the matlab version
-        run: |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH
+  job1:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:  
+      - name: Step 1 (Failing Step)
+        run: exit 1
         
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
-         startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: padv_artifacts_AHRS_Voter
-         path: |
-          padv_artifacts_AHRS_Voter.zip
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Another Job
+        run: echo "This is another job"
