@@ -9,7 +9,7 @@ jobs:
     continue-on-error: true
     steps:  
       - name: Step 1 
-        run: - >
+        run: >
          echo "hello"
          echo "hello"
         
