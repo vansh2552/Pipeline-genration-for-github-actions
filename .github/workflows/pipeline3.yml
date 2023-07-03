@@ -28,7 +28,7 @@ jobs:
 
         
       - name: Run the matlab version
-        shell: bash
+        
         run: |
         
           export PATH="$PATH_TO_MATLAB:$PATH"
