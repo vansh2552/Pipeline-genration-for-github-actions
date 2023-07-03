@@ -1,87 +1,43 @@
-name: pipeline3
-on: [workflow_dispatch]
+name: pipeline2
+on:
+  workflow_dispatch:
+
+
+permissions:
+    contents: read
+    checks: write
+    
+env:
+  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
+
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
     runs-on: linux1
-   
+    #if: ${{ always() }}
     steps:
-
+    
       - name: Checkout repository
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
+
+
+
         
       - name: Run the matlab version
         run: |
         
-          path_to_add="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-          export PATH="$path_to_add:$PATH"
+          export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
-
          
       - name: Launch MATLAB
-      
         uses: matlab-actions/run-command@v1
         with:
              command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
              startup-options: -nodesktop -logfile output.log
- 
-          
-  AHRS_Check_Modeling_Standards:
-   runs-on: linux1
-   needs: AHRS_Generate_Simulink_Web_View
-   steps:
-   
-   - name: Run the matlab version
-     run: |
-          path_to_add="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-          export PATH="$path_to_add:$PATH"
-          echo "$PATH" >> $GITHUB_PATH
-         
-   - name: Launch MATLAB
-     uses: matlab-actions/run-command@v1
-     with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
-         
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
-          
-   - name: AHRS_Voter_JUnit
-     uses: mikepenz/action-junit-report@v3
-     with:
-        name: AHRS_Voter
-        report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
-   
-  AHRS_Detect_Design_Errors:
-   runs-on: linux1
-   needs: AHRS_Check_Modeling_Standards
-   steps:
 
-   - name: Run the matlab version
-     run: |
-          path_to_add="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-          export PATH="$path_to_add:$PATH"
-          echo "$PATH" >> $GITHUB_PATH
-         
-   - name: Launch MATLAB
-     uses: matlab-actions/run-command@v1
-     with:
-         command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-         startup-options: -nodesktop -logfile output.log
-         
-   - name: Upload JUnit XML artifacts
-     uses: actions/upload-artifact@v2
-     with:
-         name: JUnit XML
-         path: |
-          04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
+      - name: Run tests and generate artifacts
+        uses: matlab-actions/run-tests@v1
+        with:
+          test-results-junit: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
+
           
-   - name: AHRS_Voter_JUnit
-     uses: mikepenz/action-junit-report@v3
-     with:
-        name: AHRS_Voter
-        report_paths: 04_Results/junit/padv_builtin_task_RunModelStandards_AHRS_Voter_JUnit.xml
