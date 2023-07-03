@@ -28,20 +28,12 @@ jobs:
 
         
       - name: Run the matlab version
+        shell: bash
         run: |
         
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH
          
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-             startup-options: -nodesktop -logfile output.log
 
-      - name: Run tests and generate artifacts
-        uses: matlab-actions/run-tests@v1
-        with:
-          test-results-junit: 04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
 
           
