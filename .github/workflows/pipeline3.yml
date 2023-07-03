@@ -1,4 +1,5 @@
-name: pipeline3
+name:
+  pipeline3
 on:
   workflow_dispatch:
 
@@ -13,7 +14,7 @@ env:
   
 jobs:
   AHRS_Generate_Simulink_Web_View:
-    runs-on: linux1
+    runs-on: ubuntu-latest
     #if: ${{ always() }}
     steps:
     
