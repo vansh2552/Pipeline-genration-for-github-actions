@@ -1,17 +1,35 @@
-name: temp
-
+name:
+  pipeline3
 on:
   workflow_dispatch:
 
+
+permissions:
+  checks:
+    write
+
+  contents:
+    read
+    
+env:
+  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
+
+  
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:  
-      - name: Step 1 
-        run: ->
-         echo "hello"
-         echo "hello"
-        
-
-
+  AHRS_Generate_Simulink_Web_View:
+    runs-on: Windows
+    #if: ${{ always() }}
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run the matlab version
+        shell: pwsh
+        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
+      
+         
+      - name: Launch MATLAB
+        uses: matlab-actions/run-command@v1
+        with:
+             command: "openProject(pwd);"
+             startup-options: -nodesktop -logfile output.log
