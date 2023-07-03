@@ -5,8 +5,11 @@ on:
 
 
 permissions:
-    contents: read
-    checks: write
+  checks:
+    write
+
+  contents:
+    read
     
 env:
   PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
