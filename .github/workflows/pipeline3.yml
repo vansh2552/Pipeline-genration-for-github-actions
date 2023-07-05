@@ -45,7 +45,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -73,7 +73,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -105,7 +105,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -124,7 +124,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -152,7 +152,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -184,7 +184,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -203,7 +203,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -231,7 +231,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -263,7 +263,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -282,7 +282,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -310,7 +310,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -320,7 +320,7 @@ jobs:
 
 
 
-  Run_Tests_AHRS_Voter_HLR_11:
+  Run_Tests_AHRS_Voter:
     runs-on:
       Linux
 
@@ -342,7 +342,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -361,7 +361,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|ced877ff-cfb8-4fa8-9bbf-aaa29b1d926b', 'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b', 'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -375,167 +375,12 @@ jobs:
 
         with:
           check_name:
-            Run_Tests_AHRS_Voter_HLR_11
+            Run_Tests_AHRS_Voter
 
           report_paths:
+           |
             04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_11_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-          path:
-           |
-            04_Results/test_results
-            derived/artifacts.dmr
-
-
-
-
-  Run_Tests_AHRS_Voter_HLR_12:
-    runs-on:
-      Linux
-
-    needs:
-      Run_Tests_AHRS_Voter_HLR_11
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-
-      - name:
-          Setup Matlab
-
-        run:
-         |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|d3a72cc8-687b-44ae-a909-7eff803b455b'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
-
-          startup_options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Run_Tests_AHRS_Voter_HLR_12
-
-          report_paths:
             04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_12_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-          path:
-           |
-            04_Results/test_results
-            derived/artifacts.dmr
-
-
-
-
-  Run_Tests_AHRS_Voter_HLR_13:
-    runs-on:
-      Linux
-
-    needs:
-      Run_Tests_AHRS_Voter_HLR_12
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-
-      - name:
-          Setup Matlab
-
-        run:
-         |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/AHRS_Voter/test_cases/AHRS_Voter_REQ_Based_Test.mldatx|74194125-b632-41a1-b96d-b3364441277f'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
-
-          startup_options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Run_Tests_AHRS_Voter_HLR_13
-
-          report_paths:
             04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_13_JUnit.xml
 
 
@@ -547,7 +392,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -562,7 +407,7 @@ jobs:
       Linux
 
     needs:
-      Run_Tests_AHRS_Voter_HLR_13
+      Run_Tests_AHRS_Voter
 
     steps:
       - name:
@@ -579,7 +424,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -598,7 +443,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -626,7 +471,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -658,7 +503,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -677,7 +522,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -705,7 +550,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -737,7 +582,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -756,7 +601,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -784,7 +629,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -816,7 +661,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -835,7 +680,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -863,7 +708,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
            |
@@ -877,26 +722,12 @@ jobs:
     runs-on:
       Linux
 
-    needs:
-      Merge_Test_Results_AHRS_Voter
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
 
       - name:
           Setup Matlab
@@ -914,7 +745,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -942,7 +773,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -974,7 +805,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -993,7 +824,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1021,7 +852,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1053,7 +884,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -1072,7 +903,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1100,7 +931,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1132,7 +963,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -1151,7 +982,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1179,7 +1010,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1211,7 +1042,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -1230,7 +1061,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1258,7 +1089,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1290,7 +1121,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -1309,7 +1140,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1337,7 +1168,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1369,7 +1200,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
 
       - name:
@@ -1388,7 +1219,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1416,7 +1247,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Actuator_Control
 
           path:
            |
@@ -1430,26 +1261,12 @@ jobs:
     runs-on:
       Linux
 
-    needs:
-      Inspect_Code_Actuator_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
 
       - name:
           Setup Matlab
@@ -1467,7 +1284,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1495,7 +1312,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1527,7 +1344,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1546,7 +1363,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1574,7 +1391,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1606,7 +1423,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1625,7 +1442,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1653,7 +1470,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1685,7 +1502,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1704,7 +1521,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1732,7 +1549,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1764,7 +1581,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1783,7 +1600,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1811,7 +1628,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1843,7 +1660,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1862,7 +1679,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1890,7 +1707,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1922,7 +1739,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
 
       - name:
@@ -1941,7 +1758,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -1969,7 +1786,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            Flight_Control
 
           path:
            |
@@ -1983,26 +1800,12 @@ jobs:
     runs-on:
       Linux
 
-    needs:
-      Inspect_Code_Flight_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
 
       - name:
           Setup Matlab
@@ -2020,7 +1823,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2048,7 +1851,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2080,7 +1883,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2099,7 +1902,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2127,7 +1930,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2159,7 +1962,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2178,7 +1981,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2206,7 +2009,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2238,7 +2041,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2257,7 +2060,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2285,7 +2088,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2317,7 +2120,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2336,7 +2139,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2364,7 +2167,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2396,7 +2199,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2415,7 +2218,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2443,7 +2246,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2475,7 +2278,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
 
       - name:
@@ -2494,7 +2297,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2522,7 +2325,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            InnerLoop_Control
 
           path:
            |
@@ -2536,26 +2339,12 @@ jobs:
     runs-on:
       Linux
 
-    needs:
-      Inspect_Code_InnerLoop_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
 
       - name:
           Setup Matlab
@@ -2573,7 +2362,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2601,7 +2390,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -2633,7 +2422,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -2652,7 +2441,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunModelStandards|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2680,7 +2469,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -2712,7 +2501,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -2731,7 +2520,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.DetectDesignErrors|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2759,7 +2548,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -2791,7 +2580,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -2810,7 +2599,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSDDReport|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2838,7 +2627,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -2848,7 +2637,7 @@ jobs:
 
 
 
-  Run_Tests_OuterLoop_Control_HLR_6:
+  Run_Tests_OuterLoop_Control:
     runs-on:
       Linux
 
@@ -2870,7 +2659,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -2889,7 +2678,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|862932e4-be44-4f66-9abe-fb313da73c0d'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|862932e4-be44-4f66-9abe-fb313da73c0d', 'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|70d344b2-d65f-4872-9e4b-cef338e618a5', 'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|51b0cb29-34f5-4c04-9104-4f3b0b48dda9'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -2903,89 +2692,13 @@ jobs:
 
         with:
           check_name:
-            Run_Tests_OuterLoop_Control_HLR_6
+            Run_Tests_OuterLoop_Control
 
           report_paths:
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_6_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-          path:
            |
-            04_Results/test_results
-            derived/artifacts.dmr
-
-
-
-
-  Run_Tests_OuterLoop_Control_HLR_7:
-    runs-on:
-      Linux
-
-    needs:
-      Run_Tests_OuterLoop_Control_HLR_6
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-
-      - name:
-          Setup Matlab
-
-        run:
-         |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|70d344b2-d65f-4872-9e4b-cef338e618a5'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
-
-          startup_options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Run_Tests_OuterLoop_Control_HLR_7
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_7_JUnit.xml
+              04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_6_JUnit.xml
+              04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_7_JUnit.xml
+              04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_8_JUnit.xml
 
 
       - name:
@@ -2996,86 +2709,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
-
-          path:
-           |
-            04_Results/test_results
-            derived/artifacts.dmr
-
-
-
-
-  Run_Tests_OuterLoop_Control_HLR_8:
-    runs-on:
-      Linux
-
-    needs:
-      Run_Tests_OuterLoop_Control_HLR_7
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
-
-
-      - name:
-          Setup Matlab
-
-        run:
-         |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunTestsPerTestCase|sl_test_case|ProcessAdvisorExample|02_Models/OuterLoop_Control/test_cases/OuterLoop_Control_REQ_Based_Test.mldatx|51b0cb29-34f5-4c04-9104-4f3b0b48dda9'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
-
-          startup_options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Run_Tests_OuterLoop_Control_HLR_8
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_RunTestsPerTestCase_HLR_8_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -3090,7 +2724,7 @@ jobs:
       Linux
 
     needs:
-      Run_Tests_OuterLoop_Control_HLR_8
+      Run_Tests_OuterLoop_Control
 
     steps:
       - name:
@@ -3107,7 +2741,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -3126,7 +2760,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -3154,7 +2788,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -3186,7 +2820,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -3205,7 +2839,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.AnalyzeModelCode|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -3233,7 +2867,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -3265,7 +2899,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -3284,7 +2918,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.RunCodeInspection|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -3312,7 +2946,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -3344,7 +2978,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
 
       - name:
@@ -3363,7 +2997,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);
+            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.MergeTestResults|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -3391,7 +3025,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            OuterLoop_Control
 
           path:
            |
@@ -3401,12 +3035,12 @@ jobs:
 
 
 
-  Collect_Artifacts:
+  AHRS_VoterCollect_Artifacts:
     runs-on:
       Linux
 
     needs:
-      Merge_Test_Results_OuterLoop_Control
+      Merge_Test_Results_AHRS_Voter
 
     steps:
       - name:
@@ -3423,7 +3057,7 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
 
       - name:
@@ -3442,7 +3076,7 @@ jobs:
 
         with:
           command:
-            openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/AHRS_Voter/webview','04_Results/AHRS_Voter/model_standards_results','04_Results/AHRS_Voter/design_error_detections','04_Results/AHRS_Voter/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/AHRS_Voter/coding_standards','04_Results/AHRS_Voter/code_inspection','04_Results/test_results','04_Results/Actuator_Control/webview','04_Results/Actuator_Control/model_standards_results','04_Results/Actuator_Control/design_error_detections','04_Results/Actuator_Control/system_design_description','03_Code','04_Results/Actuator_Control/coding_standards','04_Results/Actuator_Control/code_inspection','04_Results/Flight_Control/webview','04_Results/Flight_Control/model_standards_results','04_Results/Flight_Control/design_error_detections','04_Results/Flight_Control/system_design_description','03_Code','04_Results/Flight_Control/coding_standards','04_Results/Flight_Control/code_inspection','04_Results/InnerLoop_Control/webview','04_Results/InnerLoop_Control/model_standards_results','04_Results/InnerLoop_Control/design_error_detections','04_Results/InnerLoop_Control/system_design_description','03_Code','04_Results/InnerLoop_Control/coding_standards','04_Results/InnerLoop_Control/code_inspection','04_Results/OuterLoop_Control/webview','04_Results/OuterLoop_Control/model_standards_results','04_Results/OuterLoop_Control/design_error_detections','04_Results/OuterLoop_Control/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/OuterLoop_Control/coding_standards','04_Results/OuterLoop_Control/code_inspection','04_Results/test_results'},'padv_artifacts.zip');
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/AHRS_Voter/webview','04_Results/AHRS_Voter/model_standards_results','04_Results/AHRS_Voter/design_error_detections','04_Results/AHRS_Voter/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/AHRS_Voter/coding_standards','04_Results/AHRS_Voter/code_inspection','04_Results/test_results'},'AHRS_Voter_padv_artifacts.zip');"
 
           startup_options:
             -nodesktop -logfile output.log
@@ -3456,10 +3090,199 @@ jobs:
 
         with:
           name:
-            padv_artifacts
+            AHRS_Voter
 
           path:
-            padv_artifacts.zip
+            AHRS_Voter_padv_artifacts.zip
+
+
+
+
+  Actuator_ControlCollect_Artifacts:
+    runs-on:
+      Linux
+
+    needs:
+      Inspect_Code_Actuator_Control
+
+    steps:
+      - name:
+          Checkout repository
+
+        uses:
+          actions/checkout@v2
+
+      - name:
+          Download artifacts
+
+        uses:
+          actions/download-artifact@v2
+
+        with:
+          name:
+            Actuator_Control
+
+
+      - name:
+          Setup Matlab
+
+        run:
+         |
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+
+      - name:
+          Collect_Artifacts
+
+        uses:
+          matlab-actions/run-command@v1
+
+        with:
+          command:
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Actuator_Control/model_standards_results','04_Results/Actuator_Control/design_error_detections','04_Results/Actuator_Control/system_design_description','03_Code','04_Results/Actuator_Control/coding_standards','04_Results/Actuator_Control/code_inspection'},'Actuator_Control_padv_artifacts.zip');"
+
+          startup_options:
+            -nodesktop -logfile output.log
+
+
+      - name:
+          Upload artifacts
+
+        uses:
+          actions/upload-artifact@v2
+
+        with:
+          name:
+            Actuator_Control
+
+          path:
+            Actuator_Control_padv_artifacts.zip
+
+
+
+
+  Flight_ControlCollect_Artifacts:
+    runs-on:
+      Linux
+
+    needs:
+      Inspect_Code_Flight_Control
+
+    steps:
+      - name:
+          Checkout repository
+
+        uses:
+          actions/checkout@v2
+
+      - name:
+          Download artifacts
+
+        uses:
+          actions/download-artifact@v2
+
+        with:
+          name:
+            Flight_Control
+
+
+      - name:
+          Setup Matlab
+
+        run:
+         |
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+
+      - name:
+          Collect_Artifacts
+
+        uses:
+          matlab-actions/run-command@v1
+
+        with:
+          command:
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Flight_Control/model_standards_results','04_Results/Flight_Control/design_error_detections','04_Results/Flight_Control/system_design_description','03_Code','04_Results/Flight_Control/coding_standards','04_Results/Flight_Control/code_inspection'},'Flight_Control_padv_artifacts.zip');"
+
+          startup_options:
+            -nodesktop -logfile output.log
+
+
+      - name:
+          Upload artifacts
+
+        uses:
+          actions/upload-artifact@v2
+
+        with:
+          name:
+            Flight_Control
+
+          path:
+            Flight_Control_padv_artifacts.zip
+
+
+
+
+  InnerLoop_ControlCollect_Artifacts:
+    runs-on:
+      Linux
+
+    needs:
+      Inspect_Code_InnerLoop_Control
+
+    steps:
+      - name:
+          Checkout repository
+
+        uses:
+          actions/checkout@v2
+
+      - name:
+          Download artifacts
+
+        uses:
+          actions/download-artifact@v2
+
+        with:
+          name:
+            InnerLoop_Control
+
+
+      - name:
+          Setup Matlab
+
+        run:
+         |
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+
+      - name:
+          Collect_Artifacts
+
+        uses:
+          matlab-actions/run-command@v1
+
+        with:
+          command:
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/InnerLoop_Control/model_standards_results','04_Results/InnerLoop_Control/design_error_detections','04_Results/InnerLoop_Control/system_design_description','03_Code','04_Results/InnerLoop_Control/coding_standards','04_Results/InnerLoop_Control/code_inspection'},'InnerLoop_Control_padv_artifacts.zip');"
+
+          startup_options:
+            -nodesktop -logfile output.log
+
+
+      - name:
+          Upload artifacts
+
+        uses:
+          actions/upload-artifact@v2
+
+        with:
+          name:
+            InnerLoop_Control
+
+          path:
+            InnerLoop_Control_padv_artifacts.zip
 
 
 
