@@ -26,12 +26,12 @@ jobs:
 
       - name: Create Workflow File
         run: |
-          #TOKEN=${{ secrets.ACTIONS_SECRET  }}
-          OWNER=${{ github.repository_owner }}
-          REPO=${{ github.repository }}
+          $TOKEN = $env:secrets.ACTIONS_SECRET
+          OWNER= $env:github.repository_owner 
+          REPO=$env:github.repository
           FILENAME="simulink_workflow.yaml"
-          BRANCH=${{ github.ref }}
-          CHILD_WORKFLOW="${{ steps.read-child.outputs.child-workflow }}"
+          BRANCH=$env:github.ref 
+          CHILD_WORKFLOW="$env:steps.read-child.outputs.child-workflow 
           
           FILE_CONTENT=$(echo "${CHILD_WORKFLOW}" | base64)
 
