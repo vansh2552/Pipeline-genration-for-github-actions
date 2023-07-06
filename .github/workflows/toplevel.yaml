@@ -43,7 +43,7 @@ jobs:
               "path": ".github/workflows/'"$FILENAME"'",
               "message": "Create workflow file",
               "content": "'"$FILE_CONTENT"'",
-              "branch": "'$BRANCH'"
+              "branch": "'$BRANCH'",
             }'
          
 
