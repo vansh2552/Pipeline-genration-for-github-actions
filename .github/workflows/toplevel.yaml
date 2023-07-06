@@ -1,0 +1,63 @@
+name: generate file and execute
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  transfer_file:
+    runs-on: Windows-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTIONS_SECRET }}
+          
+      - name: Transfer the contents
+        run: |
+           echo F | xcopy ".github\workflows\pipeline2.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
+           
+      - name: Read Child Workflow File
+        id: read-child
+        run: |
+          CHILD_WORKFLOW=$(cat simulink_workflow.yaml)
+          echo "::set-output name=child-workflow::${CHILD_WORKFLOW}"
+
+      - name: Create Workflow File
+        run: |
+          TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          OWNER=${{ github.repository_owner }}
+          REPO=${{ github.repository }}
+          FILENAME="example.yaml"
+          BRANCH=${{ github.ref }}
+          CHILD_WORKFLOW="${{ steps.read-child.outputs.child-workflow }}"
+          
+          FILE_CONTENT=$(echo "${CHILD_WORKFLOW}" | base64)
+
+          curl -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$OWNER/$REPO/contents/.github/workflows/$FILENAME" \
+            -d '{
+              "path": ".github/workflows/'"$FILENAME"'",
+              "message": "Create workflow file",
+              "content": "'"$FILE_CONTENT"'",
+              "branch": "'"$BRANCH"'"
+            }'
+         
+
+          
+        
+  Execution:
+    runs-on: self-hosted
+    needs: transfer_file
+    
+    steps: 
+         
+       - name: Execute Workflow
+         uses: peter-evans/repository-dispatch@v1
+         with:
+           token: ${{ secrets.ACTIONS_SECRET }}
+           event-type: run-child-workflow
+ 
