@@ -14,14 +14,14 @@ jobs:
         with:
           token: ${{ secrets.ACTIONS_SECRET }}
           
-      - name: Transfer the contents
-        run: |
-           echo F | xcopy ".github\workflows\pipeline2.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
+#       - name: Transfer the contents
+#         run: |
+#            echo F | xcopy ".github\workflows\pipeline2.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
            
       - name: Read Child Workflow File
         id: read-child
         run: |
-          CHILD_WORKFLOW=$(cat simulink_workflow.yaml)
+          $CHILD_WORKFLOW = Get-Content -Raw -Path pipeline2.yaml
           echo "::set-output name=child-workflow::${CHILD_WORKFLOW}"
 
       - name: Create Workflow File
@@ -29,7 +29,7 @@ jobs:
           TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }}
           OWNER=${{ github.repository_owner }}
           REPO=${{ github.repository }}
-          FILENAME="example.yaml"
+          FILENAME="simulink_workflow.yaml"
           BRANCH=${{ github.ref }}
           CHILD_WORKFLOW="${{ steps.read-child.outputs.child-workflow }}"
           
