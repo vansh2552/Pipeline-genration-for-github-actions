@@ -1,35 +1,31 @@
-name:
-  temp
+name: Generate and delete Artifact
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
-
-permissions:
-  checks:
-    write
-
-  contents:
-    read
-    
-env:
-  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-
-  
 jobs:
-  AHRS_Generate_Simulink_Web_View:
-    runs-on: Windows
-    #if: ${{ always() }}
+  generate-artifact:
+    runs-on: ubuntu-latest
+
     steps:
-    
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Run the matlab version
-        
-        run: $env:PATH += ";$env:PATH_TO_MATLAB"; $env:PATH | Add-Content -Path $env:GITHUB_PATH
-      
-         
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
+      - name: Create Artifact
+        run: |
+          echo "Hello, world!" > hello.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-             command: "openProject(pwd);"
-             startup-options: -nodesktop -logfile output.log
+          name: my-artifact
+          path: hello.txt
+          
+      - name: Delete artifacts
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: my-artifact
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: hello.txt 
