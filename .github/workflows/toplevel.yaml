@@ -21,7 +21,7 @@ jobs:
       - name: Read Child Workflow File
         id: read-child
         run: |
-          $CHILD_WORKFLOW = Get-Content -Raw -Path pipeline2.yaml
+          $CHILD_WORKFLOW = Get-Content -Raw -Path .github\workflows\pipeline2.yaml
           echo "::set-output name=child-workflow::${CHILD_WORKFLOW}"
 
       - name: Create Workflow File
