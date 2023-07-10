@@ -49,16 +49,16 @@ jobs:
           git push
           
         
-#   Execution:
-#     runs-on: self-hosted
-#     needs: transfer_file
+  Execution:
+    runs-on: self-hosted
+    needs: transfer_file
     
-#     steps: 
+    steps: 
          
-#        - name: Execute Workflow
-#          uses: peter-evans/repository-dispatch@v1
-#          with:
-#            token: ${{ secrets.ACTIONS_SECRET }}
-#            event-type: run-child-workflow
+       - name: Execute Workflow
+         uses: peter-evans/repository-dispatch@v1
+         with:
+           token: ${{ secrets.ACTIONS_SECRET }}
+           event-type: run-child-workflow
  
       
