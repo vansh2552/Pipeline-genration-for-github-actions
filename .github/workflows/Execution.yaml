@@ -18,19 +18,19 @@ jobs:
         run: |
            echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
          
-#       - name: Configure Git
+      - name: Configure Git
       
-#         run: |
-#           #git config user.name github-actions[bot]
-#           #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          #git config user.name github-actions[bot]
+          #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-#            git config user.name "Vansh Gandhi"
-#            git config user.email vansh20147@iiitd.ac.in
-#       - name: Commit changes and push
-#         run: |
-#           git add .github/workflows/simulink_workflow.yml
-#           git commit -m "Update simulink_workflow.yml"
-#           git push
+           git config user.name "Vansh Gandhi"
+           git config user.email vansh20147@iiitd.ac.in
+      - name: Commit changes and push
+        run: |
+          git add .github/workflows/simulink_workflow.yml
+          git commit -m "Update simulink_workflow.yml"
+          git push
           
         
   Execution:
