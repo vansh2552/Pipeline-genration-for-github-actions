@@ -6,7 +6,7 @@ on:
 
 jobs:
   transfer_file:
-    runs-on: self-hosted
+    runs-on: Linux
 
     steps:
       - name: checkout
