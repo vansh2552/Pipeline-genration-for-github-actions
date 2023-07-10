@@ -1,4 +1,4 @@
-name: temporary
+name: Workflow
 on:
   workflow_dispatch:
 
