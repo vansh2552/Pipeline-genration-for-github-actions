@@ -3,16 +3,30 @@ name: Execution Workflow
 on:
   workflow_dispatch:
 
-
+env:
+  PATH_TO_MATLAB:
+    /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin
 jobs:
   transfer_file:
-    runs-on: self-hosted
+    runs-on: Linux
 
     steps:
       - name: checkout
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.ACTIONS_SECRET }}
+      - name:
+          Setup Matlab
+        run:
+         |
+          export PATH="$PATH_TO_MATLAB:$PATH"
+          echo "$PATH" >> $GITHUB_PATH 
+      - name: generate pipeline
+        uses: matlab-actions/run-command@v1
+        with:
+          command: "script"
+          startup-options:
+            -nodesktop -logfile output.log
           
       - name: Transfer the contents
         run: |
@@ -33,16 +47,16 @@ jobs:
           git push
           
         
-  Execution:
-    runs-on: self-hosted
-    needs: transfer_file
+#   Execution:
+#     runs-on: self-hosted
+#     needs: transfer_file
     
-    steps: 
+#     steps: 
          
-       - name: Execute Workflow
-         uses: peter-evans/repository-dispatch@v1
-         with:
-           token: ${{ secrets.ACTIONS_SECRET }}
-           event-type: run-child-workflow
+#        - name: Execute Workflow
+#          uses: peter-evans/repository-dispatch@v1
+#          with:
+#            token: ${{ secrets.ACTIONS_SECRET }}
+#            event-type: run-child-workflow
  
       
