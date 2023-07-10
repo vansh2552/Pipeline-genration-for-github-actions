@@ -6,15 +6,16 @@ on:
 
 jobs:
   transfer_file:
-    runs-on: Linux
+    runs-on: windows-latest
 
     steps:
       - name: checkout
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.ACTIONS_SECRET }}
+      - name: Run build
+        uses: matlab-actions/run-build@v1
       - name: Generate Pipeline
-
         uses: matlab-actions/run-command@v1
 
         with:
