@@ -27,10 +27,12 @@ jobs:
           command: "script"
           startup-options:
             -nodesktop -logfile output.log
+      - name: contents
+        run: ls
           
       - name: Transfer the contents
         run: |
-           echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
+           cp .github/workflows/simulink_workflow.yml derived/pipeline.yml
          
       - name: Configure Git
       
@@ -47,16 +49,16 @@ jobs:
           git push
           
         
-#   Execution:
-#     runs-on: self-hosted
-#     needs: transfer_file
+  Execution:
+    runs-on: self-hosted
+    needs: transfer_file
     
-#     steps: 
+    steps: 
          
-#        - name: Execute Workflow
-#          uses: peter-evans/repository-dispatch@v1
-#          with:
-#            token: ${{ secrets.ACTIONS_SECRET }}
-#            event-type: run-child-workflow
+       - name: Execute Workflow
+         uses: peter-evans/repository-dispatch@v1
+         with:
+           token: ${{ secrets.ACTIONS_SECRET }}
+           event-type: run-child-workflow
  
       
