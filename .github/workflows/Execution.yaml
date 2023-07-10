@@ -27,10 +27,12 @@ jobs:
           command: "script"
           startup-options:
             -nodesktop -logfile output.log
+      - name: contents
+        run: ls
           
       - name: Transfer the contents
         run: |
-           echo F | xcopy ".github\workflows\xyz.yaml" ".github\workflows\simulink_workflow.yml" /Y /I
+           cp .github/workflows/simulink_workflow.yml deriverd/pipeline.yml
          
       - name: Configure Git
       
