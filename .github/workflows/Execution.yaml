@@ -8,7 +8,7 @@ env:
     /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin
 jobs:
   transfer_file:
-    runs-on: windows-latest
+    runs-on: Linux
 
     steps:
       - name: checkout
