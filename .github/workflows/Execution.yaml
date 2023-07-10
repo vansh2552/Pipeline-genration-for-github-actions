@@ -24,7 +24,7 @@ jobs:
       - name: generate pipeline
         uses: matlab-actions/run-command@v1
         with:
-          command: "openProject(pwd);script"
+          command: "script"
           startup-options:
             -nodesktop -logfile output.log
           
