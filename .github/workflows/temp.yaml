@@ -1,36 +1,29 @@
-name: temp
+name: Generate and delete Artifact
 on:
   workflow_dispatch:
 
-
-permissions:
-    contents: read
-    checks: write
-    
-env:
-  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
-
-  
 jobs:
-  AHRS_Collect_Artifacts:
-   runs-on: linux1
+  generate-artifact:
+    runs-on: ubuntu-latest
 
-   steps:
-
-      - name: Run the matlab version
+    steps:
+      - name: Create Artifact
         run: |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH
-        
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-         command: "openProject(pwd); zippedFiles = padv.zipBuildArtifacts({'03_Code', '04_Results/AHRS_Voter/code_inspection', '04_Results/AHRS_Voter/coding_standards', '04_Results/AHRS_Voter/design_error_detections', '04_Results/AHRS_Voter/model_standards_results', '04_Results/AHRS_Voter/system_design_description', '04_Results/AHRS_Voter/webview','ProcessAdvisorReport.pdf'},'padv_artifacts_AHRS_Voter.zip');"
-         startup-options: -nodesktop -logfile output.log
-         
-      - name: Upload Artifacts
+          echo "Hello, world!" > hello.txt
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-         name: padv_artifacts_AHRS_Voter
-         path: |
-          padv_artifacts_AHRS_Voter.zip
+          name: my-artifact
+          path: hello.txt
+          
+      - name: Delete artifacts
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: my-artifact
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact2
+          path: hello.txt 

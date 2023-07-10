@@ -1,52 +1,33 @@
-name: temporary
+name: Workflow
 on:
   workflow_dispatch:
 
-
-env:
-  PATH_TO_MATLAB: "/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin"
   
 jobs:
-  AHRS_Generate_Simulink_Web_View:
+  Example-job:
     runs-on: Linux
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: check directories
-        run: ls
-      - name: Run the matlab version
-        run: |        
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-      - name: check directories
-        run: ls     
-      - name: Launch project 1
+
+      - name: Launch matlab
         uses: matlab-actions/run-command@v1
         with:
-             command: "openProject(pwd);CheckActuatorExecution.m"
+             command: "disp ('hello world');"
              startup-options: -nodesktop -logfile output.log    
         
-        
-      - name: Launch MATLAB
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force=false,ExitInBatchMode = true, RerunFailedTasks = false,RerunErroredTasks = false,GenerateJUnitForProcess = true);"
-             startup-options: -nodesktop -logfile output.log
              
-      - name: Launch project 2
-        uses: matlab-actions/run-command@v1
-        with:
-             command: "openProject(pwd);CheckActuatorExecution.m"
-             startup-options: -nodesktop -logfile output.log          
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: AHRS_Voter
-         path: |
-          04_Results/AHRS_Voter/webview 
-          derived/artifacts.dmr    
+  Uploading-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Generate hello.txt
+       run: echo "Hello, World!" > hello.txt
+     - name: Upload artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: Artifact
+         path: hello.txt
              
 
  

@@ -1,4 +1,3 @@
-
 bs=padv.BuildService.get(pwd);
 var=bs.getLastProcessModelResults;
 for idx=1:length(var)
@@ -7,4 +6,3 @@ for idx=1:length(var)
         error('Execution halted.');
     end
 end    
-
