@@ -30,7 +30,8 @@ jobs:
           
       - name: Transfer the contents
         run: |
-           cp .github/workflows/simulink_workflow.yml derived/pipeline.yml
+          # cp .github/workflows/simulink_workflow.yml derived/pipeline.yml
+           cp .github/workflows/simulink_workflow.yml .github/workflows/simulink_workflow.ym
          
       - name: Configure Git
       
