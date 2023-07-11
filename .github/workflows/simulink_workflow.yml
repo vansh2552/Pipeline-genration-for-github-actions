@@ -2,8 +2,7 @@ name:
   simulink_pipeline
 
 on:
-
-
+  workflow_dispatch__
 
 permissions:
   checks:
