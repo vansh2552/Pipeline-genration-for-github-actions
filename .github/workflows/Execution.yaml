@@ -21,17 +21,17 @@ jobs:
          |
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH 
-#       - name: generate pipeline
-#         uses: matlab-actions/run-command@v1
-#         with:
-#           command: "script"
-#           startup-options:
-#             -nodesktop -logfile output.log
+      - name: generate pipeline
+        uses: matlab-actions/run-command@v1
+        with:
+          command: "script"
+          startup-options:
+            -nodesktop -logfile output.log
           
       - name: Transfer the contents
         run: |
-          # cp derived/pipeline/pipeline.yml .github/workflows/simulink_workflow.yml 
-            cp .github/workflows/simulink_workflow.yml .github/workflows/temp.yaml
+           cp derived/pipeline/pipeline.yml .github/workflows/simulink_workflow.yml 
+           # cp .github/workflows/simulink_workflow.yml .github/workflows/temp.yaml
          
          
       - name: Configure Git
