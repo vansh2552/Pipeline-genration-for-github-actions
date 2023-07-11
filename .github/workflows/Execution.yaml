@@ -21,12 +21,26 @@ jobs:
          |
           export PATH="$PATH_TO_MATLAB:$PATH"
           echo "$PATH" >> $GITHUB_PATH 
-      - name: generate pipeline
-        uses: matlab-actions/run-command@v1
+#       - name: generate pipeline
+#         uses: matlab-actions/run-command@v1
+#         with:
+#           command: "script"
+#           startup-options:
+#             -nodesktop -logfile output.log
+#       - name: Transfer the contents
+#         run: |
+#            cp derived/pipeline/pipeline.yml .github/workflows/simulink_workflow.yml 
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.ACTIONS_SECRET }}
         with:
-          command: "script"
-          startup-options:
-            -nodesktop -logfile output.log
+          source_file: '.github/workflows/simulink_workflow.yml'
+          destination_repo: 'Actions-test'
+          destination_folder: '.github/workflows'
+          user_email: 'vansh20147@iiitd.ac.in'
+          user_name: 'vansh2552'
+          commit_message: 'A custom message for the commit'
           
 #       - name: Transfer the contents
 #         run: |
