@@ -60,5 +60,8 @@ jobs:
            token: ${{ secrets.ACTIONS_SECRET }}
            repository: vansh2552/Actions-test
            event-type: trigger-workflow-b
+
+  call-workflow:
+    uses: vansh2552/Actions-test/.github/workflows/child.yml@master
  
       
