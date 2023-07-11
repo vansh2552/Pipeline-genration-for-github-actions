@@ -2,7 +2,7 @@ name:
   simulink_pipeline
 
 on:
-  repository-dispatch:
+  repository_dispatch:
     types: [run-child-workflow]
 
 
