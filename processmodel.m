@@ -12,7 +12,7 @@ function processmodel(pm)
     includeModelStandardsTask = true;
     includeDesignErrorDetectionTask = true;
     includeSDDTask = true;
-    includeSimulinkWebViewTask = true;
+    includeSimulinkWebViewTask = false;
     includeTestsPerTestCaseTask = true;
     includeMergeTestResultsTask = true;
     includeGenerateCodeTask = true;
