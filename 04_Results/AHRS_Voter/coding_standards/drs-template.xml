@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--EDRS Version 2.0-->
+<global>
+   <file name="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/verifier/cxx/include/include-libc/bits/huge_val.h" comment="">
+      <struct name="__huge_val" comment="" line="50" attributes="static">
+         <array name="__c" comment="" line="50" complete_type="uint8 [8]" attributes="static">
+            <scalar comment="" line="50" base_type="uint8" attributes="static" complete_type="uint8" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </array>
+      </struct>
+   </file>
+   <file name="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/verifier/cxx/include/include-libc/bits/huge_valf.h" comment="">
+      <struct name="__huge_valf" comment="" line="48" attributes="static">
+         <array name="__c" comment="" line="48" complete_type="uint8 [4]" attributes="static">
+            <scalar comment="" line="48" base_type="uint8" attributes="static" complete_type="uint8" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </array>
+      </struct>
+   </file>
+   <file name="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/verifier/cxx/include/include-libc/bits/huge_vall.h" comment="">
+      <struct name="__huge_vall" comment="" line="37" attributes="static">
+         <array name="__c" comment="" line="37" complete_type="uint8 [12]" attributes="static">
+            <scalar comment="" line="37" base_type="uint8" attributes="static" complete_type="uint8" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </array>
+      </struct>
+   </file>
+   <file name="/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/verifier/cxx/include/include-libc/bits/nan.h" comment="">
+      <struct name="__qnan_union" comment="" line="53" attributes="static">
+         <array name="__c" comment="" line="53" complete_type="uint8 [4]" attributes="static">
+            <scalar comment="" line="53" base_type="uint8" attributes="static" complete_type="uint8" init_mode="MAIN_GENERATOR" init_modes_allowed="15" init_range="" global_assert="NO" assert_range=""/>
+         </array>
+      </struct>
+   </file>
+   <file name="/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/AHRS_Voter/AHRS_Voter.c" comment="">
+      <function name="AHRS_Voter" comment="" line="52" main_generator_called="MAIN_GENERATOR" attributes="unused">
+         <pointer name="arg1" comment="" line="52" complete_type="struct const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <struct comment="" line="52" attributes="const">
+               <scalar name="p" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="phi" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-180..180" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="q" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="r" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="theta" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-90..90" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="valid" comment="" line="52" base_type="uint8" attributes="const" complete_type="uint8" init_mode="INIT" init_modes_allowed="10" init_range="0..1" global_assert="unsupported" assert_range="unsupported"/>
+            </struct>
+         </pointer>
+         <pointer name="arg2" comment="" line="52" complete_type="struct const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <struct comment="" line="52" attributes="const">
+               <scalar name="p" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="phi" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-180..180" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="q" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="r" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="theta" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-90..90" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="valid" comment="" line="52" base_type="uint8" attributes="const" complete_type="uint8" init_mode="INIT" init_modes_allowed="10" init_range="0..1" global_assert="unsupported" assert_range="unsupported"/>
+            </struct>
+         </pointer>
+         <pointer name="arg3" comment="" line="52" complete_type="struct const *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="1" init_pointed="MULTI">
+            <struct comment="" line="52" attributes="const">
+               <scalar name="p" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="phi" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-180..180" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="q" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="r" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-60..60" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="theta" comment="" line="52" base_type="float64" attributes="const" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="-90..90" global_assert="unsupported" assert_range="unsupported"/>
+               <scalar name="valid" comment="" line="52" base_type="uint8" attributes="const" complete_type="uint8" init_mode="INIT" init_modes_allowed="10" init_range="0..1" global_assert="unsupported" assert_range="unsupported"/>
+            </struct>
+         </pointer>
+         <pointer name="arg4" comment="" line="52" complete_type="float64 *" init_mode="INIT" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="5" init_pointed="MULTI">
+            <scalar comment="" line="52" base_type="float64" complete_type="float64" init_mode="INIT" init_modes_allowed="10" init_range="min..max" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+      </function>
+      <function name="AHRS_Voter_Init" comment="" line="25" main_generator_called="MAIN_GENERATOR" attributes="unused">
+         <pointer name="arg1" comment="" line="25" complete_type="float64 *" init_mode="MAIN_GENERATOR" init_modes_allowed="10" initialize_pointer="Not NULL" number_allocated="max" init_pointed="MAIN_GENERATOR">
+            <scalar comment="" line="25" base_type="float64" complete_type="float64" init_mode="MAIN_GENERATOR" init_modes_allowed="10" init_range="" global_assert="unsupported" assert_range="unsupported"/>
+         </pointer>
+      </function>
+   </file>
+</global>

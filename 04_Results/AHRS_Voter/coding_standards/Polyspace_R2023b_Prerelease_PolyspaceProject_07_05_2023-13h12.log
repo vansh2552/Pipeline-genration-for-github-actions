@@ -1,0 +1,300 @@
+Polyspace was built with ASSERTS on
+<polyspace-bug-finder R2023b Prerelease PID995125 PGID995125>
+
+Polyspace verification of PolyspaceProject project.
+Starting at 07/05/2023, 13h12.
+
+Remark: -stub-embedded-coder-lookup-table-functions is ignored in Polyspace Bug
+|       Finder.
+Remark: -to is ignored in Polyspace Bug Finder.
+Remark: -O2 is ignored in Polyspace Bug Finder.
+Remark: -unsigned-integer-overflows is ignored in Polyspace Bug Finder.
+Remark: -uncalled-function-checks is ignored in Polyspace Bug Finder.
+Remark: -signed-integer-overflows is ignored in Polyspace Bug Finder.
+Remark: -class-analyzer is ignored in Polyspace Bug Finder.
+Remark: -check-subnormal is ignored in Polyspace Bug Finder.
+Remark: -allow-negative-operand-in-shift is ignored in Polyspace Bug Finder.
+Remark: -float-rounding-mode is ignored in Polyspace Bug Finder.
+Remark: By default, some results are not generated for headers.
+|       Search for '-generate-results-for' in user documentation to generate results for these headers.
+
+Verifying sources compliance ...
+
+Options used with Verifier:
+-prog=PolyspaceProject
+-lang=C-CPP
+-polyspace-version=23.2 (R2023b Prerelease)
+-results-dir=/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards
+-date=05/07/2023
+
+User:
+-mbd=true
+-pointer-is-32bits=true
+-int-is-32bits=true
+-long-is-32bits=true
+-long-long-is-64bits=true
+-double-is-64bits=true
+-target=mcpu
+-compiler=generic
+-dos=true
+-D1=main=main_rtwec
+-D2=__restrict__=
+-D3=MODEL=AHRS_Voter
+-D4=NUMST=1
+-D5=NCSTATES=0
+-D6=HAVESTDIO
+-D7=MODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+-D8=CLASSIC_INTERFACE=0
+-D9=ALLOCATIONFCN=0
+-D10=TID01EQ=0
+-D11=TERMFCN=0
+-D12=ONESTEPFCN=1
+-D13=MAT_FILE=0
+-D14=MULTI_INSTANCE_CODE=0
+-D15=INTEGER_CODE=0
+-D16=MT=0
+-little-endian=true
+-align=32
+-default-sign-of-char=signed
+-functions-to-stub=[rtIsNaN,rtIsInf,rtIsNaNF,rtIsInfF]
+-data-range-specifications=/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/generated_drs.xml
+-functions-called-in-loop=custom=AHRS_Voter
+-variables-written-in-loop=none
+-variables-written-before-loop=none
+-verif-version=1.0
+-author=vanshg
+-boolean-types=[boolean_T]
+-main-generator=true
+-disable-checkers=[all]
+-misra3-agc-mode=true
+-misra3=mandatory-required
+-I1=/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code
+-I2=/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/AHRS_Voter
+-I3=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/extern/include
+-I4=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/simulink/include
+-I5=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src
+-I6=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src/ext_mode/common
+-I7=/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/ert
+-I8=/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/_sharedutils
+
+
+Checkers enabled:
+    Defects 0/354
+    MISRA C:2012 102/173
+
+
+Verifying host configuration:
+Number of physical cores:                8
+Number of logical cores:                 8
+Processor type:                          x86_64
+Processor model:                Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz
+Processor frequency:            2.800 GHz
+Memory > 4 GB:                                           31.35 GB
+Tmp space available in /tmp/vanshg_SB_LEASE_ID_62710:    58.7 GB
+
+Remark: 8 physical core(s) detected. The verification creates 8 process(es).
+*** Configuration of the host :	OK
+
+Computer memory:
+               total        used        free      shared  buff/cache   available
+Mem:        32881288    24666160      558440        4252     7656688     7741792
+Swap:        4194300     1096872     3097428
+
+Type /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/kill-rte-kernel on host lsdbgl29118glnxa64 to halt Verifier process
+
+Checking license ...
+License is OK
+
+
+Polyspace C/C++ analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Wed Jul 05 13:12:15 2023
+Host: Linux lsdbgl29118glnxa64 5.15.0-0.bpo.2-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** C-CPP source compliance checking
+***
+**********************************************************
+
+Verifying sources ...
+Verifying AHRS_Voter.c (1/1)
+ [C]
+User time for compilation.unit: 00:00:01.21 (1.21real, 0.56u + 0.23s)
+Global compilation phase...
+
+Number of files                  : 1
+Number of lines                  : 354
+Number of lines without comments : 145
+
+These metrics include header file content in addition to source files and reflect the true complexity of code and analysis.
+Number of source files    : 1
+Number of C lines of code : 1156 (excludes commented (1617) and empty lines (668))
+Number of headers         : 4 (directly included in sources 1, Maximum depth of inclusion 2)
+
+Verifying cross-files ANSI C compliance
+User time for compilation.link1: 00:00:00.37 (0.37real, 0.16u + 0.08s)
+
+Stubbing standard library functions ...
+Doing code transformations ...
+data-range-specifications: 'AHRS_Voter.arg1' [1] (not null) (multi) (init)
+data-range-specifications: 'AHRS_Voter.arg1[].valid' in [0..1] (init)
+data-range-specifications: 'AHRS_Voter.arg1[].theta' in [-90..90] (init)
+data-range-specifications: 'AHRS_Voter.arg1[].phi' in [-180..180] (init)
+data-range-specifications: 'AHRS_Voter.arg1[].r' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg1[].q' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg1[].p' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg2' [1] (not null) (multi) (init)
+data-range-specifications: 'AHRS_Voter.arg2[].valid' in [0..1] (init)
+data-range-specifications: 'AHRS_Voter.arg2[].theta' in [-90..90] (init)
+data-range-specifications: 'AHRS_Voter.arg2[].phi' in [-180..180] (init)
+data-range-specifications: 'AHRS_Voter.arg2[].r' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg2[].q' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg2[].p' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg3' [1] (not null) (multi) (init)
+data-range-specifications: 'AHRS_Voter.arg3[].valid' in [0..1] (init)
+data-range-specifications: 'AHRS_Voter.arg3[].theta' in [-90..90] (init)
+data-range-specifications: 'AHRS_Voter.arg3[].phi' in [-180..180] (init)
+data-range-specifications: 'AHRS_Voter.arg3[].r' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg3[].q' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg3[].p' in [-60..60] (init)
+data-range-specifications: 'AHRS_Voter.arg4' [5] (not null) (multi) (init)
+data-range-specifications: 'AHRS_Voter.arg4[]' in [-1.79769E+308..1.79769E+308] (init)
+User time for compilation.link2: 00:00:00.73 (0.73real, 0.34u + 0.16s)
+Remark: The generated default DRS XML file "drs-template.xml" can be found in <result_dir> folder.
+
+
+
+Packing compilation data
+
+Defects statistics:
+  - Total number of defects: 0
+done.
+
+**********************************************************
+***
+*** C sources verification done
+***
+**********************************************************
+Ending at: Wed Jul 05 13:12:18 2023
+User time for compilation: 00:00:03.17 (3.17real, 1.37u + 0.64s (0.03gc))
+
+Polyspace C analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Wed Jul 05 13:12:18 2023
+Host: Linux lsdbgl29118glnxa64 5.15.0-0.bpo.2-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Pre-analysis
+***
+**********************************************************
+**** Bug-finder - Pre-analysis - 1 (P_AL)
+Total complexity = 4057
+**** Bug-finder - Pre-analysis - 1 (P_AL) took 0.2real, 0.1u + 0.06s (0.04gc)
+**** Bug-finder - Pre-analysis - 2 (P_ACP)
+* n-acp-t = 0 n-epp' = 0 n-acp-l = 0
+**** Bug-finder - Pre-analysis - 2 (P_ACP) took 0.01real, 0u + 0s
+**** Bug-finder - Pre-analysis - 3 (P_O)
+**** Bug-finder - Pre-analysis - 3 (P_O) took 0real, 0u + 0s
+**** Bug-finder - Pre-analysis - 4 (P_MA)
+**** Bug-finder - Pre-analysis - 4 (P_MA) took 0.02real, 0.01u + 0.01s (0.01gc)
+**** Bug-finder - Pre-analysis - 5 (P_G)
+**** Bug-finder - Pre-analysis - 5 (P_G) took 0.03real, 0.02u + 0.01s (0.01gc)
+**** Bug-finder - Pre-analysis - 6 (P_TT)
+**** Bug-finder - Pre-analysis - 6 (P_TT) took 0.01real, 0u + 0s
+**** Bug-finder - Pre-analysis - 7 (P_FI)
+*** bug_finder_global_analysis: saving repository ...
+*** bug_finder_global_analysis: ... repository saved!
+**** Bug-finder - Pre-analysis - 7 (P_FI) took 0.04real, 0.01u + 0.01s
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.42real
+
+**********************************************************
+***
+*** Bug-finder - Pre-analysis done
+***
+**********************************************************
+Ending at: Wed Jul 05 13:12:19 2023
+User time for pre-analysis: 00:00:01.22 (1.22real, 0.46u + 0.32s (0.03gc))
+
+Polyspace C analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Wed Jul 05 13:12:19 2023
+Host: Linux lsdbgl29118glnxa64 5.15.0-0.bpo.2-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Function Analysis
+***
+**********************************************************
+**** Bug-finder - Function Analysis - (Verifying function #1 / 2: AHRS_Voter_Init)
+**** Bug-finder - Function Analysis - (Verifying function #2 / 2: AHRS_Voter)
+**** Bug-finder - Function Analysis - (Verifying function #1 / 2: AHRS_Voter_Init) took 1.36real
+**** Bug-finder - Function Analysis - (Verifying function #2 / 2: AHRS_Voter) took 3.51real
+Maximum Memory Usage: 1146 MB
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.37real
+
+* Total IL complexity: 3700
+
+**********************************************************
+***
+*** Bug-finder - Function Analysis done
+***
+**********************************************************
+Ending at: Wed Jul 05 13:12:23 2023
+User time for function: 00:00:04.08 (4.08real, 3.01u + 0.87s (0.02gc))
+
+Polyspace C analysis
+Copyright 1999-2023 The MathWorks, Inc.
+All rights reserved.
+
+Starting at: Wed Jul 05 13:12:23 2023
+Host: Linux lsdbgl29118glnxa64 5.15.0-0.bpo.2-amd64 x86_64
+User: vanshg
+**********************************************************
+***
+*** Beginning Bug-finder - Module Analysis
+***
+**********************************************************
+**** Bug-finder - Module Analysis - 1 (Computing modules)
+**** Bug-finder - Module Analysis - 1 (Computing modules) took 0.04real, 0.01u + 0s
+* Created no module as there are no available user functions, or all functions are independent
+Maximum Memory Usage: 0 MB
+
+Generating GUI files
+
+Defects statistics:
+  - Total number of defects: 0
+
+GUI files generation completed in 0.37real
+
+**********************************************************
+***
+*** Bug-finder - Module Analysis done
+***
+**********************************************************
+Ending at: Wed Jul 05 13:12:24 2023
+User time for module: 00:00:00.50 (0.5real, 0.19u + 0.1s (0.02gc))
+User time for polyspace-bug-finder: 00:00:10.12 (10.12real, 5.27u + 2.2s (0.1gc))
+
+***
+*** End of Polyspace analysis
+***

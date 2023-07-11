@@ -1,0 +1,2 @@
+#!/bin/sh
+"/mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/polyspace/bin/polyspace-bug-finder" -options-file "/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/AHRS_Voter/.settings/options_command.txt" -results-dir "/mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/AHRS_Voter" $*

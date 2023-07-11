@@ -1,0 +1,60 @@
+# Options file
+-prog AHRS_Voter
+-verif-version 1.0
+-author abaker
+-sources-list-file /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/AHRS_Voter/.settings/source_command.txt
+-lang C-CPP
+-target mcpu
+-double-is-64bits
+-int-is-32bits
+-little-endian
+-long-long-is-64bits
+-pointer-is-32bits
+-D main=main_rtwec
+-D __restrict__=
+-D MODEL=AHRS_Voter
+-D NUMST=1
+-D NCSTATES=0
+-D HAVESTDIO
+-D MODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+-D CLASSIC_INTERFACE=0
+-D ALLOCATIONFCN=0
+-D TID01EQ=0
+-D TERMFCN=0
+-D ONESTEPFCN=1
+-D MAT_FILE=0
+-D MULTI_INSTANCE_CODE=0
+-D INTEGER_CODE=0
+-D MT=0
+-dos
+-I /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code
+-I /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/AHRS_Voter
+-I /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/extern/include
+-I /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/simulink/include
+-I /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src
+-I /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/src/ext_mode/common
+-I /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/rtw/c/ert
+-I /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/03_Code/slprj/ert/_sharedutils
+-misra3 mandatory-required
+-misra3-agc-mode
+-boolean-types boolean_T
+-disable-checkers all
+-main-generator
+-class-analyzer none
+-variables-written-before-loop none
+-variables-written-in-loop none
+-functions-called-in-loop custom=AHRS_Voter
+-data-range-specifications /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/AHRS_Voter/AHRS_Voter_drs.xml
+-functions-to-stub rtIsNaN,rtIsInf,rtIsNaNF,rtIsInfF
+-stub-embedded-coder-lookup-table-functions
+-float-rounding-mode to-nearest
+-allow-negative-operand-in-shift
+-signed-integer-overflows warn-with-wrap-around
+-unsigned-integer-overflows allow
+-uncalled-function-checks none
+-check-subnormal allow
+-O2
+-to Software Safety Analysis level 2
+-import-comments /mathworks/home/vanshg/actions-runner/_work/Pipeline-genration-for-github-actions/Pipeline-genration-for-github-actions/04_Results/AHRS_Voter/coding_standards/AHRS_Voter
+-mbd
+
