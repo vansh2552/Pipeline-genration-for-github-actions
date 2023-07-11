@@ -62,7 +62,7 @@ jobs:
 #           git push
 
 
-  call-workflow:
-    uses: vansh2552/Actions-test/.github/workflows/simulink_workflow.yml@master
+#   call-workflow:
+#     uses: vansh2552/Actions-test/.github/workflows/simulink_workflow.yml@master
  
       
