@@ -33,7 +33,7 @@ jobs:
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.ACTIONS_SECRET }}
+          token: ${{ secrets.ACTIONS_SECRET }}
         with:
           source_file: '.github/workflows/simulink_workflow.yml'
           destination_repo: 'Actions-test'
