@@ -1,4 +1,16 @@
+name:
+  simulink_pipeline
 
+on:
+  repository_dispatch:
+    types: [run-child-workflow]
+
+
+permissions:
+  checks:
+    write
+
+  contents:
     read
 
 
@@ -8,74 +20,6 @@ env:
 
 
 jobs:
-  Generate_Simulink_Web_View__AHRS_Voter:
-    runs-on:
-      Linux
-
-    continue-on-error:
-      True
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Setup Matlab
-
-        run:
-         | 
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/AHRS_Voter/specification/AHRS_Voter.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
-
-          startup-options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Generate_Simulink_Web_View__AHRS_Voter
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_AHRS_Voter_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            AHRS_Voter
-
-          path:
-           | 
-              04_Results/AHRS_Voter/webview
-              derived/artifacts.dmr
-
-
-
-
   Check_Modeling_Standards__AHRS_Voter:
     runs-on:
       Linux
@@ -83,26 +27,12 @@ jobs:
     continue-on-error:
       True
 
-    needs:
-      Generate_Simulink_Web_View__AHRS_Voter
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            AHRS_Voter
-
 
       - name:
           Setup Matlab
@@ -735,74 +665,6 @@ jobs:
 
 
 
-  Generate_Simulink_Web_View__Actuator_Control:
-    runs-on:
-      Linux
-
-    continue-on-error:
-      True
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Setup Matlab
-
-        run:
-         | 
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Actuator_Control/specification/Actuator_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
-
-          startup-options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Generate_Simulink_Web_View__Actuator_Control
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Actuator_Control_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            Actuator_Control
-
-          path:
-           | 
-              04_Results/Actuator_Control/webview
-              derived/artifacts.dmr
-
-
-
-
   Check_Modeling_Standards__Actuator_Control:
     runs-on:
       Linux
@@ -810,26 +672,12 @@ jobs:
     continue-on-error:
       True
 
-    needs:
-      Generate_Simulink_Web_View__Actuator_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            Actuator_Control
-
 
       - name:
           Setup Matlab
@@ -1295,74 +1143,6 @@ jobs:
 
 
 
-  Generate_Simulink_Web_View__Flight_Control:
-    runs-on:
-      Linux
-
-    continue-on-error:
-      True
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Setup Matlab
-
-        run:
-         | 
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/Flight_Control/specification/Flight_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
-
-          startup-options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Generate_Simulink_Web_View__Flight_Control
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_Flight_Control_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            Flight_Control
-
-          path:
-           | 
-              04_Results/Flight_Control/webview
-              derived/artifacts.dmr
-
-
-
-
   Check_Modeling_Standards__Flight_Control:
     runs-on:
       Linux
@@ -1370,26 +1150,12 @@ jobs:
     continue-on-error:
       True
 
-    needs:
-      Generate_Simulink_Web_View__Flight_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            Flight_Control
-
 
       - name:
           Setup Matlab
@@ -1855,74 +1621,6 @@ jobs:
 
 
 
-  Generate_Simulink_Web_View__InnerLoop_Control:
-    runs-on:
-      Linux
-
-    continue-on-error:
-      True
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Setup Matlab
-
-        run:
-         | 
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/InnerLoop_Control/specification/InnerLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
-
-          startup-options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Generate_Simulink_Web_View__InnerLoop_Control
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_InnerLoop_Control_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            InnerLoop_Control
-
-          path:
-           | 
-              04_Results/InnerLoop_Control/webview
-              derived/artifacts.dmr
-
-
-
-
   Check_Modeling_Standards__InnerLoop_Control:
     runs-on:
       Linux
@@ -1930,26 +1628,12 @@ jobs:
     continue-on-error:
       True
 
-    needs:
-      Generate_Simulink_Web_View__InnerLoop_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            InnerLoop_Control
-
 
       - name:
           Setup Matlab
@@ -2415,74 +2099,6 @@ jobs:
 
 
 
-  Generate_Simulink_Web_View__OuterLoop_Control:
-    runs-on:
-      Linux
-
-    continue-on-error:
-      True
-
-    steps:
-      - name:
-          Checkout repository
-
-        uses:
-          actions/checkout@v2
-
-      - name:
-          Setup Matlab
-
-        run:
-         | 
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-
-      - name:
-          Run Matlab
-
-        uses:
-          matlab-actions/run-command@v1
-
-        with:
-          command:
-            "openProject(pwd);runprocess(Tasks = {'padv.builtin.task.GenerateSimulinkWebView|sl_model_file|ProcessAdvisorExample|02_Models/OuterLoop_Control/specification/OuterLoop_Control.slx'}, Force = false, ExitInBatchMode = true, RerunFailedTasks = false, RerunErroredTasks = false, GenerateJUnitForProcess = true);"
-
-          startup-options:
-            -nodesktop -logfile output.log
-
-
-      - name:
-          JUnit result
-
-        uses:
-          mikepenz/action-junit-report@v3
-
-        with:
-          check_name:
-            Generate_Simulink_Web_View__OuterLoop_Control
-
-          report_paths:
-            04_Results/junit/padv_builtin_task_GenerateSimulinkWebView_OuterLoop_Control_JUnit.xml
-
-
-      - name:
-          Upload artifacts
-
-        uses:
-          actions/upload-artifact@v2
-
-        with:
-          name:
-            OuterLoop_Control
-
-          path:
-           | 
-              04_Results/OuterLoop_Control/webview
-              derived/artifacts.dmr
-
-
-
-
   Check_Modeling_Standards__OuterLoop_Control:
     runs-on:
       Linux
@@ -2490,26 +2106,12 @@ jobs:
     continue-on-error:
       True
 
-    needs:
-      Generate_Simulink_Web_View__OuterLoop_Control
-
     steps:
       - name:
           Checkout repository
 
         uses:
           actions/checkout@v2
-
-      - name:
-          Download artifacts
-
-        uses:
-          actions/download-artifact@v2
-
-        with:
-          name:
-            OuterLoop_Control
-
 
       - name:
           Setup Matlab
@@ -3186,7 +2788,7 @@ jobs:
 
         with:
           command:
-            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/AHRS_Voter/webview','04_Results/AHRS_Voter/model_standards_results','04_Results/AHRS_Voter/design_error_detections','04_Results/AHRS_Voter/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/AHRS_Voter/coding_standards','04_Results/AHRS_Voter/code_inspection','04_Results/test_results'},'AHRS_Voter_padv_artifacts.zip');"
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/AHRS_Voter/model_standards_results','04_Results/AHRS_Voter/design_error_detections','04_Results/AHRS_Voter/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/AHRS_Voter/coding_standards','04_Results/AHRS_Voter/code_inspection','04_Results/test_results'},'AHRS_Voter_padv_artifacts.zip');"
 
           startup-options:
             -nodesktop -logfile output.log
@@ -3263,7 +2865,7 @@ jobs:
 
         with:
           command:
-            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Actuator_Control/model_standards_results','04_Results/Actuator_Control/design_error_detections','04_Results/Actuator_Control/system_design_description','03_Code','04_Results/Actuator_Control/coding_standards','04_Results/Actuator_Control/code_inspection'},'Actuator_Control_padv_artifacts.zip');"
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Actuator_Control/design_error_detections','04_Results/Actuator_Control/system_design_description','03_Code','04_Results/Actuator_Control/coding_standards','04_Results/Actuator_Control/code_inspection'},'Actuator_Control_padv_artifacts.zip');"
 
           startup-options:
             -nodesktop -logfile output.log
@@ -3340,7 +2942,7 @@ jobs:
 
         with:
           command:
-            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Flight_Control/model_standards_results','04_Results/Flight_Control/design_error_detections','04_Results/Flight_Control/system_design_description','03_Code','04_Results/Flight_Control/coding_standards','04_Results/Flight_Control/code_inspection'},'Flight_Control_padv_artifacts.zip');"
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/Flight_Control/design_error_detections','04_Results/Flight_Control/system_design_description','03_Code','04_Results/Flight_Control/coding_standards','04_Results/Flight_Control/code_inspection'},'Flight_Control_padv_artifacts.zip');"
 
           startup-options:
             -nodesktop -logfile output.log
@@ -3417,7 +3019,7 @@ jobs:
 
         with:
           command:
-            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/InnerLoop_Control/model_standards_results','04_Results/InnerLoop_Control/design_error_detections','04_Results/InnerLoop_Control/system_design_description','03_Code','04_Results/InnerLoop_Control/coding_standards','04_Results/InnerLoop_Control/code_inspection'},'InnerLoop_Control_padv_artifacts.zip');"
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/InnerLoop_Control/design_error_detections','04_Results/InnerLoop_Control/system_design_description','03_Code','04_Results/InnerLoop_Control/coding_standards','04_Results/InnerLoop_Control/code_inspection'},'InnerLoop_Control_padv_artifacts.zip');"
 
           startup-options:
             -nodesktop -logfile output.log
@@ -3494,7 +3096,7 @@ jobs:
 
         with:
           command:
-            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/OuterLoop_Control/model_standards_results','04_Results/OuterLoop_Control/design_error_detections','04_Results/OuterLoop_Control/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/OuterLoop_Control/coding_standards','04_Results/OuterLoop_Control/code_inspection','04_Results/test_results'},'OuterLoop_Control_padv_artifacts.zip');"
+            "openProject(pwd);zippedFiles =padv.zipBuildArtifacts({'04_Results/OuterLoop_Control/design_error_detections','04_Results/OuterLoop_Control/system_design_description','04_Results/test_results','04_Results/test_results','04_Results/test_results','03_Code','04_Results/OuterLoop_Control/coding_standards','04_Results/OuterLoop_Control/code_inspection','04_Results/test_results'},'OuterLoop_Control_padv_artifacts.zip');"
 
           startup-options:
             -nodesktop -logfile output.log
