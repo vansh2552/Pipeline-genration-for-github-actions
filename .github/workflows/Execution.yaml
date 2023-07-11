@@ -48,18 +48,18 @@ jobs:
 #           git push
           
         
-  Execution:
-    runs-on: self-hosted
-    #needs: transfer_file
+#   Execution:
+#     runs-on: self-hosted
+#     #needs: transfer_file
     
-    steps: 
+#     steps: 
          
-       - name: Execute Workflow
-         uses: peter-evans/repository-dispatch@v1
-         with:
-           token: ${{ secrets.ACTIONS_SECRET }}
-           repository: vansh2552/Actions-test
-           event-type: trigger-workflow-b
+#        - name: Execute Workflow
+#          uses: peter-evans/repository-dispatch@v1
+#          with:
+#            token: ${{ secrets.ACTIONS_SECRET }}
+#            repository: vansh2552/Actions-test
+#            event-type: trigger-workflow-b
 
   call-workflow:
     uses: vansh2552/Actions-test/.github/workflows/child.yml@master
