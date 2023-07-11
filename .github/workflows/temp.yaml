@@ -2,10 +2,8 @@ name:
   simulink_pipeline
 
 on:
-  repository_dispatch:
-    types: [run-child-workflow]
-
-
+  workflow_dispatch:
+ 
 permissions:
   checks:
     write
