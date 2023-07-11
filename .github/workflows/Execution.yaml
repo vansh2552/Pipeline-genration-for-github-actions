@@ -7,50 +7,50 @@ env:
   PATH_TO_MATLAB:
     /mathworks/BGL/devel/sbs/37/vanshg.Bslcicd.j2291166/matlab/bin
 jobs:
-  transfer_file:
-    runs-on: Linux
+#   transfer_file:
+#     runs-on: Linux
 
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.ACTIONS_SECRET }}
-      - name:
-          Setup Matlab
-        run:
-         |
-          export PATH="$PATH_TO_MATLAB:$PATH"
-          echo "$PATH" >> $GITHUB_PATH 
-      - name: generate pipeline
-        uses: matlab-actions/run-command@v1
-        with:
-          command: "script"
-          startup-options:
-            -nodesktop -logfile output.log
+#     steps:
+#       - name: checkout
+#         uses: actions/checkout@v3
+#         with:
+#           token: ${{ secrets.ACTIONS_SECRET }}
+#       - name:
+#           Setup Matlab
+#         run:
+#          |
+#           export PATH="$PATH_TO_MATLAB:$PATH"
+#           echo "$PATH" >> $GITHUB_PATH 
+#       - name: generate pipeline
+#         uses: matlab-actions/run-command@v1
+#         with:
+#           command: "script"
+#           startup-options:
+#             -nodesktop -logfile output.log
           
-      - name: Transfer the contents
-        run: |
-           cp derived/pipeline/pipeline.yml .github/workflows/simulink_workflow.yml 
+#       - name: Transfer the contents
+#         run: |
+#            cp derived/pipeline/pipeline.yml .github/workflows/simulink_workflow.yml 
          
          
-      - name: Configure Git
+#       - name: Configure Git
       
-        run: |
-          #git config user.name github-actions[bot]
-          #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+#         run: |
+#           #git config user.name github-actions[bot]
+#           #git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-           git config user.name "Vansh Gandhi"
-           git config user.email vansh20147@iiitd.ac.in
-      - name: Commit changes and push
-        run: |
-          git add .
-          git commit -m "Update simulink_workflow.yml"
-          git push
+#            git config user.name "Vansh Gandhi"
+#            git config user.email vansh20147@iiitd.ac.in
+#       - name: Commit changes and push
+#         run: |
+#           git add .
+#           git commit -m "Update simulink_workflow.yml"
+#           git push
           
         
   Execution:
     runs-on: self-hosted
-    needs: transfer_file
+    #needs: transfer_file
     
     steps: 
          
@@ -58,6 +58,7 @@ jobs:
          uses: peter-evans/repository-dispatch@v1
          with:
            token: ${{ secrets.ACTIONS_SECRET }}
-           event-type: run-child-workflow
+           repository: vansh2552/Actions-test
+           event-type: trigger-workflow-b
  
       
