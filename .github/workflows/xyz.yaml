@@ -1,8 +1,7 @@
 name: XYZ
 
-on: [push]
-#   repository_dispatch:
-#     types: [run-child-workflow]
+on: workflow_dispatch
+
 
 jobs:
   job1:
