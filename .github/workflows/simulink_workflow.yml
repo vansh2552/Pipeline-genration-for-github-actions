@@ -2,12 +2,6 @@ name:
   simulink_pipeline
 
 on:
-  workflow_run:
-    workflows:
-      ["Execution Workflow"]
-
-    types:
-      - completed
 
 
 
